@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../static/css/connexion.css" th:href="@{/css/connexion.css}">
+   <title>Skill Hub</title>
+</head>
+<body>
+    <div class="logo">
+        <p class="flotte">
+        <img src="../image/logo2.png" alt="Skill Hub">
+        </p>
+        <h1 class="titre" >Skill Hub</h1>
+    </div>
+
+   <div class="index" id="form">
+       <form class="form" method="post">
+           <input type="text" placeholder="Votre nom" name="nom" required>
+           <input type="password" placeholder="Votre mot de passe" name="motDePasse" required>
+           <input class="connexion" type="submit" name="Connexion" value="Connexion"></input>
+       </form>
+       <form class="form" id="nameFormInscription" method="get">
+           <button class="inscription" type="button" name="inscription" >Inscription</button>
+       </form>
+   </div>
+</body>
+</html>
