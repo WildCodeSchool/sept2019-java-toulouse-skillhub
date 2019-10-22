@@ -1,8 +1,16 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto&display=swap');
-
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto:400,900&display=swap');
 * {
     margin: 0;
     padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    color: #F39C0B;
 }
 
 header {
@@ -20,7 +28,7 @@ header {
     height: 100%;
     font-family: 'Roboto', sans-serif;
     font-size: 30px;
-    font-weight: bold;
+    font-weight: 900;
     background-color: #2C2C2C;
     z-index: 30;
     padding: 0 20px;
@@ -30,26 +38,30 @@ header {
     cursor: pointer;
 }
 
-#nav-burger {
-    display: block;
-}
-
 #burger-menu {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    width: 100%;
     position: fixed;
+    width: calc(100% - 20px);
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 1.8em;
     z-index: 20;
     top: 60px;
     left: 0;
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
     color: white;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.9);
     overflow-y: auto;
     transform: translateY(-120%);
     transition: transform .2s ease-out;
+}
+
+#burger-menu div:last-child {
+    padding-top: 20px;
 }
 
 #burger-overlay {
@@ -73,7 +85,12 @@ header {
 
 #nav-second {
     display: none;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    color: #F39C0B;
+    font-size: 17px;
     background-color: #2C2C2C;
+    padding: 0 20px;
 }
 
 @media screen and (min-width: 900px) {
@@ -83,6 +100,10 @@ header {
 
     #nav-main {
         width: auto;
+    }
+
+    #nav-main div {
+        padding: 0 10px;
     }
 
     #burger-button {
