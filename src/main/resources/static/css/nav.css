@@ -7,6 +7,7 @@
 a {
     text-decoration: none;
     color: white;
+    outline: none;
 }
 
 a:hover {
@@ -14,11 +15,16 @@ a:hover {
 }
 
 header {
+    background-color: #2C2C2C;
+}
+
+.nav-container {
+    color: #F39C0B;
+    margin: auto;
+    max-width: 1100px;
+    height: 60px;
     display: flex;
     flex-direction: column;
-    height: 60px;
-    color: #F39C0B;
-    background-color: #2C2C2C;
 }
 
 #nav-main {
@@ -31,7 +37,10 @@ header {
     font-weight: 900;
     background-color: #2C2C2C;
     z-index: 30;
-    padding: 0 20px;
+}
+
+#nav-main img, #nav-main div {
+    padding: 0 15px;
 }
 
 #burger-button {
@@ -87,23 +96,38 @@ header {
     display: none;
     align-items: center;
     font-family: 'Montserrat', sans-serif;
-    color: #F39C0B;
-    font-size: 17px;
+    font-size: 14px;
     background-color: #2C2C2C;
-    padding: 0 20px;
+    padding: 0 8px;
 }
 
-@media screen and (min-width: 900px) {
-    header {
+.nav-block div {
+    padding: 0 12px;
+}
+
+#nav-disconnect {
+    margin-left: 30px;
+}
+
+@media screen and (min-width: 800px) {
+
+    html {
+        height: 100%;
+    }
+
+    body {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav-container {
         flex-direction: row;
     }
 
     #nav-main {
         width: auto;
-    }
-
-    #nav-main div {
-        padding: 0 10px;
+        padding-right: 0;
     }
 
     #burger-button {
@@ -126,6 +150,23 @@ header {
 
     .nav-block {
         display: flex;
+    }
+
+    footer {
+        background-color: #2C2C2C;
+        margin-top: auto;
+    }
+
+    footer .nav-container {
+        justify-content: flex-end;
+        align-items: center;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 14px;
+        padding-right: 8px;
+    }
+
+    footer .nav-container div {
+        padding-right: 12px;
     }
 
 }
