@@ -18,13 +18,6 @@ h3 {
     font-size: 24px;
 }
 
-/** UTILE POUR LES TESTS, A SUPPRIMER APRES **/
-form {
-    display: flex;
-    flex-direction: column;
-}
-/** FIN **/
-
 label, p {
     font-family: 'Montserrat', regular;
     font-size: 17px;
