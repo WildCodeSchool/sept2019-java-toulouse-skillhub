@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -6,15 +8,22 @@
 header {
     display: flex;
     flex-direction: column;
-    background-color: #2C2C2C;
+    height: 60px;
     color: #F39C0B;
+    background-color: #2C2C2C;
 }
 
 #nav-main {
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    align-items: center;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    background-color: #2C2C2C;
     z-index: 30;
+    padding: 0 20px;
 }
 
 #burger-button {
@@ -28,19 +37,22 @@ header {
 #burger-menu {
     display: flex;
     flex-direction: column;
-    position: fixed;
+    align-items: flex-end;
     width: 100%;
-    height: 300px;
+    position: fixed;
     z-index: 20;
-    top: 50px;
+    top: 60px;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.85);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.8);
     overflow-y: auto;
     transform: translateY(-120%);
     transition: transform .2s ease-out;
 }
 
-/*#burger-overlay {
+#burger-overlay {
     display: none;
     position: fixed;
     z-index: 10;
@@ -48,12 +60,11 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, .4);
 }
 
 .burger-activated #burger-overlay{
     display: block;
-}*/
+}
 
 .burger-activated #burger-menu {
     display: flex;
@@ -62,11 +73,16 @@ header {
 
 #nav-second {
     display: none;
+    background-color: #2C2C2C;
 }
 
 @media screen and (min-width: 900px) {
     header {
         flex-direction: row;
+    }
+
+    #nav-main {
+        width: auto;
     }
 
     #burger-button {
@@ -82,6 +98,12 @@ header {
     }
 
     #nav-second {
+        flex-grow: 1;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .nav-block {
         display: flex;
     }
 

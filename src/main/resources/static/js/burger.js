@@ -18,11 +18,9 @@ button.addEventListener('keydown', function (e) {
         if (e.repeat === false && e.which === 27)
             document.getElementById("nav-burger").classList.remove(activatedClass);
     }
-
 });
 
-/*
 overlay.addEventListener('click', function (e) {
     e.preventDefault();
     document.getElementById("nav-burger").classList.remove(activatedClass);
-});*/
+});
