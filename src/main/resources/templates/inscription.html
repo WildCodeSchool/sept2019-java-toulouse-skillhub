@@ -18,14 +18,24 @@
 <div class="form-container">
     <h1 class="register-title">Inscription</h1>
     <form action="/example.html" method="POST">
-        
+        <div class="register-input-container">
+        <div class="register-input">
         <label for="pseudo">Choisissez un pseudo:</label>
         <input type="text" id="pseudo" name="pseudo" placeholder="Pseudo">
+        </div>
+        <div class="register-input">
         <label for="password">Choisissez un mot de passe:</label>
         <input type="password" id="password" name="password" placeholder="Mot de passe">
+        </div>
+        <div class="register-input">
         <label for="password-confirmation">Confirmez votre mot de passe:</label>
         <input type="password" id="password-confirmation" name="password-confirmation" placeholder="Mot de passe">
+        </div>
+        </div>
+
+        <div class="skill-list-container">
         <label>Sélectionnez vos compétences:</label>
+        <div class="skill-input-container">
         <label for="skill1" class="skill-list">Java :</label>
         <input type="checkbox" id="skill1" name="skill1" value="skill1">
         <label for="skill1" class="skill-list">Python :</label>
@@ -42,6 +52,8 @@
         <input type="checkbox" id="skill7" name="skill7" value="skill7">
         <label for="skill1" class="skill-list">Swift :</label>
         <input type="checkbox" id="skill8" name="skill8" value="skill8">
+        </div>
+        </div>
         <label for="sendbutton">
             <input type="submit" class="button" id="sendbutton" value="S'inscrire">
         </label>

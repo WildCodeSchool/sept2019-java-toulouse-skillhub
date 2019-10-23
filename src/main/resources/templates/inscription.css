@@ -12,3 +12,13 @@
     margin-top: 3rem;
     margin-bottom: 3rem;
 }
+
+.register-input-container {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.register-input {
+    text-align: left;
+}
