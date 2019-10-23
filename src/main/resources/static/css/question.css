@@ -43,6 +43,7 @@ label {
     margin-bottom: 1em;
     font-variant: small-caps;
     font-family: 'Montserrat', regular;
+    font-size: 14px;
 }
 
 .input
@@ -133,8 +134,7 @@ label {
 
 .comp {
     column-count: 2;
-    column-gap: 1em;
-    margin-left: 20%;   
+    margin-left: 17%;   
 }
 
 @media screen and (min-width: 800px) {
