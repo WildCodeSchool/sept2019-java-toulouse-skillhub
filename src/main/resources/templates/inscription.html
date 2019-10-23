@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <link rel="stylesheet" media="screen" href="styles.css"/>
-    <link rel="stylesheet" media="screen" href="inscription.css"/>
+    <link rel="stylesheet" media="screen" href="../static/css/styles.css"/>
+    <link rel="stylesheet" media="screen" href="../static/css/inscription.css"/>
     <link rel="stylesheet" href="../static/css/nav.css" th:href="@{/css/nav.css}">
     <style>
         @import url('https://fonts.googleapis.com/css?family=Roboto:400,900&display=swap');
@@ -19,40 +19,44 @@
     <h1 class="register-title">Inscription</h1>
     <form action="/example.html" method="POST">
         <div class="register-input-container">
-        <div class="register-input">
-        <label for="pseudo">Choisissez un pseudo:</label>
-        <input type="text" id="pseudo" name="pseudo" placeholder="Pseudo">
-        </div>
-        <div class="register-input">
-        <label for="password">Choisissez un mot de passe:</label>
-        <input type="password" id="password" name="password" placeholder="Mot de passe">
-        </div>
-        <div class="register-input">
-        <label for="password-confirmation">Confirmez votre mot de passe:</label>
-        <input type="password" id="password-confirmation" name="password-confirmation" placeholder="Mot de passe">
-        </div>
+            <div class="register-input">
+                <label for="pseudo">Choisissez un pseudo:</label>
+                <br>
+                <input type="text" id="pseudo" name="pseudo" placeholder="Pseudo">
+            </div>
+            <div class="register-input">
+                <label for="password">Choisissez un mot de passe:</label>
+                <br>
+                <input type="password" id="password" name="password" placeholder="Mot de passe">
+            </div>
+            <div class="register-input">
+                <label for="password-confirmation">Confirmez votre mot de passe:</label>
+                <br>
+                <input type="password" id="password-confirmation" name="password-confirmation"
+                       placeholder="Mot de passe">
+            </div>
         </div>
 
         <div class="skill-list-container">
-        <label>Sélectionnez vos compétences:</label>
-        <div class="skill-input-container">
-        <label for="skill1" class="skill-list">Java :</label>
-        <input type="checkbox" id="skill1" name="skill1" value="skill1">
-        <label for="skill1" class="skill-list">Python :</label>
-        <input type="checkbox" id="skill2" name="skill2" value="skill2">
-        <label for="skill1" class="skill-list">Kotlin :</label>
-        <input type="checkbox" id="skill3" name="skill3" value="skill3">
-        <label for="skill1" class="skill-list">Ruby :</label>
-        <input type="checkbox" id="skill4" name="skill4" value="skill4">
-        <label for="skill1" class="skill-list">Javascript :</label>
-        <input type="checkbox" id="skill5" name="skill5" value="skill5">
-        <label for="skill1" class="skill-list">HTML/CSS :</label>
-        <input type="checkbox" id="skill6" name="skill6" value="skill6">
-        <label for="skill1" class="skill-list">C# :</label>
-        <input type="checkbox" id="skill7" name="skill7" value="skill7">
-        <label for="skill1" class="skill-list">Swift :</label>
-        <input type="checkbox" id="skill8" name="skill8" value="skill8">
-        </div>
+            <label>Sélectionnez vos compétences:</label>
+            <div class="skill-input-container">
+                <label for="skill1" class="skill-list">Java :</label>
+                <input type="checkbox" id="skill1" name="skill1" value="skill1">
+                <label for="skill1" class="skill-list">Python :</label>
+                <input type="checkbox" id="skill2" name="skill2" value="skill2">
+                <label for="skill1" class="skill-list">Kotlin :</label>
+                <input type="checkbox" id="skill3" name="skill3" value="skill3">
+                <label for="skill1" class="skill-list">Ruby :</label>
+                <input type="checkbox" id="skill4" name="skill4" value="skill4">
+                <label for="skill1" class="skill-list">Javascript :</label>
+                <input type="checkbox" id="skill5" name="skill5" value="skill5">
+                <label for="skill1" class="skill-list">HTML/CSS :</label>
+                <input type="checkbox" id="skill6" name="skill6" value="skill6">
+                <label for="skill1" class="skill-list">C# :</label>
+                <input type="checkbox" id="skill7" name="skill7" value="skill7">
+                <label for="skill1" class="skill-list">Swift :</label>
+                <input type="checkbox" id="skill8" name="skill8" value="skill8">
+            </div>
         </div>
         <label for="sendbutton">
             <input type="submit" class="button" id="sendbutton" value="S'inscrire">
