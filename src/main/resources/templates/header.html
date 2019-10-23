@@ -3,45 +3,39 @@
     <head>
         <meta charset="UTF-8">
         <title>Title</title>
-        <link rel="stylesheet" href="../static/css/nav.css">
+        <link rel="stylesheet" href="../static/css/nav.css" th:href="@{/css/nav.css}">
     </head>
 
     <body>
-        <header th:fragment="header">
+        <header th:fragment="top">
             <div class="nav-container">
                 <nav id="nav-main">
-                    <img src="logo.png" alt="SH"/>
-                    <div>Skill Hub</div>
+                    <img src="../static/images/SkillHub-logo.png" th:src="@{/images/SkillHub-logo.png}" alt="Logo"/>
+                    <div><a href="#" title="Welcome to Skill Hub">Skill Hub</a></div>
                     <div id="burger-button">&#9776;</div>
                 </nav>
                 <nav id="nav-second">
                     <div class="nav-block">
-                        <div><a href="#">Fil d'actualité</a></div>
-                        <div><a href="#">Poser une question</a></div>
+                        <div class="nav-link"><a href="#" title="Fil d'actualité">Fil d'actualité</a></div>
+                        <div class="nav-link"><a href="#" title="Poser une question">Poser une question</a></div>
                     </div>
                     <div class="nav-block">
-                        <div><a href="#">Profil</a></div>
-                        <div id="nav-disconnect"><a href="#">Se déconnecter</a></div>
+                        <div class="nav-link"><a href="#" title="Profil">Profil</a></div>
+                        <div class="nav-link" title="Se déconnecter"><a href="#">Se déconnecter</a></div>
                     </div>
                 </nav>
                 <nav id="nav-burger">
                     <div id="burger-menu">
-                        <div><a href="#">Fil d'actualité</a></div>
-                        <div><a href="#">Poser une question</a></div>
-                        <div><a href="#">Profil</a></div>
-                        <div><a href="#">A propos</a></div>
-                        <div><a href="#">Se déconnecter</a></div>
+                        <div class="nav-link"><a href="#" title="Fil d'actualité">Fil d'actualité</a></div>
+                        <div class="nav-link"><a href="#" title="Poser une question">Poser une question</a></div>
+                        <div class="nav-link"><a href="#" title="Profil">Profil</a></div>
+                        <div class="nav-link"><a href="#" title="A propos">A propos</a></div>
+                        <div><a href="#" title="Se déconnecter">Se déconnecter</a></div>
                     </div>
                     <div id="burger-overlay"></div>
                 </nav>
             </div>
+            <script src="../static/js/burger.js" th:src="@{/js/burger.js}"></script>
         </header>
-Hello
-        <footer th:fragment="footer">
-            <div class="nav-container">
-                <div><a href="#">A propos</a></div>
-            </div>
-        </footer>
-        <script type="text/javascript" src="../static/js/burger.js"></script>
     </body>
 </html>

@@ -1,21 +1,22 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto:400,900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
 }
 
-a {
+header {
+    background-color: #2C2C2C;
+}
+
+header a, footer a {
     text-decoration: none;
     color: white;
     outline: none;
 }
 
-a:hover {
+header a:hover, footer a:hover {
     color: #F39C0B;
-}
-
-header {
-    background-color: #2C2C2C;
 }
 
 .nav-container {
@@ -37,6 +38,10 @@ header {
     font-weight: 900;
     background-color: #2C2C2C;
     z-index: 30;
+}
+
+#nav-main a {
+    color: #F39C0B;
 }
 
 #nav-main img, #nav-main div {
@@ -69,7 +74,7 @@ header {
     transition: transform .2s ease-out;
 }
 
-#burger-menu div:last-child {
+#burger-menu .nav-link:last-child {
     padding-top: 20px;
 }
 
@@ -101,13 +106,14 @@ header {
     padding: 0 8px;
 }
 
-.nav-block div {
+.nav-block .nav-link {
     padding: 0 12px;
 }
 
-#nav-disconnect {
+.nav-block:last-child .nav-link:last-child{
     margin-left: 30px;
 }
+
 
 @media screen and (min-width: 800px) {
 
@@ -153,6 +159,7 @@ header {
     }
 
     footer {
+        bottom: 0;
         background-color: #2C2C2C;
         margin-top: auto;
     }
