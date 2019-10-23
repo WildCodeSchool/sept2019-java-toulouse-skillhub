@@ -10,9 +10,13 @@
         <header th:fragment="top">
             <div class="nav-container">
                 <nav id="nav-main">
-                    <img src="../static/images/SkillHub-logo.png" th:src="@{/images/SkillHub-logo.png}" alt="Logo"/>
-                    <div><a href="#" title="Welcome to Skill Hub">Skill Hub</a></div>
-                    <div id="burger-button">&#9776;</div>
+                    <img id="nav-logo" src="../static/images/SkillHub-logo.png" th:src="@{/images/SkillHub-logo.png}" alt="Logo"/>
+                    <div id="nav-title"><a href="#" title="Welcome to Skill Hub">Skill Hub</a></div>
+                    <div id="burger-button">
+                        <div class="burger-bar1"></div>
+                        <div class="burger-bar2"></div>
+                        <div class="burger-bar3"></div>
+                    </div>
                 </nav>
                 <nav id="nav-second">
                     <div class="nav-block">
