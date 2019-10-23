@@ -1,7 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-
-html {
+body {
     background: url("../image/filleDesk.png") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -30,7 +27,7 @@ html {
 
 .titre {
     color: #333333;
-    font-family: Roboto;
+    font-family: Roboto, Verdana, Arial, sans-serif;
     font-style: normal;
     font-weight: 900;
     font-size: 45px;
@@ -39,9 +36,9 @@ html {
 
 /*------------Nom-------------*/
 
-input[type=text] {
+.name {
     width: 320px;
-    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.25);
     border: none;
     border-radius: 5px;
     margin: 4px 0;
@@ -50,7 +47,7 @@ input[type=text] {
     padding: 16px;
     box-sizing: border-box;
     transition: 0.3s;
-    font-family: Montserrat;
+    font-family: Montserrat, Verdana, Arial, sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
@@ -58,48 +55,16 @@ input[type=text] {
     color: rgb(33, 33, 33);
 }
 
-input[type=text]:focus {
+.name:focus {
     border-color: dodgerblue;
     box-shadow: 0 0 8px 0 dodgerblue;
-}
-
-/*------------Mot de passe-------------*/
-
-input[type=password] {
-    width: 320px;
-    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.25);
-    border: none;
-    border-radius: 5px;
-    margin: 8px 0;
-    height: 50px;
-    outline: none;
-    padding: 16px;
-    box-sizing: border-box;
-    transition: 0.3s;
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 17px;
-    line-height: 20px;
-
-    /* Gray 4 */
-    color: rgb(33, 33, 33);
-}
-
-input[type=password]:focus {
-    border-color: dodgerblue;
-    box-shadow: 0 0 8px 0 dodgerblue;
-}
-
-.index {
-    text-align: center;
 }
 
 /*------------Connexion-------------*/
 
 .connexion {
     width: 320px;
-    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.25);
     border: none;
     border-radius: 5px;
     margin: 8px 0;
@@ -107,7 +72,7 @@ input[type=password]:focus {
     padding: 12px;
     box-sizing: border-box;
     transition: 0.3s;
-    font-family: Montserrat;
+    font-family: Montserrat, Verdana, Arial, sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 18px;
@@ -125,28 +90,13 @@ input[type=password]:focus {
 /*------------Inscription-------------*/
 
 .inscription {
-    width: 320px;
-    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.25);
-    border: none;
-    border-radius: 5px;
-    margin: 6px 0;
-    outline: none;
-    padding: 12px;
-    box-sizing: border-box;
-    transition: 0.3s;
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 29px;
-    color: #F8F8F8;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.25);
     background-color: #333333;
 }
 
 .inscription:hover {
     border-color: #333333;
     box-shadow: 0 0 8px 0 #333333;
-    cursor: pointer;
 }
 
 ::placeholder {
@@ -156,7 +106,7 @@ input[type=password]:focus {
 
 /*---------MEDIA SCREEN----------*/
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 800px) {
 
     .logo {
         margin-top: 20vh;
@@ -167,15 +117,7 @@ input[type=password]:focus {
         font-size: 60px;
     }
 
-    input[type=text] {
-        width: 450px;
-        height: 63px;
-        margin: 8px 0;
-        font-size: 17px;
-        line-height: 20px;
-    }
-
-    input[type=password] {
+    .name {
         width: 450px;
         height: 63px;
         margin: 8px 0;
@@ -184,16 +126,6 @@ input[type=password]:focus {
     }
 
     .connexion {
-        width: 450px;
-        height: 63px;
-        margin: 8px 0;
-        padding: 16px;
-        font-weight: 600;
-        font-size: 24px;
-        line-height: 29px;
-    }
-
-    .inscription {
         width: 450px;
         height: 63px;
         margin: 8px 0;
