@@ -3,64 +3,72 @@
 <head>
     <meta name="viewport" content="width=device-width initial-scale=1.0">
     <meta charset="UTF-8">
-    <link href="question.css" rel="stylesheet">
+    <link href="../static/css/styles.css" rel="stylesheet">
+    <link href="../static/css/question.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <title>Question</title>
 </head>
 <body>
     <header th:replace="header :: top"></header>
     <section class="top">
-        <img src="capu.png" alt="Avatar">
+        <img src="../static/image/capu.png" alt="Avatar">
         <h1>Capucine</h1>
     </section>
-    <form class="contTitleQuest">
-        <label for="titleQuestion">Titre de la question</label>
-        <textarea class="titleQuestion" id="titleQuestion" type="text" name="titleQuestion"></textarea><br>
-    </form>
-    <div class="contComp">
-        <p class="titleCompetence">Compétence</p><br>
-        <form class="comp">
-            <label>
-                <input class="input" type="radio" name="skill" value="java" checked>
-                Java
-            </label><br>
-            <label>
-                <input class="input" type="radio" name="skill" value="javaScript">
-                JavaScript
-            </label><br>
-            <label>
-                <input class="input" type="radio" name="skill" value="python">
-                Python
-            </label><br>
-            <label>
-                <input class="input" type="radio" name="skill" value="kotlin">
-                Kotlin
-            </label><br>
-            <label>
-                <input class="input" type="radio" name="skill" value="html/css">
-                HTML/CSS
-            </label><br>
-            <label>
-                <input class="input" type="radio" name="skill" value="swift">
-                Swift
-            </label><br>
-            <label>
-                <input class="input" type="radio" name="skill" value="ruby">
-                Ruby
-            </label><br>
-            <label>
-                <input class="input" type="radio" name="skill" value="c#">
-                C#
-            </label><br>
-        </form>
+    <div class="desktop">
+        <div class="leftSide">
+            <form class="contTitleQuest">
+                <label for="titleQuestion">Titre de la question</label>
+                <textarea class="titleQuestion" id="titleQuestion" type="text" name="titleQuestion" placeholder="Ecris ta putain de question ma gueule"></textarea><br>
+            </form>
+            <div class="contComp">
+                <p class="titleCompetence">Compétence</p><br>
+                <form class="comp">
+                    <label>
+                        <input class="input" type="radio" name="skill" value="java" checked>
+                        Java
+                    </label><br>
+                    <label>
+                        <input class="input" type="radio" name="skill" value="javaScript">
+                        JavaScript
+                    </label><br>
+                    <label>
+                        <input class="input" type="radio" name="skill" value="python">
+                        Python
+                    </label><br>
+                    <label>
+                        <input class="input" type="radio" name="skill" value="kotlin">
+                        Kotlin
+                    </label><br>
+                    <label>
+                        <input class="input" type="radio" name="skill" value="html/css">
+                        HTML/CSS
+                    </label><br>
+                    <label>
+                        <input class="input" type="radio" name="skill" value="swift">
+                        Swift
+                    </label><br>
+                    <label>
+                        <input class="input" type="radio" name="skill" value="ruby">
+                        Ruby
+                    </label><br>
+                    <label>
+                        <input class="input" type="radio" name="skill" value="c#">
+                        C#
+                    </label><br>
+                </form>
+            </div>
+        </div>
+        <div class="rigthSide">
+            <div class="contQuest">
+                <form class="quest">
+                    <label for="question">Votre message</label>
+                    <textarea  class="question" id="question" type="text" name="question" placeholder="Ecris ton putain de message ma gueule"></textarea>
+                </form>
+            </div>
+            <input class="submit" type="submit" value="Poser votre question">
+            <footer th:replace="footer :: bottom"></footer>
+        </div>
     </div>
-    <div class="contQuest">
-        <form class="quest">
-            <label for="question">Votre message</label>
-            <textarea class="question" id="question" type="text" name="question" rows="2" cols="40"></textarea>
-        </form>
-    </div>
-    <input class="submit" type="submit" value="Poser votre question">
-    <footer th:replace="footer :: bottom"></footer>
 </body>
 </html>
