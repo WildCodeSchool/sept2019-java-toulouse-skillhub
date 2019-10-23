@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <link rel="stylesheet" media="screen" href="styles.css"/>
     <link rel="stylesheet" media="screen" href="inscription.css"/>
+    <link rel="stylesheet" href="../static/css/nav.css" th:href="@{/css/nav.css}">
     <style>
         @import url('https://fonts.googleapis.com/css?family=Roboto:400,900&display=swap');
         @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
@@ -13,7 +14,7 @@
     <title>Inscription - Skill Hub</title>
 </head>
 <body>
-
+<header th:replace="header :: top"></header>
 <h1>Inscription</h1>
 <form action="/example.html" method="POST">
     <label for="pseudo">Votre pseudo:</label>
@@ -43,6 +44,6 @@
         <input type="submit" class="button" id="sendbutton" value="S'inscrire">
     </label>
 </form>
-
+<footer th:replace="footer :: bottom"></footer>
 </body>
 </html>
