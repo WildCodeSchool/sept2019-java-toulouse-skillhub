@@ -9,22 +9,42 @@
 
 .register-title {
     text-align: center;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .register-input-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-
-
-
+    margin-bottom: 0.5rem;
 }
 
 .register-input {
     text-align: left;
-    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    /* display: flex;
+    flex-direction: column;
+    align-items: flex-start; */
+}
+
+.input-demand {
+    display: block;
+    padding-bottom: 0.3rem;
+}
+
+.input-box {
+    border: 0.5px solid #c0c0c0;
+    border-radius: 5px;
+    height: 1.5rem;
+    box-shadow: 1px 1px 10px 1px #cccccc;
+}
+
+.skill-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: 0.5rem;
 }
 
