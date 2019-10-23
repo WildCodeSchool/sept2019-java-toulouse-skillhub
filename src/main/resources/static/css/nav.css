@@ -117,7 +117,7 @@ header a:hover, footer a:hover {
     height: 100%;
 }
 
-.burger-activated #burger-overlay{
+.burger-activated #burger-overlay {
     display: block;
 }
 
@@ -139,7 +139,7 @@ header a:hover, footer a:hover {
     padding: 0 12px;
 }
 
-.nav-block:last-child .nav-link:last-child{
+.nav-block:last-child .nav-link:last-child {
     margin-left: 30px;
 }
 

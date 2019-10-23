@@ -18,7 +18,7 @@ button.addEventListener('click', function (e) {
 button.addEventListener('keydown', function (e) {
     if (document.getElementById("nav-burger").classList.contains(activatedClass)) {
 
-        if (e.repeat === false && e.which === 27)
+        if (!e.repeat && e.which === 27)
             document.getElementById("nav-burger").classList.remove(activatedClass);
     }
 });
