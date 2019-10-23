@@ -2,6 +2,18 @@
     display: flex;
     flex-direction: column;
     max-width: 1100px;
+    text-align: justify;
+    margin-top: 20px;
+}
+
+#about-text, #about-profiles, .profile-block, .profile-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#about-text h1 {
+    margin-bottom: 20px;
 }
 
 @media screen and (min-width: 800px){
@@ -9,10 +21,18 @@
     #about-container {
         flex-direction: row;
         justify-content: space-around;
-        margin: 0 auto;
+        margin: 30px auto;
     }
 
     #about-text, #about-profiles {
         width: 45%;
+    }
+
+    .profile-block {
+        flex-direction: row;
+    }
+
+    .profile-content {
+        align-items: flex-end;
     }
 }
