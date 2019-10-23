@@ -8,29 +8,29 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../static/css/styles.css" th:href="@{/css/styles.css}">
     <link rel="stylesheet" href="../static/css/nav.css" th:href="@{/css/nav.css}">
-    <link rel="stylesheet" href="../static/css/connexion.css" th:href="@{/css/connexion.css}">
+    <link rel="stylesheet" href="../static/css/connection.css" th:href="@{/static/css/connection.css}">
     <title>Skill Hub</title>
 </head>
 <body>
 <div class="container">
 <div class="logo">
-    <p class="flotte">
+    <p class="float">
         <img src="../image/logo3.png" th:src="@{/image/logo3.png}" alt="Skill Hub" height=70 width=80>
     </p>
-    <h1 class="titre">Skill Hub</h1>
+    <h1 class="title">Skill Hub</h1>
 </div>
 
 <div id="form">
     <form class="form" method="post">
         <input class="name" type="text" placeholder="Votre nom" name="nom" required>
         <input class="name password" type="password" placeholder="Votre mot de passe" name="motDePasse" required>
-        <input class="connexion" type="submit" name="Connexion" value="Connexion">
+        <input class="connection" type="submit" name="Connexion" value="Connexion">
         <a th:href="index.html" title="Navigation vers la page inscription">
-            <button class="connexion inscription" type="button" name="inscription">Inscription</button>
+            <button class="connection signIn" type="button" name="signIn">Inscription</button>
         </a>
     </form>
 </div>
 </div>
-<!--<footer th:replace="footer :: bottom"></footer>-->
+<footer th:replace="footer :: bottom"></footer>
 </body>
 </html>
