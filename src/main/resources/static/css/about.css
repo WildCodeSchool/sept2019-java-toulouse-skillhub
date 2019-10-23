@@ -1,0 +1,18 @@
+#about-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1100px;
+}
+
+@media screen and (min-width: 800px){
+
+    #about-container {
+        flex-direction: row;
+        justify-content: space-around;
+        margin: 0 auto;
+    }
+
+    #about-text, #about-profiles {
+        width: 45%;
+    }
+}
