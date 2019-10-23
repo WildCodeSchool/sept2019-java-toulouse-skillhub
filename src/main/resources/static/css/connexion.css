@@ -9,8 +9,6 @@ html {
     background-size: cover;
 }
 
-
-
 .flotte {
     display: flex;
     align-items: center;
@@ -18,7 +16,7 @@ html {
 }
 
 .logo {
-
+    margin-left: -10px;
     margin-top: 10vh;
     display: flex;
     justify-content: center;
@@ -39,8 +37,7 @@ html {
 }
 
 
-
-        /*------------Nom-------------*/
+/*------------Nom-------------*/
 
 input[type=text] {
     width: 320px;
@@ -66,7 +63,7 @@ input[type=text]:focus {
     box-shadow: 0 0 8px 0 dodgerblue;
 }
 
-        /*------------Mot de passe-------------*/
+/*------------Mot de passe-------------*/
 
 input[type=password] {
     width: 320px;
@@ -98,7 +95,7 @@ input[type=password]:focus {
     text-align: center;
 }
 
-        /*------------Connexion-------------*/
+/*------------Connexion-------------*/
 
 .connexion {
     width: 320px;
@@ -125,7 +122,7 @@ input[type=password]:focus {
     cursor: pointer;
 }
 
-        /*------------Inscription-------------*/
+/*------------Inscription-------------*/
 
 .inscription {
     width: 320px;
@@ -157,52 +154,54 @@ input[type=password]:focus {
     opacity: 1;
 }
 
+/*---------MEDIA SCREEN----------*/
+
 @media screen and (min-width: 640px) {
 
-.logo {
-    margin-top: 20vh;
-    margin-bottom: -30px;
-}
+    .logo {
+        margin-top: 20vh;
+        margin-bottom: -30px;
+    }
 
-.titre {
-    font-size: 60px;
-}
+    .titre {
+        font-size: 60px;
+    }
 
-input[type=text] {
-    width: 450px;
-    height: 63px;
-    margin: 8px 0;
-    font-size: 17px;
-    line-height: 20px;
-}
+    input[type=text] {
+        width: 450px;
+        height: 63px;
+        margin: 8px 0;
+        font-size: 17px;
+        line-height: 20px;
+    }
 
-input[type=password] {
-    width: 450px;
-    height: 63px;
-    margin: 8px 0;
-    font-size: 17px;
-    line-height: 20px;
-}
+    input[type=password] {
+        width: 450px;
+        height: 63px;
+        margin: 8px 0;
+        font-size: 17px;
+        line-height: 20px;
+    }
 
-.connexion {
-    width: 450px;
-    height: 63px;
-    margin: 8px 0;
-    padding: 16px;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 29px;
-}
+    .connexion {
+        width: 450px;
+        height: 63px;
+        margin: 8px 0;
+        padding: 16px;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 29px;
+    }
 
-.inscription {
-    width: 450px;
-    height: 63px;
-    margin: 8px 0;
-    padding: 16px;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 29px;
-}
+    .inscription {
+        width: 450px;
+        height: 63px;
+        margin: 8px 0;
+        padding: 16px;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 29px;
+    }
 }
 
 
