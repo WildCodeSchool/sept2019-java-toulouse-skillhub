@@ -1,0 +1,140 @@
+body {
+    background: url("../image/filleDesk.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.flotte {
+    display: flex;
+    align-items: center;
+    margin: 0 10px;
+}
+
+.logo {
+    margin-left: -10px;
+    margin-top: 10vh;
+    display: flex;
+    justify-content: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titre {
+    color: #333333;
+    font-family: Roboto, Verdana, Arial, sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 45px;
+}
+
+
+/*------------Nom-------------*/
+
+.name {
+    width: 320px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.25);
+    border: none;
+    border-radius: 5px;
+    margin: 4px 0;
+    height: 50px;
+    outline: none;
+    padding: 16px;
+    box-sizing: border-box;
+    transition: 0.3s;
+    font-family: Montserrat, Verdana, Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    color: rgb(33, 33, 33);
+}
+
+.name:focus {
+    border-color: dodgerblue;
+    box-shadow: 0 0 8px 0 dodgerblue;
+}
+
+/*------------Connexion-------------*/
+
+.connexion {
+    width: 320px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.25);
+    border: none;
+    border-radius: 5px;
+    margin: 8px 0;
+    outline: none;
+    padding: 12px;
+    box-sizing: border-box;
+    transition: 0.3s;
+    font-family: Montserrat, Verdana, Arial, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 29px;
+    color: #F8F8F8;
+    background-color: #F39C0B;
+}
+
+.connexion:hover {
+    border-color: #F39C0B;
+    box-shadow: 0 0 8px 0 #F39C0B;
+    cursor: pointer;
+}
+
+/*------------Inscription-------------*/
+
+.inscription {
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.25);
+    background-color: #333333;
+}
+
+.inscription:hover {
+    border-color: #333333;
+    box-shadow: 0 0 8px 0 #333333;
+}
+
+::placeholder {
+    color: rgb(168, 168, 168);
+    opacity: 1;
+}
+
+/*---------MEDIA SCREEN----------*/
+
+@media screen and (min-width: 800px) {
+
+    .logo {
+        margin-top: 20vh;
+        margin-bottom: -30px;
+    }
+
+    .titre {
+        font-size: 60px;
+    }
+
+    .name {
+        width: 450px;
+        height: 63px;
+        margin: 8px 0;
+        font-size: 17px;
+        line-height: 20px;
+    }
+
+    .connexion {
+        width: 450px;
+        height: 63px;
+        margin: 8px 0;
+        padding: 16px;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 29px;
+    }
+}
+
+
+
