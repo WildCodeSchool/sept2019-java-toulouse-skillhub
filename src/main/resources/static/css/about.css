@@ -12,6 +12,10 @@
     align-items: center;
 }
 
+#about-text, #about-profiles {
+    padding: 0 30px;
+}
+
 #about-text h1 {
     margin-bottom: 20px;
 }
@@ -30,9 +34,15 @@
 
     .profile-block {
         flex-direction: row;
+        margin-bottom: 30px;
+    }
+
+    .profile-block img {
+        height: 100px;
     }
 
     .profile-content {
         align-items: flex-end;
+        margin-left: 15px;
     }
 }
