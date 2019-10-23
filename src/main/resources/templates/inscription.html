@@ -15,35 +15,38 @@
 </head>
 <body>
 <header th:replace="header :: top"></header>
-<h1>Inscription</h1>
-<form action="/example.html" method="POST">
-    <label for="pseudo">Votre pseudo:</label>
-    <input type="text" id="pseudo" name="pseudo" placeholder="Pseudo">
-    <label for="password">Votre mot de passe:</label>
-    <input type="password" id="password" name="password" placeholder="Mot de passe">
-    <label for="password-confirmation">Votre pseudo:</label>
-    <input type="password" id="password-confirmation" name="password-confirmation" placeholder="Mot de passe">
-    <label>Vos compétences:</label>
-    <label for="skill1">Java :</label>
-    <input type="checkbox" id="skill1" name="skill1" value="skill1">
-    <label for="skill1">Python :</label>
-    <input type="checkbox" id="skill2" name="skill2" value="skill2">
-    <label for="skill1">Kotlin :</label>
-    <input type="checkbox" id="skill3" name="skill3" value="skill3">
-    <label for="skill1">Ruby :</label>
-    <input type="checkbox" id="skill4" name="skill4" value="skill4">
-    <label for="skill1">Javascript :</label>
-    <input type="checkbox" id="skill5" name="skill5" value="skill5">
-    <label for="skill1">HTML/CSS :</label>
-    <input type="checkbox" id="skill6" name="skill6" value="skill6">
-    <label for="skill1">C# :</label>
-    <input type="checkbox" id="skill7" name="skill7" value="skill7">
-    <label for="skill1">Swift :</label>
-    <input type="checkbox" id="skill8" name="skill8" value="skill8">
-    <label for="sendbutton">
-        <input type="submit" class="button" id="sendbutton" value="S'inscrire">
-    </label>
-</form>
+<div class="form-container">
+    <h1 class="register-title">Inscription</h1>
+    <form action="/example.html" method="POST">
+        
+        <label for="pseudo">Choisissez un pseudo:</label>
+        <input type="text" id="pseudo" name="pseudo" placeholder="Pseudo">
+        <label for="password">Choisissez un mot de passe:</label>
+        <input type="password" id="password" name="password" placeholder="Mot de passe">
+        <label for="password-confirmation">Confirmez votre mot de passe:</label>
+        <input type="password" id="password-confirmation" name="password-confirmation" placeholder="Mot de passe">
+        <label>Sélectionnez vos compétences:</label>
+        <label for="skill1" class="skill-list">Java :</label>
+        <input type="checkbox" id="skill1" name="skill1" value="skill1">
+        <label for="skill1" class="skill-list">Python :</label>
+        <input type="checkbox" id="skill2" name="skill2" value="skill2">
+        <label for="skill1" class="skill-list">Kotlin :</label>
+        <input type="checkbox" id="skill3" name="skill3" value="skill3">
+        <label for="skill1" class="skill-list">Ruby :</label>
+        <input type="checkbox" id="skill4" name="skill4" value="skill4">
+        <label for="skill1" class="skill-list">Javascript :</label>
+        <input type="checkbox" id="skill5" name="skill5" value="skill5">
+        <label for="skill1" class="skill-list">HTML/CSS :</label>
+        <input type="checkbox" id="skill6" name="skill6" value="skill6">
+        <label for="skill1" class="skill-list">C# :</label>
+        <input type="checkbox" id="skill7" name="skill7" value="skill7">
+        <label for="skill1" class="skill-list">Swift :</label>
+        <input type="checkbox" id="skill8" name="skill8" value="skill8">
+        <label for="sendbutton">
+            <input type="submit" class="button" id="sendbutton" value="S'inscrire">
+        </label>
+    </form>
+</div>
 <footer th:replace="footer :: bottom"></footer>
 </body>
 </html>

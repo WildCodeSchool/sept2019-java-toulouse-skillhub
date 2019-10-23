@@ -1,0 +1,14 @@
+.skill-list {
+    font-size: 15px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.register-title {
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
