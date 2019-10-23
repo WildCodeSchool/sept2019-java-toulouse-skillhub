@@ -1,5 +1,5 @@
 .skill-list {
-    font-size: 15px;
+    font-size: 13px;
 }
 
 .form-container {
@@ -16,9 +16,14 @@
 .register-input-container {
     display: flex;
     flex-direction: column;
-
 }
 
 .register-input {
     text-align: left;
+}
+
+@media screen and (min-width: 376px) {
+    .skill-list {
+        font-size: 17px;
+    }
 }
