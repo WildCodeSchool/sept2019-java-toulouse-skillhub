@@ -3,17 +3,16 @@
 <head>
     <meta name="viewport" content="width=device-width initial-scale=1.0">
     <meta charset="UTF-8">
-    <link href="../static/css/styles.css" rel="stylesheet">
-    <link href="../static/css/answer.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet">
+    <link href="../static/css/answer.css" th:href="@{/css/answer.css}" rel="stylesheet">
+    <link href="../static/css/nav.css" th:href="@{/css/nav.css}" rel="stylesheet">
     <title>Answer</title>
 </head>
 <body>
-    <div>
-        <header th:replace="header :: top"></header>
+<header th:replace="header :: top"></header>
+    <div class="body">
         <div class="asker">
-            <img src="../static/image/avatars/heisenberg.svg" alt="Avatar">
+            <img class="avatar" src="../static/image/avatars/heisenberg.svg" th:src="@{/image/avatars/heisenberg.svg}" alt="Avatar">
             <h4>Heisenberg</h4>
             <span>4 days ago</span>
         </div>
@@ -25,14 +24,14 @@
         <span class="tags">#Java  #Cuisine #Italienne  #food</span>
         <label for="answerArea">Votre réponse</label>
         <textarea class="answerArea" id="answerArea" name="answerArea" placeholder="Votre réponse"></textarea>
-        <div class="button">
+        <div class="buttons">
             <input class="submit" type="submit" value="Répondre">
             <input class="solved" type="submit" value="Résolu">
         </div>
-        <hr><br>
+        <hr>
         <span class="nbAnswer">30 réponses</span>
         <div class="answerer">
-            <img src="../static/image/avatars/napoleon.svg" alt="Avatar">
+            <img class="avatar" src="../static/image/avatars/napoleon.svg" th:src="@{/image/avatars/napoleon.svg}" alt="Avatar">
             <h4>Napoleon</h4>
             <span>4 days ago</span>
         </div>
@@ -42,7 +41,7 @@
                 polices de texte ?</span>
         <hr><br>
         <div class="answerer">
-            <img src="../static/image/avatars/knight.svg" alt="Avatar">
+            <img class="avatar" src="../static/image/avatars/knight.svg" th:src="@{/image/avatars/knight.svg}" alt="Avatar">
             <h4>Kevin</h4>
             <span>4 days ago</span>
         </div>
@@ -52,7 +51,7 @@
                 polices de texte ?</span>
         <hr><br>
         <div class="answerer">
-            <img src="../static/image/avatars/santa-claus.svg" alt="Avatar">
+            <img class="avatar" src="../static/image/avatars/santa-claus.svg" th:src="@{/image/avatars/santa-claus.svg}" alt="Avatar">
             <h4>Noël</h4>
             <span>4 days ago</span>
         </div>
@@ -60,7 +59,7 @@
                 page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500,
                 quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de
                 polices de texte ?</span>
-        <footer th:replace="footer :: bottom"></footer>
     </div>
+<footer th:replace="footer :: bottom"></footer>
 </body>
 </html>
