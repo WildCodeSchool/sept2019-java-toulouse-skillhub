@@ -104,6 +104,7 @@ body {
     opacity: 1;
 }
 
+
 /*---------MEDIA SCREEN----------*/
 
 @media screen and (min-width: 800px) {
@@ -136,4 +137,25 @@ body {
 }
 
 
+/*---------MEDIA SCREEN FOOTER PAGE CONNEXION ----------*/
 
+@media screen and (max-width: 799px) {
+
+    footer {
+        background-color: #2C2C2C;
+        margin-top: auto;
+    }
+
+    footer .nav-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 14px;
+    }
+
+    footer .nav-container div {
+        padding-right: 12px;
+    }
+}
