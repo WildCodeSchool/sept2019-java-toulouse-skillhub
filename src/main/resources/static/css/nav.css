@@ -143,6 +143,10 @@ header a:hover, footer a:hover {
     margin-left: 30px;
 }
 
+footer .nav-container {
+    display: none;
+}
+
 
 @media screen and (min-width: 800px) {
 
@@ -194,6 +198,7 @@ header a:hover, footer a:hover {
     }
 
     footer .nav-container {
+        display: flex;
         justify-content: flex-end;
         align-items: center;
         font-family: 'Montserrat', sans-serif;
