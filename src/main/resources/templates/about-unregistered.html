@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/nav.css" th:href="@{/css/nav.css}">
+    <link rel="stylesheet" href="../static/css/styles.css" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" href="../static/css/about.css" th:href="@{/css/about-unregistered.css}">
+    <title>À propos</title>
+</head>
+<body>
+<header th:replace="header :: top"></header>
+<div id="about-unregistered-container">
+    <div id="about-unregistered-text">
+        <h1>À propos</h1>
+        <p>Skill Hub a été pensé dans le but de proposer un outil d'entraide communautaire pour tous. Né dans une grande fraterie, Nabila est une geek !</p>
+    </div>
+    <div id="about-unregistered-profiles">
+        <div class="profile-block">
+            <div class="LI-profile-badge"  data-version="v1" data-size="medium" data-locale="fr_FR" data-type="vertical" data-theme="light" data-vanity="alexandre-prieur"><a class="LI-simple-link" href='https://fr.linkedin.com/in/alexandre-prieur?trk=profile-badge'>Alexandre Prieur</a></div>
+        </div>
+        <div class="profile-block">
+            <div class="LI-profile-badge"  data-version="v1" data-size="medium" data-locale="fr_FR" data-type="vertical" data-theme="light" data-vanity="jongendre"><a class="LI-simple-link" href='https://fr.linkedin.com/in/jongendre?trk=profile-badge'>Jonathan Gendre</a></div>
+        </div>
+        <div class="profile-block">
+            <div class="LI-profile-badge"  data-version="v1" data-size="medium" data-locale="fr_FR" data-type="vertical" data-theme="light" data-vanity="jongendre"><a class="LI-simple-link" href='https://fr.linkedin.com/in/jongendre?trk=profile-badge'>Jonathan Gendre</a></div>
+        </div>
+        <div class="profile-block">
+            <div class="LI-profile-badge"  data-version="v1" data-size="medium" data-locale="fr_FR" data-type="vertical" data-theme="light" data-vanity="nabil-benssadek-1b9456194"><a class="LI-simple-link" href='https://fr.linkedin.com/in/nabil-benssadek-1b9456194?trk=profile-badge'>Nabil Benssadek</a></div>
+        </div>
+    </div>
+</div>
+<footer th:replace="footer :: bottom"></footer>
+<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
+</body>
+</html>

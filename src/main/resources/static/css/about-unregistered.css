@@ -1,19 +1,15 @@
-#about-container {
+#about-container, #about-unregistered-container {
     display: flex;
     flex-direction: column;
     max-width: 1100px;
     text-align: justify;
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
-#about-text, #about-profiles, .profile-block, .profile-content {
+#about-text, #about-profiles, #about-unregistered-text, #about-unregistered-profiles, .profile-block, .profile-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.profile-block {
-    margin-top: 50px;
 }
 
 #about-text, #about-profiles {
@@ -24,50 +20,55 @@
     margin-bottom: 20px;
 }
 
-.profile-content h3 {
-    margin-top: 7px;
-    margin-bottom: 7px;
-}
-
 @media screen and (min-width: 800px){
 
     #about-container {
         flex-direction: row;
         justify-content: space-around;
-        margin-left: auto;
-        margin-right: auto;
+        margin: 30px auto;
+    }
+
+    #about-unregistered-container {
+        align-items: center;
+        width: 100%;
+        margin: 30px auto;
     }
 
     #about-text {
         width: 45%;
     }
 
-    #about-text {
+    #about-unregistered-text {
+        width: 50%;
+    }
+
+    #about-text, #about-unregistered-text {
         align-items: flex-start;
     }
 
     #about-profiles {
         width: 45%;
-        margin-top: 20px;
-        margin-bottom: 20px;
+    }
+    #about-unregistered-profiles {
+        width: 100%;
+    }
+
+    #about-unregistered-profiles {
+        flex-direction: row;
+        justify-content: space-around;
     }
 
     .profile-block {
         flex-direction: row;
-        align-items: flex-start;
-        margin-top: 0;
         margin-bottom: 30px;
     }
 
-    .profile-picture {
+    .profile-block img {
         height: 100px;
-        margin-top: 15px;
-        margin-right: 7px;
     }
 
     .profile-content {
         align-items: flex-end;
-        margin-top: 0;
         margin-left: 15px;
     }
 }
