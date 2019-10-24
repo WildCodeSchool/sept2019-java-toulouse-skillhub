@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat%7CRoboto:400,900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -5,13 +7,13 @@
 
 h1 {
     color: #2C2C2C;
-    font-family: 'Roboto', black;
+    font-family: 'Roboto', black, Verdana, Arial, sans-serif;
     font-size: 30px;
 }
 
 h2, h3 {
     color: #2C2C2C;
-    font-family: 'Roboto', bold;
+    font-family: 'Roboto', black, Verdana, Arial, sans-serif;
 }
 
 h2 {
@@ -23,7 +25,7 @@ h3 {
 }
 
 label, p {
-    font-family: 'Montserrat', regular;
+    font-family: 'Montserrat', regular, Verdana, Arial, sans-serif;
     font-size: 17px;
 }
 
@@ -41,7 +43,7 @@ label {
     padding: 0.5rem;
     box-sizing: border-box;
     transition: 0.3s;
-    font-family: Montserrat, bold;
+    font-family: Montserrat, bold, Verdana, Arial, sans-serif;
     font-style: normal;
     font-size: 17px;
     color: #F8F8F8;
