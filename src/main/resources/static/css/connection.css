@@ -6,7 +6,7 @@ body {
     background-size: cover;
 }
 
-.flotte {
+.float {
     display: flex;
     align-items: center;
     margin: 0 10px;
@@ -25,7 +25,7 @@ body {
     align-items: center;
 }
 
-.titre {
+.title {
     color: #333333;
     font-family: Roboto, Verdana, Arial, sans-serif;
     font-style: normal;
@@ -62,7 +62,7 @@ body {
 
 /*------------Connexion-------------*/
 
-.connexion {
+.connection {
     width: 320px;
     box-shadow: 0 4px 25px rgba(0, 0, 0, 0.25);
     border: none;
@@ -81,7 +81,7 @@ body {
     background-color: #F39C0B;
 }
 
-.connexion:hover {
+.connection:hover {
     border-color: #F39C0B;
     box-shadow: 0 0 8px 0 #F39C0B;
     cursor: pointer;
@@ -89,12 +89,12 @@ body {
 
 /*------------Inscription-------------*/
 
-.inscription {
+.signIn {
     box-shadow: 0 4px 25px rgba(0, 0, 0, 0.25);
     background-color: #333333;
 }
 
-.inscription:hover {
+.signIn:hover {
     border-color: #333333;
     box-shadow: 0 0 8px 0 #333333;
 }
@@ -110,10 +110,10 @@ body {
 
     .logo {
         margin-top: 20vh;
-        margin-bottom: -30px;
+
     }
 
-    .titre {
+    .title {
         font-size: 60px;
     }
 
@@ -125,7 +125,7 @@ body {
         line-height: 20px;
     }
 
-    .connexion {
+    .connection {
         width: 450px;
         height: 63px;
         margin: 8px 0;
