@@ -18,10 +18,10 @@ ul{
 
 
 img {
-    width: 60px;
+    width: 50px;
     height: 60px;
     border-radius: 50%;
-    background-size: contain;
+    background-size: auto;
 }
 
 h2 {
@@ -95,7 +95,23 @@ hr {
     display: none;
 }
 
+.fa-pencil {
+    font-size: 30px;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #E7950D;
+    color: rgb(245, 245, 245);
+    padding: 17px;
+    border-radius: 50%;
+    box-shadow: 3px 3px 3px 0 rgba(194, 194, 194, 0.795);
+}
+
 @media screen and (min-width: 800px) {
+
+    .fa-pencil {
+        display: none;
+    }
 
     ul {
         margin: 0 10% 0 10%;
