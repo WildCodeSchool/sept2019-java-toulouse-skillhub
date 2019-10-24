@@ -1,42 +1,43 @@
 package com.wildcodeschool.skillhub.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class MainController {
 
-    @PostMapping("/")
+    @GetMapping("/")
     public String index() {
         return "index";
     }
 
-    @PostMapping("/feed")
+    @GetMapping("/feed")
     public String feed() {
         return "feed";
     }
 
-    @PostMapping("/subscribe")
+    @GetMapping("/subscribe")
     public String subscribe() {
         return "subscribe";
     }
 
-    @PostMapping("/question")
-    public String question() {
-        return "question";
+    @GetMapping("/answer")
+    public String answer() {
+        return "answer";
     }
 
-    @PostMapping("/about")
+    @GetMapping("/about")
     public String about() {
         return "about";
     }
 
-    @PostMapping("/ask")
-    public String ask() {
-        return "ask";
+    @GetMapping("/question")
+    public String question() {
+        return "question";
     }
 
-    @PostMapping("/profile")
+    @GetMapping("/profile")
     public String profile() {
         return "profile";
     }
