@@ -9,22 +9,23 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../static/css/styles.css" th:href="@{/css/styles.css}">
     <link rel="stylesheet" href="../static/css/nav.css" th:href="@{/css/nav.css}">
-    <link rel="stylesheet" href="Feed.css" th:href="@{/css/Feed.css}">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="feed.css" th:href="@{/css/feed.css}">
     <title>Fil d'actualités</title>
 </head>
 
 <body>
-<header th:replace="header :: top"></header>
+<footer th:replace="header :: top"></footer>
 <h2>Mes questions</h2>
 <ul>
     <li>
         <div  class="pictureDesk">
-            <img src="women2.jpg" alt="image de profil">
+            <img src="../image/capu.png" th:src="@{/image/capu.png}" alt="image de profil">
         </div>
         <div>
             <div class="profilPicture">
                 <div  class="pictureMobile">
-                    <img src="women2.jpg" alt="image de profil">
+                    <img src="../image/capu.png" th:src="@{/image/capu.png}" alt="image de profil">
                 </div>
 
                 <h4>Jona</h4>
@@ -47,12 +48,12 @@
 
     <li>
         <div  class="pictureDesk">
-            <img src="women1.jpg" alt="image de profil">
+            <img src="../image/capu.png" th:src="@{/image/capu.png}" alt="image de profil">
         </div>
         <div>
             <div class="profilPicture">
                 <div  class="pictureMobile">
-                    <img src="women1.jpg" alt="image de profil">
+                    <img src="../image/capu.png" th:src="@{/image/capu.png}" alt="image de profil">
                 </div>
 
                 <h4>Jona</h4>
@@ -78,12 +79,12 @@
 <ul>
     <li>
         <div  class="pictureDesk">
-            <img src="women3.jpg" alt="image de profil">
+            <img src="../image/capu.png" th:src="@{/image/capu.png}" alt="image de profil">
         </div>
         <div>
             <div class="profilPicture">
                 <div  class="pictureMobile">
-                    <img src="women3.jpg" alt="image de profil">
+                    <img src="../image/capu.png" th:src="@{/image/capu.png}" alt="image de profil">
                 </div>
 
                 <h4>Jona</h4>
@@ -106,12 +107,12 @@
 
     <li>
         <div  class="pictureDesk">
-            <img src="men2.jpg" alt="image de profil">
+            <img src="../image/capu.png" th:src="@{/image/capu.png}" alt="image de profil">
         </div>
         <div>
             <div class="profilPicture">
                 <div  class="pictureMobile">
-                    <img src="men2.jpg" alt="image de profil">
+                    <img src="../image/capu.png" th:src="@{/image/capu.png}" alt="image de profil">
                 </div>
 
                 <h4>Jona</h4>
@@ -132,6 +133,10 @@
         </div>
     </li>
 </ul>
+<div>
+    <span class="btn"><i class="fa fa-pencil"></i></span>
+</div>
+
 <footer th:replace="footer :: bottom"></footer>
 </body>
 
