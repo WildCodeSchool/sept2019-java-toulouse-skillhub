@@ -27,7 +27,7 @@ h2 {
 }
 
 .titleQuestion {
-    border: 0.5px solid #c0c0c0;
+    border: 1px solid #c0c0c0;
     border-radius: 5px;
     width: 100%;
     height: 4em;
@@ -83,7 +83,7 @@ label {
 }
 
 .question {
-    border: 0.5px solid #c0c0c0;
+    border: 1px solid #c0c0c0;
     border-radius: 5px;
     width: 100%;
     height: 20em;
@@ -96,14 +96,13 @@ label {
 
 .submit {
     display: block;
-    margin: auto;
     border: 0 solid #c0c0c0;
     border-radius: 5px;
     background-color: #F39C0B;
     height: 3.5em;
     width: 80%;
     color: aliceblue;
-    margin-bottom: 2em;
+    margin: auto auto 2em;
     outline:none;
     font-size: 1em;
     box-shadow: 1px 1px 10px 1px #cccccc;
@@ -117,8 +116,7 @@ label {
 }
 
 .contTitleQuest {
-    margin: 1em 2.5em;
-    margin-bottom: 2em;
+    margin: 1em 2.5em 2em;
 }
 
 .contComp {
@@ -129,7 +127,7 @@ label {
     margin: 2em 2.5em;
 }
 .titleCompetence {
-    margin: 0em 2.5em;
+    margin: 0 2.5em;
 }
 
 .comp {
@@ -158,7 +156,7 @@ label {
         height: 4rem;
     }
 
-    .rigthSide {
+    .rightSide {
         display:flex;
         flex-direction: column;
         width: 45%;
@@ -179,10 +177,9 @@ label {
     .comp {
         column-count: 3;
         column-gap: 3em;
-        margin: 0;
         width:100%;
         text-align: left;
-        margin-left:2rem;
+        margin-left: 2rem;
         font-size: 0.0vw;
     }
 
