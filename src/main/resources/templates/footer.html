@@ -10,6 +10,12 @@
     <body>
         <footer th:fragment="bottom">
             <div class="nav-container">
+                <div><a th:href="@{/about}" href="about.html" title="À propos">À propos</a></div>
+            </div>
+        </footer>
+
+        <footer th:fragment="bottom_unregistered">
+            <div class="nav-container">
                 <div><a th:href="@{/about_unregistered}" href="about_unregistered.html" title="À propos">À propos</a></div>
             </div>
         </footer>
