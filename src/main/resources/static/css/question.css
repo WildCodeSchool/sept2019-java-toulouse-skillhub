@@ -1,10 +1,10 @@
-body {
+.body {
     font-size: 14px;
     font-family: 'Roboto', sans-serif;
     font-variant: small-caps;
 }
 
-img {
+.avatar {
     border-radius: 50%;
     width: 40%;
     display: block;
@@ -137,7 +137,7 @@ label {
 
 @media screen and (min-width: 800px) {
     
-    img {
+    .avatar {
         width:10rem;
     }
 
