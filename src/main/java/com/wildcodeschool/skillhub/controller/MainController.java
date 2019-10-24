@@ -41,4 +41,9 @@ public class MainController {
     public String profile() {
         return "profile";
     }
+
+    @GetMapping("/about_unregistered")
+    public String about_unregistered() {
+        return "about_unregistered";
+    }
 }
