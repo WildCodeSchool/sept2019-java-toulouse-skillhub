@@ -42,20 +42,6 @@ img {
     margin-bottom: 1rem;
 }
 
-.solved {
-    display: block;
-    border: 0 solid #c0c0c0;
-    border-radius: 5px;
-    background-color: #DF5507;
-    height: 3.5em;
-    width: 80%;
-    color: aliceblue;
-    margin: auto auto 2em;
-    outline:none;
-    font-size: 1em;
-    box-shadow: 1px 1px 10px 1px #cccccc;
-}
-
 .solved:hover {
     box-shadow:  0 0 10px  #DF5507;
     -moz-box-shadow: 0 0 10px  #DF5507;
@@ -89,15 +75,31 @@ img {
     padding: 1.4em;
 }
 
+.button {
+    display:flex;
+    justify-content: space-between;
+
+}
+
 .submit {
-    display: block;
     border: 0 solid #c0c0c0;
     border-radius: 5px;
     background-color: #F39C0B;
     height: 3.5em;
-    width: 80%;
+    width: 30%;
     color: aliceblue;
-    margin: auto auto 2em;
+    outline:none;
+    font-size: 1em;
+    box-shadow: 1px 1px 10px 1px #cccccc;
+}
+
+.solved {
+    border: 0 solid #c0c0c0;
+    border-radius: 5px;
+    background-color: #DF5507;
+    height: 3.5em;
+    width: 30%;
+    color: aliceblue;
     outline:none;
     font-size: 1em;
     box-shadow: 1px 1px 10px 1px #cccccc;
@@ -147,4 +149,10 @@ hr {
     text-align: justify;
     letter-spacing: 1px;
     margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 800px) {
+    .tags{
+        justify-content:flex-start;
+    }
 }
