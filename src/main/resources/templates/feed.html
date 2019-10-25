@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../static/css/styles.css" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" href="../static/css/nav.css" th:href="@{/css/nav.css}">
+    <link rel="stylesheet" href="feed.css" th:href="@{/css/feed.css}">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <title>Fil d'actualités</title>
+</head>
+
+<body>
+<footer th:replace="header :: top"></footer>
+<div class="container">
+    <h2>Mes questions</h2>
+    <ul class="feeds">
+        <li class="ask">
+            <div class="pictureDesk">
+                <img class="imageProfil" src="../images/about-photos/lea.png" th:src="@{/images/about-photos/lea.png}"
+                     alt="image de profil">
+            </div>
+            <div>
+                <div class="profilPicture">
+                    <div class="pictureMobile">
+                        <img class="imageProfil" src="../images/about-photos/alex.png"
+                             th:src="@{/images/about-photos/lea.png}" alt="image de profil">
+                    </div>
+
+                    <h4>Léa</h4>
+                    <span>4 jours</span>
+                </div>
+
+                <div>
+                    <h1>Titre de la question existentielle, test de la longueur du titre</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio qui incidunt ipsa, corporis
+                        hic,
+                        fuga officiis fugiat quam, libero neque totam error rem! Suscipit quia quasi adipisci alias
+                        eveniet
+                        magni.
+                        <a th:href="@{/answer}" href="question.html"><span>...Lire la suite</span></a>
+                    </p>
+                    <h6>#Java #Python #Javascript</h6>
+                    <div class="separation"></div>
+                    <hr>
+                </div>
+            </div>
+        </li>
+
+        <li class="ask">
+            <div class="pictureDesk">
+                <img class="imageProfil" src="../images/about-photos/alex.png" th:src="@{/images/about-photos/lea.png}"
+                     alt="image de profil">
+            </div>
+            <div>
+                <div class="profilPicture">
+                    <div class="pictureMobile">
+                        <img class="imageProfil" src="../images/about-photos/alex.png"
+                             th:src="@{/images/about-photos/lea.png}" alt="image de profil">
+                    </div>
+
+                    <h4>Léa</h4>
+                    <span>4 jours</span>
+                </div>
+
+                <div>
+                    <h1>Titre de la question existentielle, test de la longueur du titre</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio qui incidunt ipsa, corporis
+                        hic,
+                        fuga officiis fugiat quam, libero neque totam error rem! Suscipit quia quasi adipisci alias
+                        eveniet
+                        magni.
+                        <a href="question.html"><span>...Lire la suite</span></a>
+                    </p>
+                    <h6>#Java #Python #Javascript</h6>
+                    <div class="separation"></div>
+                    <hr>
+                </div>
+            </div>
+        </li>
+    </ul>
+
+    <h2>Nouvelles questions</h2>
+    <ul class="feeds">
+        <li class="ask">
+            <div class="pictureDesk">
+                <img class="imageProfil" src="../images/about-photos/alex.png" th:src="@{/images/about-photos/jon.png}"
+                     alt="image de profil">
+            </div>
+            <div>
+                <div class="profilPicture">
+                    <div class="pictureMobile">
+                        <img class="imageProfil" src="../images/about-photos/alex.png"
+                             th:src="@{/images/about-photos/jon.png}" alt="image de profil">
+                    </div>
+
+                    <h4>Jon</h4>
+                    <span>4 jours</span>
+                </div>
+
+                <div>
+                    <h1>Titre de la question existentielle, test de la longueur du titre</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio qui incidunt ipsa, corporis
+                        hic,
+                        fuga officiis fugiat quam, libero neque totam error rem! Suscipit quia quasi adipisci alias
+                        eveniet
+                        magni.
+                        <a href="question.html"><span>...Lire la suite</span></a>
+                    </p>
+                    <h6>#Java #Python #Javascript</h6>
+                    <div class="separation"></div>
+                    <hr>
+                </div>
+            </div>
+        </li>
+
+        <li class="ask">
+            <div class="pictureDesk">
+                <img class="imageProfil" src="../images/about-photos/alex.png" th:src="@{/images/about-photos/nabil.png}"
+                     alt="image de profil">
+            </div>
+            <div>
+                <div class="profilPicture">
+                    <div class="pictureMobile">
+                        <img class="imageProfil" src="../images/about-photos/alex.png"
+                             th:src="@{/images/about-photos/nabil.png}" alt="image de profil">
+                    </div>
+
+                    <h4>Nabil</h4>
+                    <span>4 jours</span>
+                </div>
+
+                <div>
+                    <h1>Titre de la question existentielle, test de la longueur du titre</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio qui incidunt ipsa, corporis
+                        hic,
+                        fuga officiis fugiat quam, libero neque totam error rem! Suscipit quia quasi adipisci alias
+                        eveniet
+                        magni.
+                        <a href="question.html"><span>...Lire la suite</span></a>
+                    </p>
+                    <h6>#Java #Python #Javascript</h6>
+                    <div class="separation"></div>
+                    <hr>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <div>
+        <a th:href="@{/question}"><span class="btn"><i class="fa fa-pencil"></i></span></a>
+    </div>
+</div>
+<footer th:replace="footer :: bottom"></footer>
+</body>
+
+</html>

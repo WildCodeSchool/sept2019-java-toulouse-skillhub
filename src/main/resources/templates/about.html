@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/nav.css" th:href="@{/css/nav.css}">
+    <link rel="stylesheet" href="../static/css/styles.css" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" href="../static/css/about.css" th:href="@{/css/about.css}">
+    <title>À propos</title>
+</head>
+<body>
+<header th:replace="header :: top"></header>
+<div id="about-container">
+    <div id="about-text">
+        <h1>À propos</h1>
+        <p>Skill Hub a été pensé dans le but de proposer un outil d'entraide communautaire pour tous.<br/><br/>
+            Vous n'avez aucune notion en Javascript et vous souhaitez tout de même créer un menu burger avec
+        cette technologie ? Posez votre question en sélectionnant la compétence associée et les membres de
+        Skill Hub feront de leur mieux pour vous aider.</p>
+    </div>
+    <div id="about-profiles">
+        <div class="profile-block">
+            <a href="https://www.linkedin.com/in/alexandre-prieur/" title="Profil LinkedIn d'Alex" target="_blank"><img class="profile-picture" src="../static/images/about-photos/alex.png" th:src="@{/images/about-photos/alex.png}" alt="Photo d'Alex"/></a>
+            <div class="profile-content">
+                <h3>Alex</h3>
+                <p>Développeur en herbe et benjamin de l'équipe, Alexandre passe une grande partie de son temps entre Hawaï et Toulouse City quand il n'est pas en train de marquer l'asphalte de la route 66.</p>
+            </div>
+        </div>
+        <div class="profile-block">
+            <a href="https://www.linkedin.com/in/jongendre/" title="Profil LinkedIn de Jon" target="_blank"><img class="profile-picture" src="../static/images/about-photos/jon.png" th:src="@{/images/about-photos/jon.png}" alt="Photo de Jon"/></a>
+            <div class="profile-content">
+                <h3>Jon</h3>
+                <p>Jonathan est né avec un processeur Pentium greffé sur le cerveau. Heureusement, la chirurgie a permis de le mettre à jour et il tourne aujourd'hui avec 12 coeurs. Son rêve est de devenir le prochain Super Mario. Mamma mia !</p>
+            </div>
+        </div>
+        <div class="profile-block">
+            <a href="https://www.linkedin.com/in/leafontaine42/" title="Profil LinkedIn de Léa" target="_blank"><img class="profile-picture" src="../static/images/about-photos/lea.png" th:src="@{/images/about-photos/lea.png}" alt="Photo de Léa"/></a>
+            <div class="profile-content">
+                <h3>Léa</h3>
+                <p>Léa est une passionnée. Aussi bien émue par les licornes que par le death metal, elle n'abandonne jamais ce qu'elle entreprend.</p>
+            </div>
+        </div>
+        <div class="profile-block">
+            <a href="https://www.linkedin.com/in/nabil-benssadek-1b9456194/" title="Profil LinkedIn de Nabil" target="_blank"><img class="profile-picture" src="../static/images/about-photos/nabil.png" th:src="@{/images/about-photos/nabil.png}" alt="Photo de Nabil"/></a>
+            <div class="profile-content">
+                <h3>Nabil</h3>
+                <p>La connaissance du web de Nabil est une source intarissable qu'il utilise tel un martinet pour pousser son équipe à atteindre l'excellence. Entre deux chaises, parfois plus front que back, sa soif d'apprendre n'a pas de limite.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:replace="footer :: bottom"></footer>
+</body>
+</html>
