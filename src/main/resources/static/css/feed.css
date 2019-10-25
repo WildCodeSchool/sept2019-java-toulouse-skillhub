@@ -105,7 +105,6 @@ hr {
     color: rgb(245, 245, 245);
     padding: 17px;
     border-radius: 50%;
-    box-shadow: 3px 3px 3px 0 rgba(194, 194, 194, 0.795);
 }
 
 @media screen and (min-width: 800px) {
