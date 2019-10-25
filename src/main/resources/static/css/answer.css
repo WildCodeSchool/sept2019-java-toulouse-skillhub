@@ -81,7 +81,7 @@ label {
 
 .buttons {
     display:flex;
-    justify-content: space-around;
+    justify-content: space-between;
     margin-bottom: 1rem;
 }
 
@@ -90,12 +90,14 @@ label {
     border: 0 solid #c0c0c0;
     border-radius: 5px;
     background-color: #F39C0B;
-    height: 3.5em;
-    width: 40%;
+    height: 3em;
+    width: 10em;
     color: aliceblue;
     outline:none;
     font-size: 1em;
     box-shadow: 1px 1px 10px 1px #cccccc;
+    cursor: pointer;
+    margin: 0 1em;
 }
 
 .solved {
@@ -103,12 +105,14 @@ label {
     border: 0 solid #c0c0c0;
     border-radius: 5px;
     background-color: #DF5507;
-    height: 3.5em;
-    width: 40%;
+    height: 3em;
+    width: 10em;
     color: aliceblue;
     outline:none;
     font-size: 1em;
     box-shadow: 1px 1px 10px 1px #cccccc;
+    cursor: pointer;
+    margin: 0 1em;
 }
 
 .submit:hover {
