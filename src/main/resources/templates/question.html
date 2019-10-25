@@ -3,72 +3,73 @@
 <head>
     <meta name="viewport" content="width=device-width initial-scale=1.0">
     <meta charset="UTF-8">
-    <link href="../static/css/styles.css" rel="stylesheet">
-    <link href="../static/css/question.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet">
+    <link href="../static/css/question.css" th:href="@{/css/question.css}" rel="stylesheet">
+    <link href="../static/css/nav.css" th:href="@{/css/nav.css}" rel="stylesheet">
     <title>Question</title>
 </head>
 <body>
     <header th:replace="header :: top"></header>
-    <section class="top">
-        <img src="../static/image/avatars/heisenberg.svg" alt="Avatar">
-        <h1>Heisenberg</h1>
-    </section>
-    <div class="desktop">
-        <div class="leftSide">
-            <form class="contTitleQuest">
-                <label for="titleQuestion">Titre de la question</label>
-                <textarea class="titleQuestion" id="titleQuestion" name="titleQuestion" placeholder="Ecrivez votre question"></textarea><br>
-            </form>
-            <div class="contComp">
-                <p class="titleCompetence">Compétence</p><br>
-                <form class="comp">
-                    <label>
-                        <input class="input" type="radio" name="skill" value="java" checked>
-                        Java
-                    </label><br>
-                    <label>
-                        <input class="input" type="radio" name="skill" value="javaScript">
-                        JavaScript
-                    </label><br>
-                    <label>
-                        <input class="input" type="radio" name="skill" value="python">
-                        Python
-                    </label><br>
-                    <label>
-                        <input class="input" type="radio" name="skill" value="kotlin">
-                        Kotlin
-                    </label><br>
-                    <label>
-                        <input class="input" type="radio" name="skill" value="html/css">
-                        HTML/CSS
-                    </label><br>
-                    <label>
-                        <input class="input" type="radio" name="skill" value="swift">
-                        Swift
-                    </label><br>
-                    <label>
-                        <input class="input" type="radio" name="skill" value="ruby">
-                        Ruby
-                    </label><br>
-                    <label>
-                        <input class="input" type="radio" name="skill" value="c#">
-                        C#
-                    </label><br>
+    <div class="body">
+        <section class="top">
+            <img class="avatar" src="../static/image/avatars/heisenberg.svg" th:src="@{/image/avatars/heisenberg.svg}" alt="Avatar">
+            <h1>Heisenberg</h1>
+        </section>
+        <div class="desktop">
+            <div class="leftSide">
+                <form class="contTitleQuest">
+                    <label for="titleQuestion">Titre de la question</label>
+                    <textarea class="titleQuestion" id="titleQuestion" name="titleQuestion" placeholder="Ecrivez votre question"></textarea><br>
                 </form>
+                <div class="contComp">
+                    <p class="titleCompetence">Compétence</p><br>
+                    <form class="comp">
+                        <label>
+                            <input class="input" type="radio" name="skill" value="java" checked>
+                            Java
+                        </label><br>
+                        <label>
+                            <input class="input" type="radio" name="skill" value="javaScript">
+                            JavaScript
+                        </label><br>
+                        <label>
+                            <input class="input" type="radio" name="skill" value="python">
+                            Python
+                        </label><br>
+                        <label>
+                            <input class="input" type="radio" name="skill" value="kotlin">
+                            Kotlin
+                        </label><br>
+                        <label>
+                            <input class="input" type="radio" name="skill" value="html/css">
+                            HTML/CSS
+                        </label><br>
+                        <label>
+                            <input class="input" type="radio" name="skill" value="swift">
+                            Swift
+                        </label><br>
+                        <label>
+                            <input class="input" type="radio" name="skill" value="ruby">
+                            Ruby
+                        </label><br>
+                        <label>
+                            <input class="input" type="radio" name="skill" value="c#">
+                            C#
+                        </label><br>
+                    </form>
+                </div>
             </div>
-        </div>
-        <div class="rightSide">
-            <div class="contQuest">
-                <form class="quest">
-                    <label for="question">Votre message</label>
-                    <textarea class="question" id="question" name="question" placeholder="Ecrivez votre message"></textarea>
-                </form>
+            <div class="rightSide">
+                <div class="contQuest">
+                    <form class="quest">
+                        <label for="question">Votre message</label>
+                        <textarea class="question" id="question" name="question" placeholder="Ecrivez votre message"></textarea>
+                    </form>
+                </div>
+                <input class="submit" type="submit" value="Poser votre question">
             </div>
-            <input class="submit" type="submit" value="Poser votre question">
-            <footer th:replace="footer :: bottom"></footer>
         </div>
     </div>
+    <footer th:replace="footer :: bottom"></footer>
 </body>
 </html>
