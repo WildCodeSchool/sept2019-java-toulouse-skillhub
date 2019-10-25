@@ -107,6 +107,7 @@ label {
     outline:none;
     font-size: 1em;
     box-shadow: 1px 1px 10px 1px #cccccc;
+    cursor: pointer;
 }
 
 .submit:hover {
