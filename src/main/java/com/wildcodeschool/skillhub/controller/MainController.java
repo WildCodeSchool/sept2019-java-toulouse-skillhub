@@ -17,7 +17,13 @@ public class MainController {
         return "feed";
     }
 
-    @GetMapping("/subscribe")
+    @PostMapping("/feed-connection")
+    public String feedConnection() {
+        return "feed";
+    }
+
+
+    @PostMapping("/subscribe")
     public String subscribe() {
         return "subscribe";
     }
