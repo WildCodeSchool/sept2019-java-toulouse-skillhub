@@ -12,6 +12,10 @@
     align-items: center;
 }
 
+#about-profiles {
+    margin-bottom: 30px;
+}
+
 .profile-block {
     margin-top: 50px;
 }
@@ -53,7 +57,7 @@
     #about-profiles {
         width: 45%;
         margin-top: 20px;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
     }
 
     .profile-block {
