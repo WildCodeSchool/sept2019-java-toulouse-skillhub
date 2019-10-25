@@ -16,6 +16,10 @@
     margin-top: 50px;
 }
 
+.profile-block a {
+    outline: none;
+}
+
 #about-text, #about-profiles {
     padding: 0 30px;
 }
