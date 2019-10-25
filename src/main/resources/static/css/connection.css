@@ -104,6 +104,10 @@ body {
     opacity: 1;
 }
 
+footer {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
 
 /*---------MEDIA SCREEN----------*/
 
@@ -142,7 +146,6 @@ body {
 @media screen and (max-width: 799px) {
 
     footer {
-        background-color: #2C2C2C;
         margin-top: auto;
     }
 
