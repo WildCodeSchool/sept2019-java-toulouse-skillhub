@@ -151,13 +151,13 @@ label {
 
 @media screen and (min-width: 800px) {
     .body {
-        max-width: 1100px;
+        max-width: 800px;
         margin-right: auto;
         margin-left: auto;
     }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 799px) {
     hr {
         position:absolute;
         left:0;
