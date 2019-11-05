@@ -18,65 +18,32 @@
 <footer th:replace="header :: top"></footer>
 <div class="container">
     <h2>Mes questions</h2>
-    <ul class="feeds">
+    <ul class="feeds" th:each="own : ${own}">
         <li class="ask">
             <div class="pictureDesk">
-                <img class="imageProfil" src="../images/about-photos/lea.png" th:src="@{/images/about-photos/lea.png}"
-                     alt="image de profil">
+                <img class="imageProfil" src="../images/about-photos/lea.png" th:src="${own.authorAvatarUrl}" alt="image de profil">
             </div>
             <div>
                 <div class="profilPicture">
                     <div class="pictureMobile">
                         <img class="imageProfil" src="../images/about-photos/alex.png"
-                             th:src="@{/images/about-photos/lea.png}" alt="image de profil">
+                             th:src="${own.authorAvatarUrl}" alt="image de profil">
                     </div>
 
-                    <h4>Léa</h4>
-                    <span>4 jours</span>
+                    <h4 th:text="${own.author}">Léa</h4>
+                    <span th:text="${own.date}">4 jours</span>
                 </div>
 
                 <div>
-                    <h1>Titre de la question existentielle, test de la longueur du titre</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio qui incidunt ipsa, corporis
+                    <h1 th:text="${own.title}">Titre de la question existentielle, test de la longueur du titre</h1>
+                    <p th:text="${own.body}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio qui incidunt ipsa, corporis
                         hic,
                         fuga officiis fugiat quam, libero neque totam error rem! Suscipit quia quasi adipisci alias
                         eveniet
                         magni.
                         <a th:href="@{/answer}" href="question.html"><span>...Lire la suite</span></a>
                     </p>
-                    <h6>#Java #Python #Javascript</h6>
-                    <div class="separation"></div>
-                    <hr>
-                </div>
-            </div>
-        </li>
-
-        <li class="ask">
-            <div class="pictureDesk">
-                <img class="imageProfil" src="../images/about-photos/alex.png" th:src="@{/images/about-photos/lea.png}"
-                     alt="image de profil">
-            </div>
-            <div>
-                <div class="profilPicture">
-                    <div class="pictureMobile">
-                        <img class="imageProfil" src="../images/about-photos/alex.png"
-                             th:src="@{/images/about-photos/lea.png}" alt="image de profil">
-                    </div>
-
-                    <h4>Léa</h4>
-                    <span>4 jours</span>
-                </div>
-
-                <div>
-                    <h1>Titre de la question existentielle, test de la longueur du titre</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio qui incidunt ipsa, corporis
-                        hic,
-                        fuga officiis fugiat quam, libero neque totam error rem! Suscipit quia quasi adipisci alias
-                        eveniet
-                        magni.
-                        <a href="question.html"><span>...Lire la suite</span></a>
-                    </p>
-                    <h6>#Java #Python #Javascript</h6>
+                    <h6 th:text="|#${own.skill}|">#Java #Python #Javascript</h6>
                     <div class="separation"></div>
                     <hr>
                 </div>
