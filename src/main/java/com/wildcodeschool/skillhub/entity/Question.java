@@ -1,20 +1,24 @@
 package com.wildcodeschool.skillhub.entity;
 
+import java.util.Date;
+
 public class Question {
 
     private Long id;
     private String title;
     private String body;
-    private String date;
+    private String bodyPreview;
+    private Date date;
     private boolean resolved;
     private String author;
     private String authorAvatarUrl;
     private String skill;
 
-    public Question(Long id, String title, String body, String date, boolean resolved, String author, String authorAvatarUrl, String skill) {
+    public Question(Long id, String title, String body, Date date, boolean resolved, String author, String authorAvatarUrl, String skill) {
         this.id = id;
         this.title = title;
         this.body = body;
+        this.bodyPreview = this.body.length() > 130 ? body.substring(0, 130) + "..." : body;
         this.date = date;
         this.resolved = resolved;
         this.author = author;
@@ -46,11 +50,22 @@ public class Question {
         this.body = body;
     }
 
-    public String getDate() {
-        return date;
+    public String getBodyPreview() {
+        return bodyPreview;
     }
 
-    public void setDate(String date) {
+    public void setBodyPreview(String bodyPreview) {
+        this.bodyPreview = bodyPreview;
+    }
+
+    public String getDate() {
+        return String.format("%s/%s/%s",
+                this.date.getDate(),
+                this.date.getMonth(),
+                this.date.getYear() + 1900);
+    }
+
+    public void setDate(Date date) {
         this.date = date;
     }
 

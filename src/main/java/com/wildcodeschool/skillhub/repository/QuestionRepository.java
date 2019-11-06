@@ -31,7 +31,7 @@ public class QuestionRepository {
             while (resultSet.next()) {
                 String title = resultSet.getString("title");
                 String body = resultSet.getString("body");
-                String date = resultSet.getString("date");
+                Date date = resultSet.getDate("date");
                 boolean resolved = resultSet.getBoolean("resolved");
                 String author = resultSet.getString("nickname");
                 String authorAvatarUrl = resultSet.getString("url");
