@@ -7,6 +7,7 @@ public class Question {
     private Long id;
     private String title;
     private String body;
+    private String bodyPreview;
     private Date date;
     private boolean resolved;
     private String author;
@@ -17,6 +18,7 @@ public class Question {
         this.id = id;
         this.title = title;
         this.body = body;
+        this.bodyPreview = this.body.length() > 130 ? body.substring(0, 130) + "..." : body;
         this.date = date;
         this.resolved = resolved;
         this.author = author;
@@ -46,6 +48,14 @@ public class Question {
 
     public void setBody(String body) {
         this.body = body;
+    }
+
+    public String getBodyPreview() {
+        return bodyPreview;
+    }
+
+    public void setBodyPreview(String bodyPreview) {
+        this.bodyPreview = bodyPreview;
     }
 
     public String getDate() {
