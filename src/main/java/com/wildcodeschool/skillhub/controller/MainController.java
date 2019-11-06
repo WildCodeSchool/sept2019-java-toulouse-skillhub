@@ -17,7 +17,6 @@ public class MainController {
         return "feed";
     }
 
-
     @PostMapping("/subscribe")
     public String subscribe() {
         return "subscribe";
@@ -42,4 +41,5 @@ public class MainController {
     public String profile() {
         return "profile";
     }
+
 }
