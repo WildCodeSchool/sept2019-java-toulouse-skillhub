@@ -4,7 +4,8 @@ import java.util.Date;
 
 public class Question {
 
-    private Long id;
+    private Long userId;
+    private Long questionId;
     private String title;
     private String body;
     private String bodyPreview;
@@ -14,8 +15,9 @@ public class Question {
     private String authorAvatarUrl;
     private String skill;
 
-    public Question(Long id, String title, String body, Date date, boolean resolved, String author, String authorAvatarUrl, String skill) {
-        this.id = id;
+    public Question(Long userId, Long questionId, String title, String body, Date date, boolean resolved, String author, String authorAvatarUrl, String skill) {
+        this.userId = userId;
+        this.questionId = questionId;
         this.title = title;
         this.body = body;
         this.bodyPreview = this.body.length() > 130 ? body.substring(0, 130) + "..." : body;
@@ -26,12 +28,20 @@ public class Question {
         this.skill = skill;
     }
 
-    public Long getId() {
-        return id;
+    public Long getUserIdId() {
+        return this.userId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setUserIdId(Long userId) {
+        this.userId = userId;
+    }
+
+    public Long getQuestionId() {
+        return questionId;
+    }
+
+    public void setQuestionId(Long questionId) {
+        this.questionId = questionId;
     }
 
     public String getTitle() {
