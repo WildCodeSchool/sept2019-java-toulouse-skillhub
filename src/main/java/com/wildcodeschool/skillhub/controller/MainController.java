@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class MainController {
 
-    @GetMapping("/")
+/*    @GetMapping("/")
     public String index() {
         return "index";
     }
@@ -46,5 +46,5 @@ public class MainController {
     @GetMapping("/profile")
     public String profile() {
         return "profile";
-    }
+    }*/
 }
