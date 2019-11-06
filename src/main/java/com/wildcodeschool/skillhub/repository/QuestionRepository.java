@@ -68,7 +68,7 @@ public class QuestionRepository {
 
             if (generatedKeys.next()) {
                 Long id = generatedKeys.getLong(1);
-                return new Answer(id);
+                return new Answer(answerArea);
             } else {
                 throw new SQLException("failed to get inserted id");
             }
