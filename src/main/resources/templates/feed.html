@@ -29,7 +29,7 @@
         </div>
         <div class="feed-bottom">
             <p th:text="${own.body}">Contenu de la question</p>
-            <p><a th:href="@{/answer}">...Lire la suite</a></p>
+            <p><a th:href="@{/question(id=${own.id})}">...Lire la suite</a></p>
             <h6 th:text="|#${own.skill}|">#Skill</h6>
             <div class="feed-separation"></div>
             <hr>
