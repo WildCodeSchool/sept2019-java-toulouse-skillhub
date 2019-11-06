@@ -23,7 +23,7 @@
             <img class="feed-picture" th:src="${own.authorAvatarUrl}" alt="Avatar">
             <div class="feed-title">
                 <h4 th:text="${own.author}">Auteur</h4>
-                <div th:text="${own.date}">Date</div>
+                <div th:text="|le  ${own.date}|">Date</div>
                 <h1 th:text="${own.title}">Titre de la question</h1>
             </div>
         </div>
