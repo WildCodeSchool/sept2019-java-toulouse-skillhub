@@ -7,6 +7,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 public class UserController {
 
@@ -17,8 +20,13 @@ public class UserController {
 
         Long userId = repository.checkUser(username, password);
         if (userId != 0) {
-            model.addAttribute("own", repository.);
-            return "feed";
+            List<Long> skillsId = new ArrayList<>();
+            skillsId.add(1l);
+            skillsId.add(3l);
+            skillsId.add(5l);
+
+            model.addAttribute("userId", 1l);
+            return "redirect:/feed";
         }
         else {
             return "index";

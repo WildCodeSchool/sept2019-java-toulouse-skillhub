@@ -29,7 +29,7 @@
         </div>
         <div class="feed-bottom">
             <p th:text="${own.bodyPreview}">Contenu de la question</p>
-            <p><a th:href="@{/question(id=${own.id})}">Lire la suite</a></p>
+            <p><a th:href="@{/question(id=${own.questionId})}">Lire la suite</a></p>
             <h6 th:text="|#${own.skill}|">#Skill</h6>
             <div class="feed-separation"></div>
             <hr>
@@ -37,71 +37,23 @@
     </div>
 
     <h2>Nouvelles questions</h2>
-    <ul class="feed-block">
-        <li class="ask">
-            <div class="pictureDesk">
-                <img class="feed-picture" src="../images/about-photos/alex.png" th:src="@{/images/about-photos/jon.png}"
-                     alt="image de profil">
+    <div class="feed-block" th:each="other : ${other}">
+        <div class="feed-top">
+            <img class="feed-picture" th:src="${other.authorAvatarUrl}" alt="Avatar">
+            <div class="feed-title">
+                <h4 th:text="${other.author}">Auteur</h4>
+                <div th:text="|le  ${other.date}|">Date</div>
+                <h1 th:text="${other.title}">Titre de la question</h1>
             </div>
-            <div>
-                <div class="feed-top">
-                    <div class="pictureMobile">
-                        <img class="feed-picture" src="../images/about-photos/alex.png"
-                             th:src="@{/images/about-photos/jon.png}" alt="image de profil">
-                    </div>
-
-                    <h4>Jon</h4>
-                    <span>4 jours</span>
-                </div>
-
-                <div>
-                    <h1>Titre de la question existentielle, test de la longueur du titre</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio qui incidunt ipsa, corporis
-                        hic,
-                        fuga officiis fugiat quam, libero neque totam error rem! Suscipit quia quasi adipisci alias
-                        eveniet
-                        magni.
-                        <a href="question.html"><span>...Lire la suite</span></a>
-                    </p>
-                    <h6>#Java #Python #Javascript</h6>
-                    <div class="feed-separation"></div>
-                    <hr>
-                </div>
-            </div>
-        </li>
-
-        <li class="ask">
-            <div class="pictureDesk">
-                <img class="feed-picture" src="../images/about-photos/alex.png" th:src="@{/images/about-photos/nabil.png}"
-                     alt="image de profil">
-            </div>
-            <div>
-                <div class="feed-top">
-                    <div class="pictureMobile">
-                        <img class="feed-picture" src="../images/about-photos/alex.png"
-                             th:src="@{/images/about-photos/nabil.png}" alt="image de profil">
-                    </div>
-
-                    <h4>Nabil</h4>
-                    <span>4 jours</span>
-                </div>
-
-                <div>
-                    <h1>Titre de la question existentielle, test de la longueur du titre</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio qui incidunt ipsa, corporis
-                        hic,
-                        fuga officiis fugiat quam, libero neque totam error rem! Suscipit quia quasi adipisci alias
-                        eveniet
-                        magni.
-                        <a href="question.html"><span>...Lire la suite</span></a>
-                    </p>
-                    <h6>#Java #Python #Javascript</h6>
-                    <div class="feed-separation"></div>
-                    <hr>
-                </div>
-            </div>
-        </li>
-    </ul>
+        </div>
+        <div class="feed-bottom">
+            <p th:text="${other.bodyPreview}">Contenu de la question</p>
+            <p><a th:href="@{/question(id=${other.questionId})}">Lire la suite</a></p>
+            <h6 th:text="|#${other.skill}|">#Skill</h6>
+            <div class="feed-separation"></div>
+            <hr>
+        </div>
+    </div>
     <div>
         <a th:href="@{/question}"><span class="btn"><i class="fa fa-pencil"></i></span></a>
     </div>
