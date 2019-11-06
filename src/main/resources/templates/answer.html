@@ -22,13 +22,20 @@
             quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de
             polices de texte ?</span>
         <span class="tags">#Java</span>
-        <label for="answerArea">Votre message</label>
-        <textarea class="answerArea" id="answerArea" name="answerArea" placeholder="Votre message"></textarea>
+
+
         <div class="buttons">
-            <input class="submit" type="submit" value="Répondre">
             <input class="solved" type="submit" value="Résolu">
         </div>
+
+        <form action="/wizard" method="post">
+            <label for="answerArea">Votre réponse</label>
+            <textarea class="answerArea" id="answerArea" name="answerArea" placeholder="Votre message"></textarea>
+            <input class="submit" type="submit" value="Répondre">
+        </form>
+
         <hr>
+
         <span class="nbAnswer">30 réponses</span>
         <div class="answerer">
             <img class="avatar" src="../static/images/avatars/napoleon.svg" th:src="@{/static/images/avatars/napoleon.svg}" alt="Avatar">

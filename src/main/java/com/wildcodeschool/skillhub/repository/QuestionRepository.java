@@ -1,5 +1,6 @@
 package com.wildcodeschool.skillhub.repository;
 
+import com.wildcodeschool.skillhub.entity.Answer;
 import com.wildcodeschool.skillhub.entity.Question;
 
 import java.sql.*;
@@ -41,6 +42,37 @@ public class QuestionRepository {
             return questions;
 
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public Answer save(String answerArea) {
+
+        try {
+            Connection connection = DriverManager.getConnection(
+                    DB_URL, DB_USER, DB_PASSWORD
+            );
+            PreparedStatement statement = connection.prepareStatement(
+                    "INSERT INTO answer (body) VALUES (?)",
+                    Statement.RETURN_GENERATED_KEYS
+            );
+            statement.setString(1, answerArea);
+
+
+            if (statement.executeUpdate() != 1) {
+                throw new SQLException("failed to insert data");
+            }
+
+            ResultSet generatedKeys = statement.getGeneratedKeys();
+
+            if (generatedKeys.next()) {
+                Long id = generatedKeys.getLong(1);
+                return new Answer(id);
+            } else {
+                throw new SQLException("failed to get inserted id");
+            }
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;
