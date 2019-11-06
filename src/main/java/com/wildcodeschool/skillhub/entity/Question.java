@@ -28,11 +28,11 @@ public class Question {
         this.skill = skill;
     }
 
-    public Long getUserIdId() {
+    public Long getUserId() {
         return this.userId;
     }
 
-    public void setUserIdId(Long userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
