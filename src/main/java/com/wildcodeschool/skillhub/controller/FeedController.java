@@ -13,7 +13,7 @@ public class FeedController {
     @GetMapping("/feed")
     public String getOwn(Model model) {
 
-        model.addAttribute("own", repository.findAllOwn(3l));
+        model.addAttribute("own", repository.findAllOwn(4l));
 
         return "feed";
     }
