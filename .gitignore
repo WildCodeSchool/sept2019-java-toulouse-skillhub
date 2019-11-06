@@ -29,3 +29,10 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### DS_Store ###
+.DS_Store
+
+### About page experimental ###
+about-v2.css
+about-v2.html

@@ -1,0 +1,128 @@
+h1, h2, h4, h6 {
+    color: #333333;
+}
+
+body {
+    font-family: Roboto;
+}
+
+.feed-container {
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.feed-container h2 {
+    margin-top: 50px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+.feed-container a {
+    text-decoration: none;
+}
+
+.feed-block {
+    display: flex;
+    flex-direction: column;
+    margin: 25px 18px 25px 18px;
+    padding: 0;
+    width: 100%;
+}
+
+.feed-top {
+    display: flex;
+    align-items: flex-start;
+}
+
+.feed-picture {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-size: auto;
+}
+
+.feed-title {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    margin-left: 10px;
+}
+
+.feed-title h1 {
+    width: 100%;
+    font-size: 20px;
+    margin: 12px 0 8px 0;
+}
+
+.feed-title h4 {
+    font-size: 14px;
+    padding-right: 8px;
+}
+
+.feed-title div {
+    font-size: 13px;
+    color: #828282;
+}
+
+.feed-bottom {
+    margin-top: 10px;
+}
+
+.feed-bottom p {
+    font-size: 14px;
+    color: rgb(61, 61, 61);
+    margin: 3px 0;
+    line-height: 22px;
+}
+
+.feed-bottom h6 {
+    color: #E7950D;
+    font-size: 14px;
+    margin: 20px 0 35px 0;
+}
+
+.feed-separation {
+    position: absolute;
+    left: 0;
+    height: 5px;
+    background-color: #E5E5E5;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.feed-bottom hr {
+    display: none;
+}
+
+.fa-pencil {
+    font-size: 30px;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #E7950D;
+    color: rgb(245, 245, 245);
+    padding: 17px;
+    border-radius: 50%;
+}
+
+@media screen and (min-width: 800px) {
+
+    .feed-bottom {
+        margin-left: 80px;
+    }
+
+    .feed-separation {
+        display: none;
+    }
+
+    .feed-bottom hr {
+        display: block;
+        color: rgba(235, 235, 235, 0.384);
+    }
+
+    .fa-pencil {
+        display: none;
+    }
+}
+
+

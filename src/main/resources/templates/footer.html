@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Skill Hub</title>
+        <link rel="stylesheet" href="../static/css/nav.css" th:href="@{/css/nav.css}">
+    </head>
+
+    <body>
+        <footer th:fragment="bottom">
+            <div class="nav-container">
+                <div><a th:href="@{/about}" href="about.html" title="À propos">À propos</a></div>
+            </div>
+        </footer>
+    </body>
+</html>

@@ -1,12 +1,12 @@
 body {
-    background: url("../image/filleDesk.png") no-repeat center center fixed;
+    background: url("../images/filleDesk.png") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 }
 
-.flotte {
+.float {
     display: flex;
     align-items: center;
     margin: 0 10px;
@@ -14,7 +14,7 @@ body {
 
 .logo {
     margin-left: -10px;
-    margin-top: 10vh;
+    margin-top: 20vh;
     display: flex;
     justify-content: center;
 }
@@ -25,7 +25,7 @@ body {
     align-items: center;
 }
 
-.titre {
+.title {
     color: #333333;
     font-family: Roboto, Verdana, Arial, sans-serif;
     font-style: normal;
@@ -62,7 +62,7 @@ body {
 
 /*------------Connexion-------------*/
 
-.connexion {
+.connection {
     width: 320px;
     box-shadow: 0 4px 25px rgba(0, 0, 0, 0.25);
     border: none;
@@ -81,7 +81,7 @@ body {
     background-color: #F39C0B;
 }
 
-.connexion:hover {
+.connection:hover {
     border-color: #F39C0B;
     box-shadow: 0 0 8px 0 #F39C0B;
     cursor: pointer;
@@ -89,12 +89,12 @@ body {
 
 /*------------Inscription-------------*/
 
-.inscription {
+.signIn {
     box-shadow: 0 4px 25px rgba(0, 0, 0, 0.25);
     background-color: #333333;
 }
 
-.inscription:hover {
+.signIn:hover {
     border-color: #333333;
     box-shadow: 0 0 8px 0 #333333;
 }
@@ -104,16 +104,20 @@ body {
     opacity: 1;
 }
 
+footer {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+
 /*---------MEDIA SCREEN----------*/
 
 @media screen and (min-width: 800px) {
 
     .logo {
         margin-top: 20vh;
-        margin-bottom: -30px;
     }
 
-    .titre {
+    .title {
         font-size: 60px;
     }
 
@@ -125,7 +129,7 @@ body {
         line-height: 20px;
     }
 
-    .connexion {
+    .connection {
         width: 450px;
         height: 63px;
         margin: 8px 0;
@@ -137,4 +141,24 @@ body {
 }
 
 
+/*---------MEDIA SCREEN FOOTER PAGE CONNEXION ----------*/
 
+@media screen and (max-width: 799px) {
+
+    footer {
+        margin-top: auto;
+    }
+
+    footer .nav-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 14px;
+    }
+
+    footer .nav-container div {
+        padding-right: 12px;
+    }
+}
