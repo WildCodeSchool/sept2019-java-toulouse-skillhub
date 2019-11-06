@@ -19,7 +19,7 @@
         </div>
         <span th:text="${question.title}" class="titleQuestion">Titre</span>
         <span th:text="${question.body}" class="question"></span>
-        <span th:text="${question.skill}" class="tags">#Java</span>
+        <span th:text="|#${question.skill}|" class="tags">#Java</span>
 
         <label for="answerArea">Votre message</label>
         <textarea class="answerArea" id="answerArea" name="answerArea" placeholder="Votre message"></textarea>
@@ -28,7 +28,7 @@
             <input class="solved" type="submit" value="Résolu">
         </div>
         <hr>
-        <span th:text="|${answerNumber} Réponses|" class="nbAnswer">30 réponses</span>
+        <span th:text="|${answerNumber} réponses|" class="nbAnswer">30 réponses</span>
 
         <div th:each="ans : ${answer}">
         <div class="answerer">
