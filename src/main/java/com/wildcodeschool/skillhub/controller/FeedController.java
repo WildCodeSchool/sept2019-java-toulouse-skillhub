@@ -1,6 +1,8 @@
 package com.wildcodeschool.skillhub.controller;
 
+import com.wildcodeschool.skillhub.entity.User;
 import com.wildcodeschool.skillhub.repository.QuestionRepository;
+import com.wildcodeschool.skillhub.repository.UserRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,18 +14,15 @@ import java.util.List;
 @Controller
 public class FeedController {
 
-    private QuestionRepository repository = new QuestionRepository();
+    private QuestionRepository qRepository = new QuestionRepository();
+    private UserRepository uRepository = new UserRepository();
 
     @GetMapping("/feed")
-    public String getOwn(Model model, @RequestParam Long userId) {
+    public String getFeed(Model model, @RequestParam Long userId) {
 
-        List<Long> skillsId = new ArrayList<>();
-        skillsId.add(1l);
-        skillsId.add(3l);
-        skillsId.add(5l);
-
-        model.addAttribute("own", repository.findAllOwn(userId));
-        model.addAttribute("other", repository.findAllOther(skillsId, userId));
+        User user = uRepository.getUser(userId);
+        model.addAttribute("own", qRepository.findAllOwn(userId));
+        model.addAttribute("other", qRepository.findAllOther(user.getSkillsId(), userId));
         return "feed";
     }
 }
