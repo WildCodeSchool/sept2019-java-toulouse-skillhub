@@ -3,8 +3,6 @@ package com.wildcodeschool.skillhub.repository;
 import com.wildcodeschool.skillhub.entity.Question;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class UserRepository {
 
@@ -21,11 +19,12 @@ public class UserRepository {
             );
             statement.setString(1, username);
             statement.setString(2, password);
-            List<Question> questions = new ArrayList<>();
+            Long userId = 0l;
             ResultSet resultSet = statement.executeQuery();
-
+            if (resultSet.next()) {
+                userId = resultSet.getLong("id_user");
             }
-            return questions;
+            return userId;
 
         } catch (SQLException e) {
             e.printStackTrace();
