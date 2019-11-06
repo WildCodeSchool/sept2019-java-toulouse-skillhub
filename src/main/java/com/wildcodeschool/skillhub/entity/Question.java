@@ -28,8 +28,9 @@ public class Question {
 
     }
 
+
     public Long getUserId() {
-        return userId;
+        return this.userId;
     }
 
     public void setUserId(Long userId) {
