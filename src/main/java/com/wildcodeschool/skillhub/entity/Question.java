@@ -47,6 +47,7 @@ public class Question {
     }
 
     public Date getDate() {
+
         return date;
     }
 

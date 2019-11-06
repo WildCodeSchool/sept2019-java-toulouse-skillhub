@@ -1,7 +1,6 @@
 package com.wildcodeschool.skillhub.repository;
 
 import com.wildcodeschool.skillhub.entity.Question;
-import com.wildcodeschool.skillhub.entity.User;
 
 import java.sql.*;
 
@@ -18,7 +17,12 @@ public class QuestionRepository {
                     DB_URL, DB_USER, DB_PASSWORD
             );
             PreparedStatement statement = connection.prepareStatement(
-                    "SELECT * FROM question WHERE id_question = ?;"
+                    "SELECT * FROM question\n" +
+                            "JOIN user ON question.id_user = user.id_user\n" +
+                            "JOIN picture ON user.id_picture = picture.id_picture\n" +
+                            "JOIN question_skill ON question.id_question = question_skill.id_question\n" +
+                            "JOIN skill ON question_skill.id_skill = skill.id_skill\n" +
+                            "WHERE question.id_question = ?;"
             );
             statement.setLong(1, id);
             ResultSet resultSet = statement.executeQuery();
