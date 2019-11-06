@@ -1,33 +1,47 @@
 package com.wildcodeschool.skillhub.entity;
-
 import java.util.Date;
 
 public class Question {
 
-    private Long id_question;
+    private Long userId;
+    private Long questionId;
     private String title;
     private String body;
+    private String bodyPreview;
     private Date date;
     private boolean resolved;
-    private Long id_user;
+    private String author;
+    private String authorAvatarUrl;
+    private String skill;
 
-    public Question() { }
-
-    public Question(Long id_question, String title, String body, Date date, boolean resolved, Long id_user) {
-        this.id_question = id_question;
+    public Question(Long userId, Long questionId, String title, String body, Date date, boolean resolved, String author, String authorAvatarUrl, String skill) {
+        this.userId = userId;
+        this.questionId = questionId;
         this.title = title;
         this.body = body;
+        this.bodyPreview = this.body.length() > 130 ? body.substring(0, 130) + "..." : body;
         this.date = date;
         this.resolved = resolved;
-        this.id_user = id_user;
+        this.author = author;
+        this.authorAvatarUrl = authorAvatarUrl;
+        this.skill = skill;
+
     }
 
-    public Long getId_question() {
-        return id_question;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setId_question(Long id_question) {
-        this.id_question = id_question;
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public Long getQuestionId() {
+        return questionId;
+    }
+
+    public void setQuestionId(Long questionId) {
+        this.questionId = questionId;
     }
 
     public String getTitle() {
@@ -46,9 +60,19 @@ public class Question {
         this.body = body;
     }
 
-    public Date getDate() {
+    public String getBodyPreview() {
+        return bodyPreview;
+    }
 
-        return date;
+    public void setBodyPreview(String bodyPreview) {
+        this.bodyPreview = bodyPreview;
+    }
+
+    public String getDate() {
+        return String.format("%s/%s/%s",
+                this.date.getDate(),
+                this.date.getMonth(),
+                this.date.getYear() + 1900);
     }
 
     public void setDate(Date date) {
@@ -63,11 +87,27 @@ public class Question {
         this.resolved = resolved;
     }
 
-    public Long getId_user() {
-        return id_user;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setId_user(Long id_user) {
-        this.id_user = id_user;
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getAuthorAvatarUrl() {
+        return authorAvatarUrl;
+    }
+
+    public void setAuthorAvatarUrl(String authorAvatarUrl) {
+        this.authorAvatarUrl = authorAvatarUrl;
+    }
+
+    public String getSkill() {
+        return skill;
+    }
+
+    public void setSkill(String skill) {
+        this.skill = skill;
     }
 }

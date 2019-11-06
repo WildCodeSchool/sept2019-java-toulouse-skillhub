@@ -12,11 +12,6 @@ public class MainController {
         return "index";
     }
 
-    @GetMapping("/feed")
-    public String feed() {
-        return "feed";
-    }
-
     @PostMapping("/feed-connection")
     public String feedConnection() {
         return "feed";
