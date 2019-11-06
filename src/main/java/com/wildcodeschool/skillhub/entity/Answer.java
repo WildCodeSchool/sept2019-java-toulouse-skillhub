@@ -46,8 +46,11 @@ public class Answer {
         this.body = body;
     }
 
-    public Date getDate() {
-        return date;
+    public String getDate() {
+        return String.format("%s/%s/%s",
+                this.date.getDate(),
+                this.date.getMonth(),
+                this.date.getYear() + 1900);
     }
 
     public void setDate(Date date) {

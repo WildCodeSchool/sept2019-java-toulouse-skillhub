@@ -19,6 +19,10 @@ public class QuestionController {
         model.addAttribute("question", questionRepository.findQuestion(id));
         model.addAttribute("answer", answerRepository.findAnswers(id));
 
+        int answerNumber = answerRepository.findAnswers(id).size();
+
+        model.addAttribute("answerNumber", answerNumber);
+
         return "answer";
     }
 }
