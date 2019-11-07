@@ -1,31 +1,29 @@
 package com.wildcodeschool.skillhub.entity;
 
-import java.util.Date;
+import java.util.List;
 
 public class User {
 
-    private Long idUser;
+    private Long userId;
     private String nickname;
     private String password;
-    private Long idPicture;
-    private String url;
+    private String avatarUrl;
+    private List<Long> skillsId;
 
-    public User (){}
-
-    public User(Long idUser, String nickname, String password, Long idPicture, String url) {
-        this.idUser = idUser;
+    public User(Long userId, String nickname, String password, String avatarUrl, List<Long> skillsId) {
+        this.userId = userId;
         this.nickname = nickname;
         this.password = password;
-        this.idPicture = idPicture;
-        this.url = url;
+        this.avatarUrl = avatarUrl;
+        this.skillsId = skillsId;
     }
 
-    public Long getIdUser() {
-        return idUser;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setIdUser(Long idUser) {
-        this.idUser = idUser;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public String getNickname() {
@@ -36,6 +34,14 @@ public class User {
         this.nickname = nickname;
     }
 
+    public List<Long> getSkillsId() {
+        return skillsId;
+    }
+
+    public void setSkillsId(List<Long> skillsId) {
+        this.skillsId = skillsId;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -44,19 +50,11 @@ public class User {
         this.password = password;
     }
 
-    public Long getIdPicture() {
-        return idPicture;
+    public String getAvatarUrl() {
+        return avatarUrl;
     }
 
-    public void setIdPicture(Long idPicture) {
-        this.idPicture = idPicture;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
     }
 }

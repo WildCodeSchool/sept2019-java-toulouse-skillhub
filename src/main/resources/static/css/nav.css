@@ -109,7 +109,7 @@ header a:hover, footer a:hover {
     color: white;
     background-color: rgba(0, 0, 0, 0.9);
     overflow-y: auto;
-    transform: translateY(-120%);
+    transform: translateY(-130%);
     transition: transform .2s ease-out;
 }
 

@@ -95,7 +95,7 @@ public class QuestionRepository {
                                     "JOIN picture ON user.id_picture = picture.id_picture\n" +
                                     "JOIN question_skill ON question.id_question = question_skill.id_question\n" +
                                     "JOIN skill ON question_skill.id_skill = skill.id_skill\n" +
-                                    "WHERE question_skill.id_skill = ? AND question.id_user <> ?;"
+                                    "WHERE question_skill.id_skill = ? AND question.id_user != ?;"
                     );
                     statement.setLong(1, skillId);
                     statement.setLong(2, userId);
