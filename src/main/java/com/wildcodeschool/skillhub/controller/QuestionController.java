@@ -23,8 +23,11 @@ public class QuestionController {
     private AnswerRepository answerRepository = new AnswerRepository();
 
     @GetMapping("/question")
-    public String getQuestion(Model model, @RequestParam Long id) {
+    public String getQuestion(Model model, @RequestParam Long id, HttpSession session) {
 
+        if (session.getAttribute("user") == null) {
+            return "index";
+        }
         model.addAttribute("question", questionRepository.findQuestion(id));
         model.addAttribute("answer", answerRepository.findAnswers(id));
 
@@ -38,6 +41,9 @@ public class QuestionController {
     @PostMapping("/answer")
     public String postAnswer(Model model, @RequestParam Long id,
                              @RequestParam String body, HttpSession session) {
+        if (session.getAttribute("user") == null) {
+            return "index";
+        }
         User user = (User)session.getAttribute("user");
         model.addAttribute("answer", answerRepository.saveAnswer(id, body, new Date(System.currentTimeMillis()),
                 user.getUserId()));

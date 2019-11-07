@@ -60,7 +60,7 @@ public class QuestionRepository {
                             "JOIN picture ON user.id_picture = picture.id_picture\n" +
                             "JOIN question_skill ON question.id_question = question_skill.id_question\n" +
                             "JOIN skill ON question_skill.id_skill = skill.id_skill\n" +
-                            "WHERE question.id_question = ?;"
+                            "WHERE question.resolved = false AND question.id_question = ?;"
             );
             statement.setLong(1, questionId);
             ResultSet resultSet = statement.executeQuery();
@@ -95,7 +95,7 @@ public class QuestionRepository {
                                 "JOIN picture ON user.id_picture = picture.id_picture\n" +
                                 "JOIN question_skill ON question.id_question = question_skill.id_question\n" +
                                 "JOIN skill ON question_skill.id_skill = skill.id_skill\n" +
-                                "WHERE question_skill.id_skill = ? AND question.id_user != ?;"
+                                "WHERE question.resolved = false AND question_skill.id_skill = ? AND question.id_user != ?;"
                 );
                 statement.setLong(1, skillId);
                 statement.setLong(2, userId);
