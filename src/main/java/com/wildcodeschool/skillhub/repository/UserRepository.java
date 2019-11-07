@@ -26,6 +26,7 @@ public class UserRepository {
             resultSet.next();
             String username = resultSet.getString("nickname");
             String avatarUrl = resultSet.getString("url");
+            String password = resultSet.getString("password");
 
 
             statement = connection.prepareStatement(
@@ -42,7 +43,7 @@ public class UserRepository {
                 skillsId.add(resultSet.getLong("id_skill"));
             }
 
-            return new User(userId, username, avatarUrl, skillsId);
+            return new User(userId, username, password, avatarUrl, skillsId);
 
         } catch (SQLException e) {
             e.printStackTrace();
