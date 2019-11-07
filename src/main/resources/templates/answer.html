@@ -23,7 +23,6 @@
 
         <form action="/answer" method="post">
             <input th:value="${question.questionId}" name="id" type="hidden">
-            <input th:value="${question.userId}" name="userId" type="hidden">
             <label for="answerArea">Votre réponse</label>
             <textarea class="answerArea" id="answerArea" name="body" placeholder="Votre message"></textarea>
             <input class="submit" type="submit" value="Répondre">
