@@ -1,6 +1,5 @@
 package com.wildcodeschool.skillhub.repository;
 
-import com.wildcodeschool.skillhub.entity.Answer;
 import com.wildcodeschool.skillhub.entity.Question;
 
 import java.sql.*;
@@ -30,6 +29,7 @@ public class QuestionRepository {
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
+
                 Long questionId = resultSet.getLong("question.id_question");
                 String title = resultSet.getString("title");
                 String body = resultSet.getString("body");
@@ -48,30 +48,33 @@ public class QuestionRepository {
         return null;
     }
 
-    public Answer save(String answerArea) {
+    public Question findQuestion(Long questionId) {
 
         try {
             Connection connection = DriverManager.getConnection(
                     DB_URL, DB_USER, DB_PASSWORD
             );
             PreparedStatement statement = connection.prepareStatement(
-                    "INSERT INTO answer (body) VALUES (?)",
-                    Statement.RETURN_GENERATED_KEYS
+                    "SELECT * FROM question\n" +
+                            "JOIN user ON question.id_user = user.id_user\n" +
+                            "JOIN picture ON user.id_picture = picture.id_picture\n" +
+                            "JOIN question_skill ON question.id_question = question_skill.id_question\n" +
+                            "JOIN skill ON question_skill.id_skill = skill.id_skill\n" +
+                            "WHERE question.id_question = ?;"
             );
-            statement.setString(1, answerArea);
+            statement.setLong(1, questionId);
+            ResultSet resultSet = statement.executeQuery();
 
-
-            if (statement.executeUpdate() != 1) {
-                throw new SQLException("failed to insert data");
-            }
-
-            ResultSet generatedKeys = statement.getGeneratedKeys();
-
-            if (generatedKeys.next()) {
-                Long id = generatedKeys.getLong(1);
-                return new Answer(answerArea);
-            } else {
-                throw new SQLException("failed to get inserted id");
+            if (resultSet.next()) {
+                Long userId = resultSet.getLong("id_user");
+                String title = resultSet.getString("title");
+                String body = resultSet.getString("body");
+                Date date = resultSet.getDate("date");
+                boolean resolved = resultSet.getBoolean("resolved");
+                String author = resultSet.getString("nickname");
+                String authorAvatarUrl = resultSet.getString("url");
+                String skill = resultSet.getString("name");
+                return new Question(userId, questionId, title, body, date, resolved, author, authorAvatarUrl, skill);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -83,38 +86,38 @@ public class QuestionRepository {
 
         List<Question> questions = new ArrayList<>();
 
-            try {
-                for (Long skillId : skillsId) {
-                    Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-                    PreparedStatement statement = connection.prepareStatement(
-                            "SELECT * FROM question\n" +
-                                    "JOIN user ON question.id_user = user.id_user\n" +
-                                    "JOIN picture ON user.id_picture = picture.id_picture\n" +
-                                    "JOIN question_skill ON question.id_question = question_skill.id_question\n" +
-                                    "JOIN skill ON question_skill.id_skill = skill.id_skill\n" +
-                                    "WHERE question_skill.id_skill = ? AND question.id_user <> ?;"
-                    );
-                    statement.setLong(1, skillId);
-                    statement.setLong(2, userId);
-                    ResultSet resultSet = statement.executeQuery();
+        try {
+            for (Long skillId : skillsId) {
+                Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+                PreparedStatement statement = connection.prepareStatement(
+                        "SELECT * FROM question\n" +
+                                "JOIN user ON question.id_user = user.id_user\n" +
+                                "JOIN picture ON user.id_picture = picture.id_picture\n" +
+                                "JOIN question_skill ON question.id_question = question_skill.id_question\n" +
+                                "JOIN skill ON question_skill.id_skill = skill.id_skill\n" +
+                                "WHERE question_skill.id_skill = ? AND question.id_user <> ?;"
+                );
+                statement.setLong(1, skillId);
+                statement.setLong(2, userId);
+                ResultSet resultSet = statement.executeQuery();
 
-                    while (resultSet.next()) {
-                        Long questionId = resultSet.getLong("question.id_question");
-                        String title = resultSet.getString("title");
-                        String body = resultSet.getString("body");
-                        Date date = resultSet.getDate("date");
-                        boolean resolved = resultSet.getBoolean("resolved");
-                        String author = resultSet.getString("nickname");
-                        String authorAvatarUrl = resultSet.getString("url");
-                        String skill = resultSet.getString("name");
-                        questions.add(new Question(userId, questionId, title, body, date, resolved, author, authorAvatarUrl, skill));
-                    }
+                while (resultSet.next()) {
+                    Long questionId = resultSet.getLong("question.id_question");
+                    String title = resultSet.getString("title");
+                    String body = resultSet.getString("body");
+                    Date date = resultSet.getDate("date");
+                    boolean resolved = resultSet.getBoolean("resolved");
+                    String author = resultSet.getString("nickname");
+                    String authorAvatarUrl = resultSet.getString("url");
+                    String skill = resultSet.getString("name");
+                    questions.add(new Question(userId, questionId, title, body, date, resolved, author, authorAvatarUrl, skill));
                 }
-                return questions;
-
-            } catch (Exception e) {
-                e.printStackTrace();
             }
+            return questions;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
