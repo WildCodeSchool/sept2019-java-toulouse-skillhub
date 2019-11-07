@@ -44,17 +44,20 @@ public class AnswerRepository {
         return null;
     }
 
-    public Answer saveAnswer(Long questionId, String answerArea, Date currentDate) {
+    public Answer saveAnswer(Long questionId, String answerArea, Date currentDate, Long userId) {
 
         try {
             Connection connection = DriverManager.getConnection(
                     DB_URL, DB_USER, DB_PASSWORD
             );
             PreparedStatement statement = connection.prepareStatement(
-                    "INSERT INTO answer (id_question, body, date) VALUES (?,?,?)",
+                    "INSERT INTO answer (id_question, body, `date`, id_user) VALUES (?,?,?,?)",
                     Statement.RETURN_GENERATED_KEYS
             );
-            statement.setString(1, answerArea);
+            statement.setLong(1, questionId);
+            statement.setString(2, answerArea);
+            statement.setDate(3, currentDate);
+            statement.setLong(4, userId);
 
             if (statement.executeUpdate() != 1) {
                 throw new SQLException("failed to insert data");
@@ -64,7 +67,7 @@ public class AnswerRepository {
 
             if (generatedKeys.next()) {
                 Long id = generatedKeys.getLong(1);
-                return new Answer(questionId, answerArea, currentDate);
+                return new Answer(id, questionId, answerArea, currentDate, userId);
             } else {
                 throw new SQLException("failed to get inserted id");
             }

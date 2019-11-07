@@ -8,10 +8,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.sql.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+
 
 @Controller
 public class QuestionController {
@@ -32,17 +33,14 @@ public class QuestionController {
         return "answer";
     }
 
-    @PostMapping("/question")
-    public String postQuestion(Model model, @RequestParam Long id,
+    @PostMapping("/answer")
+    public String postAnswer(Model model, @RequestParam Long id,
                                @RequestParam String body,
-                               @RequestParam String getDate) throws ParseException {
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-        java.util.Date date = new java.util.Date();
-        String currentDate = dateFormat.format(date);
-        Date thisDate = new SimpleDateFormat("dd/MM/yyyy").parse(currentDate);
+                               @RequestParam Long userId) {
 
-        model.addAttribute("questionById", answerRepository.saveAnswer(id, body, (java.sql.Date) thisDate));
+        model.addAttribute("answer", answerRepository.saveAnswer(id, body, new Date(System.currentTimeMillis()), userId));
+        model.addAttribute("question", questionRepository.findQuestion(id));
 
-        return "question";
+        return "redirect:question?id=" + id;
     }
 }
