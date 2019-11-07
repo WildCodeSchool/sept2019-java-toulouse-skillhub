@@ -12,8 +12,6 @@ public class Answer {
     private Long idQuestion;
     private Long answerId;
 
-    public Answer (){}
-
     public Answer(Long answerId, Long idQuestion, String body, Date date, Long idUser) {
         this.idQuestion = idQuestion;
         this.body = body;
