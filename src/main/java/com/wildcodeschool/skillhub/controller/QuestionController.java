@@ -51,4 +51,16 @@ public class QuestionController {
 
         return "redirect:question?id=" + id;
     }
+
+    @GetMapping("/resolved")
+    public String resolvedAnswer(Model model, @RequestParam Long questionId, HttpSession session) {
+
+        if (session.getAttribute("user") == null) {
+            return "index";
+        }
+
+        answerRepository.setResolved(questionId);
+
+        return "redirect:/feed";
+    }
 }

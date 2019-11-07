@@ -10,45 +10,45 @@
 </head>
 <body>
 <header th:replace="header :: top"></header>
-    <div class="body">
+<div class="body">
 
-        <div class="asker">
-            <img class="avatar" th:src="@{${question.authorAvatarUrl}}" alt="Avatar">
-            <h4 th:text="${question.author}">Heisenberg</h4>
-            <span th:text="${question.date}" >4 days ago</span>
-        </div>
-        <span th:text="${question.title}" class="titleQuestion">Titre</span>
-        <span th:text="${question.body}" class="question"></span>
-        <span th:text="|#${question.skill}|" class="tags">#Java</span>
+    <div class="asker">
+        <img class="avatar" th:src="@{${question.authorAvatarUrl}}" alt="Avatar">
+        <h4 th:text="${question.author}">Heisenberg</h4>
+        <span th:text="${question.date}">4 days ago</span>
+    </div>
+    <span th:text="${question.title}" class="titleQuestion">Titre</span>
+    <span th:text="${question.body}" class="question"></span>
+    <span th:text="|#${question.skill}|" class="tags">#Java</span>
 
+    <div class="form-answer">
         <form action="/answer" method="post">
             <input th:value="${question.questionId}" name="id" type="hidden">
             <label for="answerArea">Votre réponse</label>
             <textarea class="answerArea" id="answerArea" name="body" placeholder="Votre message"></textarea>
-            <input class="submit" type="submit" value="Répondre">
+
+            <div class="buttons">
+                <input class="submit" type="submit" value="Répondre">
+                <a th:href="@{/resolved(questionId=${question.questionId})}" class="solved" type="button">Résolu</a>
+            </div>
         </form>
 
-        <form action="/answer" method="post">
-        <div class="buttons">
-            <input class="solved" type="submit" value="Résolu">
-        </div>
-        </form>
+    </div>
 
-        <hr>
+    <span th:text="|${answerNumber} réponses|" class="nbAnswer">30 réponses</span>
 
-        <span th:text="|${answerNumber} réponses|" class="nbAnswer">30 réponses</span>
-
-        <div th:each="ans : ${answer}">
+    <div th:each="ans : ${answer}">
         <div class="answerer">
             <img class="avatar" th:src="@{${ans.url}}" alt="Avatar">
             <h4 th:text="${ans.nickname}">Napoleon</h4>
             <span th:text="${ans.date}">4 days ago</span>
         </div>
         <span th:text="${ans.body}" class="answer">zigwigi</span>
-        <hr><br>
-        </div>
-
+        <hr>
+        <br>
     </div>
+
+</div>
 <footer th:replace="footer :: bottom"></footer>
 </body>
 </html>

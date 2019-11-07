@@ -77,5 +77,25 @@ public class AnswerRepository {
         return null;
     }
 
+    public void setResolved(Long questionId) {
+
+        try {
+            Connection connection = DriverManager.getConnection(
+                    DB_URL, DB_USER, DB_PASSWORD
+            );
+            PreparedStatement statement = connection.prepareStatement(
+                    "UPDATE question SET resolved = 1 WHERE id_question=?"
+            );
+            statement.setLong(1, questionId);
+
+            if (statement.executeUpdate() != 1) {
+                throw new SQLException("failed to update data");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
 }
