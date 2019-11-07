@@ -3,6 +3,8 @@ package com.wildcodeschool.skillhub.repository;
 import com.wildcodeschool.skillhub.entity.Answer;
 
 import java.sql.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,6 +43,59 @@ public class AnswerRepository {
         }
         return null;
     }
+
+    public Answer saveAnswer(Long questionId, String answerArea, Date currentDate, Long userId) {
+
+        try {
+            Connection connection = DriverManager.getConnection(
+                    DB_URL, DB_USER, DB_PASSWORD
+            );
+            PreparedStatement statement = connection.prepareStatement(
+                    "INSERT INTO answer (id_question, body, `date`, id_user) VALUES (?,?,?,?)",
+                    Statement.RETURN_GENERATED_KEYS
+            );
+            statement.setLong(1, questionId);
+            statement.setString(2, answerArea);
+            statement.setDate(3, currentDate);
+            statement.setLong(4, userId);
+
+            if (statement.executeUpdate() != 1) {
+                throw new SQLException("failed to insert data");
+            }
+
+            ResultSet generatedKeys = statement.getGeneratedKeys();
+
+            if (generatedKeys.next()) {
+                Long id = generatedKeys.getLong(1);
+                return new Answer(id, questionId, answerArea, currentDate, userId);
+            } else {
+                throw new SQLException("failed to get inserted id");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public void setResolved(Long questionId) {
+
+        try {
+            Connection connection = DriverManager.getConnection(
+                    DB_URL, DB_USER, DB_PASSWORD
+            );
+            PreparedStatement statement = connection.prepareStatement(
+                    "UPDATE question SET resolved = 1 WHERE id_question=?"
+            );
+            statement.setLong(1, questionId);
+
+            if (statement.executeUpdate() != 1) {
+                throw new SQLException("failed to update data");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 
 }

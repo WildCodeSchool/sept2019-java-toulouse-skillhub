@@ -10,8 +10,15 @@ public class Answer {
     private Date date;
     private Long idUser;
     private Long idQuestion;
+    private Long answerId;
 
-    public Answer (){}
+    public Answer(Long answerId, Long idQuestion, String body, Date date, Long idUser) {
+        this.idQuestion = idQuestion;
+        this.body = body;
+        this.date = date;
+        this.answerId = answerId;
+        this.idUser = idUser;
+    }
 
     public Answer(String url, String nickname, String body, Date date, Long idUser, Long idQuestion) {
         this.url = url;

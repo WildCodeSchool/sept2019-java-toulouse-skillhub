@@ -105,14 +105,17 @@ label {
     border: 0 solid #c0c0c0;
     border-radius: 5px;
     background-color: #DF5507;
-    height: 3em;
-    width: 10em;
+    height: 1.5em;
+    width: 8em;
     color: aliceblue;
-    outline:none;
+    outline: none;
     font-size: 1em;
     box-shadow: 1px 1px 10px 1px #cccccc;
     cursor: pointer;
     margin: 0 1em;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
 }
 
 .submit:hover {
