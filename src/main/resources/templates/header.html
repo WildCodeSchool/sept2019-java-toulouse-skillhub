@@ -26,7 +26,7 @@
                     </div>
                     <div class="nav-block">
                         <div class="nav-link"><a href="profile.html" th:href="@{/profile}" title="Profil">Profil</a></div>
-                        <div class="nav-link" title="Se déconnecter"><a href="#">Se déconnecter</a></div>
+                        <div class="nav-link"><a th:href="@{/disconnect}" title="Se déconnecter">Se déconnecter</a></div>
                     </div>
                 </nav>
                 <nav id="nav-burger">
@@ -35,7 +35,7 @@
                         <div class="nav-link"><a href="ask.html" th:href="@{/question}" title="Poser une question">Poser une question</a></div>
                         <div class="nav-link"><a href="profile.html" th:href="@{/profile}" title="Profil">Profil</a></div>
                         <div class="nav-link"><a href="about.html" th:href="@{/about}" title="about">À propos</a></div>
-                        <div><a href="#" title="Se déconnecter">Se déconnecter</a></div>
+                        <div><a th:href="@{/disconnect}" title="Se déconnecter">Se déconnecter</a></div>
                     </div>
                     <div id="burger-overlay"></div>
                 </nav>
