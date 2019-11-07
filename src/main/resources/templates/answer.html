@@ -11,17 +11,16 @@
 <body>
 <header th:replace="header :: top"></header>
     <div class="body">
+
         <div class="asker">
-            <img class="avatar" src="../static/images/avatars/heisenberg.svg" th:src="@{/static/images/avatars/heisenberg.svg}" alt="Avatar">
-            <h4>Heisenberg</h4>
-            <span>4 days ago</span>
+            <img class="avatar" th:src="@{${question.authorAvatarUrl}}" alt="Avatar">
+            <h4 th:text="${question.author}">Heisenberg</h4>
+            <span th:text="${question.date}" >4 days ago</span>
         </div>
-        <span class="titleQuestion">Comment faire une loupe dans une loupe qui fait du looping ?</span>
-        <span class="question">Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise  en
-            page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500,
-            quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de
-            polices de texte ?</span>
-        <span class="tags">#Java</span>
+        <span th:text="${question.title}" class="titleQuestion">Titre</span>
+        <span th:text="${question.body}" class="question"></span>
+        <span th:text="|#${question.skill}|" class="tags">#Java</span>
+
         <label for="answerArea">Votre message</label>
         <textarea class="answerArea" id="answerArea" name="answerArea" placeholder="Votre message"></textarea>
         <div class="buttons">
@@ -29,36 +28,18 @@
             <input class="solved" type="submit" value="Résolu">
         </div>
         <hr>
-        <span class="nbAnswer">30 réponses</span>
+        <span th:text="|${answerNumber} réponses|" class="nbAnswer">30 réponses</span>
+
+        <div th:each="ans : ${answer}">
         <div class="answerer">
-            <img class="avatar" src="../static/images/avatars/napoleon.svg" th:src="@{/static/images/avatars/napoleon.svg}" alt="Avatar">
-            <h4>Napoleon</h4>
-            <span>4 days ago</span>
+            <img class="avatar" th:src="@{${ans.url}}" alt="Avatar">
+            <h4 th:text="${ans.nickname}">Napoleon</h4>
+            <span th:text="${ans.date}">4 days ago</span>
         </div>
-        <span class="answer">Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise  en
-                page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500,
-                quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de
-                polices de texte ?</span>
+        <span th:text="${ans.body}" class="answer">zigwigi</span>
         <hr><br>
-        <div class="answerer">
-            <img class="avatar" src="../static/images/avatars/knight.svg" th:src="@{/static/images/avatars/knight.svg}" alt="Avatar">
-            <h4>Kevin</h4>
-            <span>4 days ago</span>
         </div>
-        <span class="answer">Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise  en
-                page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500,
-                quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de
-                polices de texte ?</span>
-        <hr><br>
-        <div class="answerer">
-            <img class="avatar" src="../static/images/avatars/santa-claus.svg" th:src="@{/static/images/avatars/santa-claus.svg}" alt="Avatar">
-            <h4>Noël</h4>
-            <span>4 days ago</span>
-        </div>
-        <span class="answer">Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise  en
-                page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500,
-                quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de
-                polices de texte ?</span>
+
     </div>
 <footer th:replace="footer :: bottom"></footer>
 </body>

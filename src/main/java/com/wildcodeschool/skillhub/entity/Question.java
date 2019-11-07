@@ -1,5 +1,4 @@
 package com.wildcodeschool.skillhub.entity;
-
 import java.util.Date;
 
 public class Question {
