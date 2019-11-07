@@ -13,7 +13,7 @@ public class UserRepository {
     private final static String DB_USER = "skillhub";
     private final static String DB_PASSWORD = "5ki!!huB31";
 
-    public User getUser(Long userId) {
+    public User getUserById(Long userId) {
 
         try {
             Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
