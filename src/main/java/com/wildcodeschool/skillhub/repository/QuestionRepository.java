@@ -30,6 +30,7 @@ public class QuestionRepository {
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
+                Long questionId = resultSet.getLong("question.id_question");
                 String title = resultSet.getString("title");
                 String body = resultSet.getString("body");
                 Date date = resultSet.getDate("date");
@@ -37,7 +38,7 @@ public class QuestionRepository {
                 String author = resultSet.getString("nickname");
                 String authorAvatarUrl = resultSet.getString("url");
                 String skill = resultSet.getString("name");
-                questions.add(new Question(userId, title, body, date, resolved, author, authorAvatarUrl, skill));
+                questions.add(new Question(userId, questionId, title, body, date, resolved, author, authorAvatarUrl, skill));
             }
             return questions;
 
@@ -77,4 +78,44 @@ public class QuestionRepository {
         }
         return null;
     }
+
+    public List<Question> findAllOther(List<Long> skillsId, Long userId) {
+
+        List<Question> questions = new ArrayList<>();
+
+            try {
+                for (Long skillId : skillsId) {
+                    Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+                    PreparedStatement statement = connection.prepareStatement(
+                            "SELECT * FROM question\n" +
+                                    "JOIN user ON question.id_user = user.id_user\n" +
+                                    "JOIN picture ON user.id_picture = picture.id_picture\n" +
+                                    "JOIN question_skill ON question.id_question = question_skill.id_question\n" +
+                                    "JOIN skill ON question_skill.id_skill = skill.id_skill\n" +
+                                    "WHERE question_skill.id_skill = ? AND question.id_user <> ?;"
+                    );
+                    statement.setLong(1, skillId);
+                    statement.setLong(2, userId);
+                    ResultSet resultSet = statement.executeQuery();
+
+                    while (resultSet.next()) {
+                        Long questionId = resultSet.getLong("question.id_question");
+                        String title = resultSet.getString("title");
+                        String body = resultSet.getString("body");
+                        Date date = resultSet.getDate("date");
+                        boolean resolved = resultSet.getBoolean("resolved");
+                        String author = resultSet.getString("nickname");
+                        String authorAvatarUrl = resultSet.getString("url");
+                        String skill = resultSet.getString("name");
+                        questions.add(new Question(userId, questionId, title, body, date, resolved, author, authorAvatarUrl, skill));
+                    }
+                }
+                return questions;
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        return null;
+    }
+
 }
