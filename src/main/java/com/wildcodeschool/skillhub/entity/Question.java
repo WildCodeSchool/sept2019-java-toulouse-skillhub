@@ -25,9 +25,7 @@ public class Question {
         this.author = author;
         this.authorAvatarUrl = authorAvatarUrl;
         this.skill = skill;
-
     }
-
 
     public Long getUserId() {
         return this.userId;
