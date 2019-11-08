@@ -1,16 +1,29 @@
+html {
+    margin: 0;
+    padding: 0;
+}
+
 .body {
-    margin: 2rem auto;
+    margin: 15px auto;
     max-width : 1100px;
     font-size: 13px;
     font-family: Roboto, sans-serif;
     padding-right: 2rem;
     padding-left: 2rem;
+    align-items: stretch;
+}
+
+.question-container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
 }
 
 .asker {
     display:flex;
     align-items: center;
     margin-bottom: 1rem;
+    width: 100%;
 }
 
 .avatar {

@@ -11,7 +11,7 @@
 <body>
 <header th:replace="header :: top"></header>
 <div class="body">
-
+<div class="question-container">
     <div class="asker">
         <img class="avatar" th:src="@{${question.authorAvatarUrl}}" alt="Avatar">
         <h4 th:text="${question.author}" class="author">Heisenberg</h4>
@@ -48,6 +48,7 @@
         <br>
     </div>
 
+</div>
 </div>
 <footer th:replace="footer :: bottom"></footer>
 </body>
