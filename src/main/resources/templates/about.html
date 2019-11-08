@@ -9,7 +9,7 @@
     <title>À propos</title>
 </head>
 <body>
-<header th:replace="header :: top"></header>
+<span th:if="${connected}"><header th:replace="header :: top" ></header></span>
 <div id="about-container">
     <div id="about-text">
         <h1>À propos</h1>
