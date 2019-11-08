@@ -127,10 +127,10 @@
     justify-content: center;
     margin-bottom: 0.6rem;
 }
-
 .avatars-container {
-    display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
+    display:flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
     margin-bottom: 0.9rem;
 }
 
@@ -158,4 +158,67 @@
     .skill-list {
         font-size: 17px;
     }
+}
+
+@media screen and (min-width: 570px){
+    .skill-list-container {
+        justify-content: center;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .register-title {
+        text-align: left;
+    }
+
+    .register-skill-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .skill-list-container {
+        width:100%;
+    }
+
+    .input-skill-demand {
+        padding-top: 0.6rem;
+    }
+
+    .input-demand-center {
+        justify-content: flex-start;
+    }
+
+
+    .flex-avatar-container {
+        width: 60%;
+        justify-content: center;
+    }
+
+    .register-title {
+        text-align: center;
+    }
+
+    .flex-avatar-section {
+        display: flex;
+        justify-content: center;
+        padding-right: 1rem;
+        padding-left: 1rem;
+
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .flex-avatar-section {
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
+
+}
+@media screen and (min-width: 1500px) {
+    .flex-avatar-section {
+        padding-right: 3rem;
+        padding-left: 3rem;
+    }
+
 }
