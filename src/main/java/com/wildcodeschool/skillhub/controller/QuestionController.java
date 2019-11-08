@@ -11,9 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import java.sql.Date;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 
 @Controller
@@ -28,14 +25,12 @@ public class QuestionController {
         if (session.getAttribute("user") == null) {
             return "index";
         }
+        int answerNumber = answerRepository.findAnswers(id).size();
         model.addAttribute("question", questionRepository.findQuestion(id));
         model.addAttribute("answer", answerRepository.findAnswers(id));
-
-        int answerNumber = answerRepository.findAnswers(id).size();
-
         model.addAttribute("answerNumber", answerNumber);
 
-        return "answer";
+        return "question";
     }
 
     @PostMapping("/answer")
@@ -58,7 +53,6 @@ public class QuestionController {
         if (session.getAttribute("user") == null) {
             return "index";
         }
-
         answerRepository.setResolved(questionId);
 
         return "redirect:/feed";

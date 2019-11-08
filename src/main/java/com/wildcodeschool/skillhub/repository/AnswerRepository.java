@@ -22,7 +22,7 @@ public class AnswerRepository {
                     "SELECT * FROM answer\n" +
                             "JOIN user ON answer.id_user = user.id_user\n" +
                             "JOIN picture ON user.id_picture = picture.id_picture\n" +
-                            "WHERE answer.id_question = ?;"
+                            "WHERE answer.id_question = ? ORDER BY id_answer DESC;"
             );
             statement.setLong(1, questionId);
             List<Answer> answers = new ArrayList<>();
