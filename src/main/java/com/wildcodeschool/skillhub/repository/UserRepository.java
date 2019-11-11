@@ -73,42 +73,29 @@ public class UserRepository {
         return null;
     }
 
-    public User updateUserById(Long userId) {
+    public static User updateUserById(Long userId, String nickname, String password, String avatarUrl, List<Long> skillsId) {
 
         try {
-            Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-            PreparedStatement statement = connection.prepareStatement(
-                    "UPDATE id_user, nickname, password, id_picture, id_skill FROM user JOIN picture ON picture.id_picture = user.id_picture " +
-                            "WHERE id_user = ?;"
-            );
-            statement.setLong(1, userId);
-            ResultSet resultSet = statement.executeQuery();
-            resultSet.next();
-            String username = resultSet.getString("nickname");
-            String avatarUrl = resultSet.getString("url");
-            String password = resultSet.getString("password");
+            for (Long skillId : skillsId) {
+                Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+                PreparedStatement statement = connection.prepareStatement(
+                        "UPDATE SET nickname=?, password=?, id_picture=?, id_skill=? FROM user JOIN user_skill ON user.id_user = user_skill.id_user JOIN picture ON picture.id_picture = user.id_picture " +
+                                "WHERE id_user = ?;"
+                );
+                statement.setString(2, nickname);
+                statement.setString(3, password);
+                statement.setString(4, avatarUrl);
+                statement.setLong(5, skillId);
 
-
-            statement = connection.prepareStatement(
-                    "SELECT user_skill.id_skill FROM skillhub.user\n" +
-                            "JOIN user_skill ON user.id_user = user_skill.id_user\n" +
-                            "WHERE user.id_user = ?;"
-            );
-            statement.setLong(1, userId);
-
-            List<Long> skillsId = new ArrayList<>();
-            resultSet = statement.executeQuery();
-
-            while (resultSet.next()) {
-                skillsId.add(resultSet.getLong("id_skill"));
+                if (statement.executeUpdate() != 1) {
+                    throw new SQLException("failed to update data");
+                }
+                return new User(userId, nickname, password, avatarUrl, skillsId);
             }
-
-            return new User(userId, username, password, avatarUrl, skillsId);
-
-        } catch (SQLException e) {
-            e.printStackTrace();
+            } catch(SQLException e){
+                e.printStackTrace();
+            }
+            return null;
         }
-        return null;
-    }
 
-}
+    }

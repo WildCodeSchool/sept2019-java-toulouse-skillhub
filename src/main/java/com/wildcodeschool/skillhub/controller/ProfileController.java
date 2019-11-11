@@ -1,6 +1,7 @@
 package com.wildcodeschool.skillhub.controller;
 
 import com.wildcodeschool.skillhub.repository.RegisterRepository;
+import com.wildcodeschool.skillhub.repository.UserRepository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,10 +18,9 @@ public class ProfileController {
     }
 
     @PostMapping("/profile")
-    public String registerUser(Model out, @RequestParam String nickname, @RequestParam String password, @RequestParam String avatarUrl, @RequestParam List<Long> skillsId) {
+    public String registerUser(Model out, @RequestParam Long userId, @RequestParam String nickname, @RequestParam String password, @RequestParam String avatarUrl, @RequestParam List<Long> skillsId) {
 
-       /* TODO: faire une méthode updateUser
-       out.addAttribute("user", UserRepository.updateUserById(nickname, password, avatarUrl, skillsId)); */
+       out.addAttribute("user", UserRepository.updateUserById(userId, nickname, password, avatarUrl, skillsId));
 
         return "redirect:/profile";
     }
