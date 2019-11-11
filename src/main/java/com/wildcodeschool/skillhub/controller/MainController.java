@@ -27,8 +27,8 @@ public class MainController {
     }
 
     @GetMapping("/profile")
-    public String profile() {
+    public String register(Model model) {
+
         return "profile";
     }
-
 }

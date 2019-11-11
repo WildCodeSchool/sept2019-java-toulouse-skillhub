@@ -73,4 +73,42 @@ public class UserRepository {
         return null;
     }
 
+    public User updateUserById(Long userId) {
+
+        try {
+            Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            PreparedStatement statement = connection.prepareStatement(
+                    "UPDATE  FROM user JOIN picture ON picture.id_picture = user.id_picture " +
+                            "WHERE id_user = ?;"
+            );
+            statement.setLong(1, userId);
+            ResultSet resultSet = statement.executeQuery();
+            resultSet.next();
+            String username = resultSet.getString("nickname");
+            String avatarUrl = resultSet.getString("url");
+            String password = resultSet.getString("password");
+
+
+            statement = connection.prepareStatement(
+                    "SELECT user_skill.id_skill FROM skillhub.user\n" +
+                            "JOIN user_skill ON user.id_user = user_skill.id_user\n" +
+                            "WHERE user.id_user = ?;"
+            );
+            statement.setLong(1, userId);
+
+            List<Long> skillsId = new ArrayList<>();
+            resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                skillsId.add(resultSet.getLong("id_skill"));
+            }
+
+            return new User(userId, username, password, avatarUrl, skillsId);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }
