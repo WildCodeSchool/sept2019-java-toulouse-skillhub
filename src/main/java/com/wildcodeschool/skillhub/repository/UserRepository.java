@@ -78,7 +78,7 @@ public class UserRepository {
         try {
             Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
             PreparedStatement statement = connection.prepareStatement(
-                    "UPDATE  FROM user JOIN picture ON picture.id_picture = user.id_picture " +
+                    "UPDATE id_user, nickname, password, id_picture, id_skill FROM user JOIN picture ON picture.id_picture = user.id_picture " +
                             "WHERE id_user = ?;"
             );
             statement.setLong(1, userId);

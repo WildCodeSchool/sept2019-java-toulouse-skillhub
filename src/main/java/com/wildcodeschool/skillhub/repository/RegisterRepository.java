@@ -20,7 +20,7 @@ public class RegisterRepository {
                         DB_URL, DB_USER, DB_PASSWORD
                 );
                 PreparedStatement statement = connection.prepareStatement(
-                        "INSERT INTO user (id_user, nickname, password, id_picture, id_skill) JOIN user_skill ON user.id_user = user_skill.id_user VALUES (?,?,?,?,?)",
+                        "INSERT INTO user (id_user, nickname, password, id_picture, id_skill) JOIN user_skill ON user.id_user = user_skill.id_user  JOIN picture ON picture.id_picture = user.id_picture VALUES (?,?,?,?,?)",
                         Statement.RETURN_GENERATED_KEYS
                 );
                 statement.setString(2, nickname);
