@@ -1,8 +1,11 @@
 package com.wildcodeschool.skillhub.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class MainController {
@@ -12,29 +15,15 @@ public class MainController {
         return "index";
     }
 
-    @PostMapping("/feed-connection")
-    public String feedConnection() {
-        return "feed";
-    }
-
-    @PostMapping("/subscribe")
-    public String subscribe() {
-        return "subscribe";
-    }
-
-    @GetMapping("/answer")
-    public String answer() {
-        return "answer";
-    }
 
     @GetMapping("/about")
-    public String about() {
+    public String about(Model model, HttpSession session) {
+        if (session.getAttribute("user") == null) {
+            model.addAttribute("connected", false);
+        } else {
+            model.addAttribute("connected", true);
+        }
         return "about";
-    }
-
-    @GetMapping("/question")
-    public String question() {
-        return "question";
     }
 
     @GetMapping("/profile")
