@@ -47,7 +47,6 @@ public class QuestionController {
             return "index";
         }
 
-
         //TODO: recupérer list skill, 
 
         java.sql.Date sqlDate = new java.sql.Date(System.currentTimeMillis());
@@ -82,8 +81,6 @@ public class QuestionController {
 
         return "testForm";
     }
-
-
 
 
     @PostMapping("/answer")
