@@ -34,13 +34,17 @@ public class RegisterRepository {
 
             if (generatedKeys.next()) {
                 Long userId = generatedKeys.getLong(1);
-                for (Long skillId : skillsId) {
-                    statement = connection.prepareStatement(
-                            "INSERT INTO user_skill (id_skill, id_user) VALUES (?, ?)");
-                    statement.setLong(1, skillId);
-                    statement.setLong(2, userId);
-                    if (statement.executeUpdate() != 1) {
-                        throw new SQLException("failed to insert data");
+
+                if (skillsId.get(0) != - 1) {
+
+                    for (Long skillId : skillsId) {
+                        statement = connection.prepareStatement(
+                                "INSERT INTO user_skill (id_skill, id_user) VALUES (?, ?)");
+                        statement.setLong(1, skillId);
+                        statement.setLong(2, userId);
+                        if (statement.executeUpdate() != 1) {
+                            throw new SQLException("failed to insert data");
+                        }
                     }
                 }
             } else {
