@@ -1,10 +1,14 @@
 package com.wildcodeschool.skillhub.repository;
 
 import com.wildcodeschool.skillhub.entity.Answer;
+import com.wildcodeschool.skillhub.entity.Question;
 import com.wildcodeschool.skillhub.entity.User;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class RegisterRepository {
 
@@ -54,5 +58,29 @@ public class RegisterRepository {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public Map<Long, String> findAllAvatars() {
+
+        try {
+            Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            PreparedStatement statement = connection.prepareStatement(
+                    "SELECT id_picture, url FROM picture;"
+            );
+
+            Map<Long, String> avatars = new HashMap<>();
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                Long id = resultSet.getLong("id_picture");
+                String url = resultSet.getString("url");
+                avatars.put(id, url);
+            }
+            return avatars;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

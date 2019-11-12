@@ -1,6 +1,5 @@
 package com.wildcodeschool.skillhub.controller;
 
-import com.wildcodeschool.skillhub.entity.User;
 import com.wildcodeschool.skillhub.repository.RegisterRepository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,8 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.HttpSession;
-import java.sql.Date;
 import java.util.List;
 
 @Controller
@@ -18,9 +15,10 @@ public class RegisterController {
     RegisterRepository registerRepository = new RegisterRepository();
 
     @GetMapping("/register")
-    public String register(Model model) {
+    public String register(Model out) {
 
-        return "inscription";
+        out.addAttribute("avatars", registerRepository.findAllAvatars());
+        return "register";
     }
 
     @PostMapping("/submit")

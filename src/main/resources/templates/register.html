@@ -85,10 +85,10 @@
                     <label>Sélectionnez votre avatar:</label>
                 </div>
                 <div class="avatars-container">
-                    <div class="avatar-input-container">
-                        <label for="avatar" class="label-avatar"><img class="avatar-img"
-                                                                      th:src="@{images/avatars/1.svg}"/></label>
-                        <input type="radio" class="input-avatar" id="avatar" name="avatar" value="1"/>
+                    <div class="avatar-input-container" th:each="avatar : ${avatars}">
+                        <label th:for="${avatar.key}" class="label-avatar"><img class="avatar-img"
+                                                                      th:src="${avatar.value}"/></label>
+                        <input type="radio" class="input-avatar" th:id="${avatar.key}" name="avatar" th:value="${avatar.key}"/>
                     </div>
                 </div>
             </div>
