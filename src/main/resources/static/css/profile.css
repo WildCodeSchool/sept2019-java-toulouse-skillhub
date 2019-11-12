@@ -127,6 +127,7 @@
     justify-content: center;
     margin-bottom: 0.6rem;
 }
+
 .avatars-container {
     display:flex;
     flex-wrap: nowrap;
@@ -206,19 +207,4 @@
         padding-left: 1rem;
 
     }
-}
-
-@media screen and (min-width: 1200px) {
-    .flex-avatar-section {
-        padding-right: 2rem;
-        padding-left: 2rem;
-    }
-
-}
-@media screen and (min-width: 1500px) {
-    .flex-avatar-section {
-        padding-right: 3rem;
-        padding-left: 3rem;
-    }
-
 }
