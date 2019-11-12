@@ -36,9 +36,9 @@
                 <label class="input-skill-demand">Sélectionnez vos compétences:</label>
                 <div class="skill-list-container">
                     <section class="skill-align" th:each="skill: ${skills}">
-                        <input type="checkbox" class="skill-skin" th:id="${skill.key}" name="skill"
-                               th:value="${skill.key}">
-                        <label th:for="${skill.key}" class="skill-list" th:text="${skill.value}">Skill</label>
+                        <input type="checkbox" class="skill-skin" th:id="|skill${skill.key}|" name="skill"
+                               th:value="|skill${skill.key}|">
+                        <label th:for="|skill${skill.key}|" class="skill-list" th:text="${skill.value}">Skill</label>
                     </section>
                 </div>
             </div>
