@@ -54,7 +54,7 @@ public class QuestionController {
 
     @GetMapping("/resolved")
     public String resolvedAnswer(Model model, @RequestParam Long questionId, HttpSession session) {
-
+        // true or false, recupérer dans model attribut
         if (session.getAttribute("user") == null) {
             return "index";
         }
