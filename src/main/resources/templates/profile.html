@@ -13,10 +13,10 @@
 <header th:replace="header :: top"></header>
 <div class="form-container">
     <div class="profile-info">
-        <img class="profile-pic" src="../static/images/avatars/8.svg" th:src="@{images/avatars/8.svg}">
-        <h3 class="profile-pseudo">Pseudo</h3>
+        <img class="profile-pic" src="../static/images/avatars/8.svg" th:src="${user.avatarUrl}">
+        <h3 class="profile-pseudo" th:text="${user.nickname}">Pseudo</h3>
     </div>
-    <form th:action="@{/feed}" method="POST">
+    <form th:action="@{/update-profile}" method="POST">
         <div class="register-skill-container">
             <div class="register-input-container">
                 <div class="register-input">
@@ -25,7 +25,7 @@
                 </div>
                 <div class="register-input">
                     <label class="input-demand" for="password">Modifiez votre mot de passe:</label>
-                    <input class="input-box" type="password" id="password" name="password" placeholder="Mot de passe" required>
+                    <input class="input-box" type="password" id="password" name="password" th:value="${user.password}" required>
                 </div>
                 <!--  <div class="register-input">
                      <label class="input-demand" for="password-confirmation">Confirmez votre mot de passe:</label>
@@ -39,7 +39,7 @@
                 <div class="skill-list-container">
                     <section class="skill-align" th:each="skill: ${skills}">
                         <input type="checkbox" class="skill-skin" th:id="|skill${skill.key}|" name="skill"
-                               th:value="|skill${skill.key}|">
+                               th:value="${skill.key}">
                         <label th:for="|skill${skill.key}|" class="skill-list" th:text="${skill.value}">Skill</label>
                     </section>
                 </div>
@@ -55,7 +55,7 @@
                         <label th:for="${avatar.key}" class="label-avatar"><img class="avatar-img"
                                                                                 th:src="${avatar.value}"/></label>
                         <input type="radio" class="input-avatar" th:id="${avatar.key}" name="avatar"
-                               th:value="${avatar.key}"/>
+                               th:value="${avatar.key}" th:checked="${user.avatarUrl} == ${avatar.value}"/>
                     </div>
                 </div>
             </div>

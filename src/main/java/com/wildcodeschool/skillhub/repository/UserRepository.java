@@ -73,41 +73,47 @@ public class UserRepository {
         return null;
     }
 
-    public static User updateUser(Long userId, String nickname, String password, String avatar, List<Long> skillsId) {
+    public void updateUser(Long userId, String nickname, String password, Long avatar, List<Integer> newSkills, List<Long> oldSkills) {
 
         try {
             Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
             PreparedStatement statement = connection.prepareStatement(
-                    "UPDATE SET nickname=?, password=?, id_picture=?, id_skill=? FROM user WHERE id_user = ?;"
+                    "UPDATE user SET nickname=?, password=?, id_picture=? WHERE id_user=?;"
             );
             statement.setString(1, nickname);
             statement.setString(2, password);
-            statement.setString(3, avatar);
+            statement.setLong(3, avatar);
             statement.setLong(4, userId);
 
             if (statement.executeUpdate() != 1) {
                 throw new SQLException("failed to update data");
             }
 
-            statement = connection.prepareStatement(
-                    "DELETE FROM user_skill WHERE id_user=?"
-            );
-            statement.setLong(1, userId);
-
-            for (Long skillId : skillsId) {
+            for (Long oldSkill : oldSkills) {
                 statement = connection.prepareStatement(
-                        "INSERT INTO user_skill (id_skill, id_user) VALUES (?, ?)");
-                statement.setLong(1, skillId);
-                statement.setLong(2, userId);
+                        "DELETE FROM user_skill WHERE id_user=? AND id_skill=?;"
+                );
+                statement.setLong(1, userId);
+                statement.setLong(2, oldSkill);
                 if (statement.executeUpdate() != 1) {
                     throw new SQLException("failed to insert data");
+                }
+            }
+            if (newSkills.get(0) != -1) {
+                for (Integer skillId : newSkills) {
+                    statement = connection.prepareStatement(
+                            "INSERT INTO user_skill (id_skill, id_user) VALUES (?, ?);");
+                    statement.setInt(1, skillId);
+                    statement.setLong(2, userId);
+                    if (statement.executeUpdate() != 1) {
+                        throw new SQLException("failed to insert data");
+                    }
                 }
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null;
 
     }
 }
