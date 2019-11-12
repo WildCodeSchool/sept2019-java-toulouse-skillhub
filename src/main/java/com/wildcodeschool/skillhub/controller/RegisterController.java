@@ -26,7 +26,6 @@ public class RegisterController {
     public String registerUser(Model out, @RequestParam String nickname, @RequestParam String password, @RequestParam String avatar, @RequestParam(name="skill", defaultValue = "-1") List<Long> skillsId) {
 
         profileRepository.saveUser(nickname, password, avatar, skillsId);
-
-        return "index";
+        return "redirect:/";
     }
 }
