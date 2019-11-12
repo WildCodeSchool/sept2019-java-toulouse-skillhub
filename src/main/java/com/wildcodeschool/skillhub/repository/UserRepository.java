@@ -73,4 +73,29 @@ public class UserRepository {
         return null;
     }
 
-}
+    public static User updateUserById(Long userId, String nickname, String password, String avatarUrl, List<Long> skillsId) {
+
+        try {
+            for (Long skillId : skillsId) {
+                Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+                PreparedStatement statement = connection.prepareStatement(
+                        "UPDATE SET nickname=?, password=?, id_picture=?, id_skill=? FROM user JOIN user_skill ON user.id_user = user_skill.id_user JOIN picture ON picture.id_picture = user.id_picture " +
+                                "WHERE id_user = ?;"
+                );
+                statement.setString(2, nickname);
+                statement.setString(3, password);
+                statement.setString(4, avatarUrl);
+                statement.setLong(5, skillId);
+
+                if (statement.executeUpdate() != 1) {
+                    throw new SQLException("failed to update data");
+                }
+                return new User(userId, nickname, password, avatarUrl, skillsId);
+            }
+            } catch(SQLException e){
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+    }
