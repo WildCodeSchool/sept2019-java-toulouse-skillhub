@@ -21,7 +21,7 @@
             <div class="register-input-container">
                 <div class="register-input">
                     <label class="input-demand" for="pseudo">Modifiez votre pseudo:</label>
-                    <input class="input-box" type="text" id="pseudo" name="nickname" placeholder="Pseudo" required>
+                    <input class="input-box" type="text" id="pseudo" name="nickname" th:value="${user.nickname}" required>
                 </div>
                 <div class="register-input">
                     <label class="input-demand" for="password">Modifiez votre mot de passe:</label>
@@ -38,9 +38,9 @@
                 <label class="input-skill-demand">Modifiez vos compétences:</label>
                 <div class="skill-list-container">
                     <section class="skill-align" th:each="skill: ${skills}">
-                        <input type="checkbox" class="skill-skin" th:id="${skill.key}" name="skill"
-                               th:value="${skill.key}">
-                        <label th:for="${skill.key}" class="skill-list" th:text="${skill.value}">Skill</label>
+                        <input type="checkbox" class="skill-skin" th:id="|skill${skill.key}|" name="skill"
+                               th:value="|skill${skill.key}|">
+                        <label th:for="|skill${skill.key}|" class="skill-list" th:text="${skill.value}">Skill</label>
                     </section>
                 </div>
             </div>
