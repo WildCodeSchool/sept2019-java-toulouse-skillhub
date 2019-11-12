@@ -15,17 +15,19 @@ import java.util.List;
 @Controller
 public class RegisterController {
 
+    RegisterRepository registerRepository = new RegisterRepository();
+
     @GetMapping("/register")
     public String register(Model model) {
 
         return "inscription";
     }
 
-    @PostMapping("/register")
-    public String registerUser(Model out, @RequestParam String nickname, @RequestParam String password, @RequestParam String avatarUrl, @RequestParam List<Long> skillsId) {
+    @PostMapping("/submit")
+    public String registerUser(Model out, @RequestParam String nickname, @RequestParam String password, @RequestParam String avatar, @RequestParam(name="skill", defaultValue = "-1") List<Long> skillsId) {
 
-        out.addAttribute("user", RegisterRepository.saveUser(nickname, password, avatarUrl, skillsId));
+        registerRepository.saveUser(nickname, password, avatar, skillsId);
 
-        return "redirect:/index";
+        return "index";
     }
 }

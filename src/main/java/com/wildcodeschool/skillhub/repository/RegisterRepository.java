@@ -12,38 +12,43 @@ public class RegisterRepository {
     private final static String DB_USER = "skillhub";
     private final static String DB_PASSWORD = "5ki!!huB31";
 
-    public static User saveUser(String nickname, String password, String avatarUrl, List<Long> skillsId) {
+    public static void saveUser(String nickname, String password, String avatar, List<Long> skillsId) {
 
         try {
-            for (Long skillId : skillsId) {
-                Connection connection = DriverManager.getConnection(
-                        DB_URL, DB_USER, DB_PASSWORD
-                );
-                PreparedStatement statement = connection.prepareStatement(
-                        "INSERT INTO user (id_user, nickname, password, id_picture, id_skill) JOIN user_skill ON user.id_user = user_skill.id_user  JOIN picture ON picture.id_picture = user.id_picture VALUES (?,?,?,?,?)",
-                        Statement.RETURN_GENERATED_KEYS
-                );
-                statement.setString(2, nickname);
-                statement.setString(3, password);
-                statement.setString(4, avatarUrl);
-                statement.setLong(4, skillId);
+            Connection connection = DriverManager.getConnection(
+                    DB_URL, DB_USER, DB_PASSWORD
+            );
+            PreparedStatement statement = connection.prepareStatement(
+                    "INSERT INTO user (nickname, password, id_picture) VALUES (?,?,?)",
+                    Statement.RETURN_GENERATED_KEYS
+            );
+            statement.setString(1, nickname);
+            statement.setString(2, password);
+            statement.setString(3, avatar);
 
-                if (statement.executeUpdate() != 1) {
-                    throw new SQLException("failed to insert data");
-                }
-
-                ResultSet generatedKeys = statement.getGeneratedKeys();
-
-                if (generatedKeys.next()) {
-                    Long userId = generatedKeys.getLong(1);
-                    return new User(userId, nickname, password, avatarUrl, skillsId);
-                } else {
-                    throw new SQLException("failed to get inserted id");
-                }
+            if (statement.executeUpdate() != 1) {
+                throw new SQLException("failed to insert data");
             }
+
+            ResultSet generatedKeys = statement.getGeneratedKeys();
+
+            if (generatedKeys.next()) {
+                Long userId = generatedKeys.getLong(1);
+                for (Long skillId : skillsId) {
+                    statement = connection.prepareStatement(
+                            "INSERT INTO user_skill (id_skill, id_user) VALUES (?, ?)");
+                    statement.setLong(1, skillId);
+                    statement.setLong(2, userId);
+                    if (statement.executeUpdate() != 1) {
+                        throw new SQLException("failed to insert data");
+                    }
+                }
+            } else {
+                throw new SQLException("failed to get inserted id");
+            }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null;
     }
 }
