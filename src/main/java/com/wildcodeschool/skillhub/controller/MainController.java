@@ -25,10 +25,4 @@ public class MainController {
         }
         return "about";
     }
-
-    @GetMapping("/profile")
-    public String register(Model model) {
-
-        return "profile";
-    }
 }

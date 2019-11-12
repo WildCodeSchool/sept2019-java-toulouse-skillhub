@@ -25,59 +25,28 @@
             <div class="register-input-container">
                 <div class="register-input">
                     <label class="input-demand" for="pseudo">Modifiez votre pseudo:</label>
-                    <input class="input-box" type="text" id="pseudo" name="pseudo" placeholder="Pseudo">
+                    <input class="input-box" type="text" id="pseudo" name="nickname" placeholder="Pseudo" required>
                 </div>
                 <div class="register-input">
                     <label class="input-demand" for="password">Modifiez votre mot de passe:</label>
-                    <input class="input-box" type="password" id="password" name="password" placeholder="Mot de passe">
+                    <input class="input-box" type="password" id="password" name="password" placeholder="Mot de passe"
+                           required>
                 </div>
-                <div class="register-input">
-                    <label class="input-demand" for="password-confirmation">Confirmez votre mot de passe:</label>
-                    <input class="input-box" type="password" id="password-confirmation" name="password-confirmation"
-                           placeholder="Mot de passe">
-                </div>
+                <!--  <div class="register-input">
+                     <label class="input-demand" for="password-confirmation">Confirmez votre mot de passe:</label>
+                     <input class="input-box" type="password" id="password-confirmation" name="password-confirmation"
+                            placeholder="Mot de passe">
+                 </div> -->
             </div>
 
             <div class="skill-container">
                 <label class="input-skill-demand">Modifiez vos compétences:</label>
                 <div class="skill-list-container">
-                    <div class="left-skill-container">
-                        <section class="skill-align">
-                            <input type="checkbox" class="skill-skin" id="skill1" name="skill1" value="skill1">
-                            <label for="skill1" class="skill-list">Java</label>
-                        </section>
-                        <section class="skill-align">
-                            <input type="checkbox" class="skill-skin" id="skill2" name="skill2" value="skill2">
-                            <label for="skill2" class="skill-list">Python</label>
-                        </section>
-                        <section class="skill-align">
-                            <input type="checkbox" class="skill-skin" id="skill3" name="skill3" value="skill3">
-                            <label for="skill3" class="skill-list">Kotlin</label>
-                        </section>
-                        <section class="skill-align">
-                            <input type="checkbox" class="skill-skin" id="skill4" name="skill4" value="skill4">
-                            <label for="skill4" class="skill-list">Ruby</label>
-                        </section>
-                    </div>
-                    <div class="right-skill-container">
-                        <section class="skill-align">
-                            <input type="checkbox" class="skill-skin" id="skill5" name="skill5" value="skill5">
-                            <label for="skill1" class="skill-list">Javascript</label>
-                        </section>
-                        <section class="skill-align">
-                            <input type="checkbox" class="skill-skin" id="skill6" name="skill6" value="skill6">
-                            <label for="skill1" class="skill-list">HTML/CSS</label>
-                        </section>
-                        <section class="skill-align">
-                            <input type="checkbox" class="skill-skin" id="skill7" name="skill7" value="skill7">
-                            <label for="skill1" class="skill-list">C#</label>
-                        </section>
-                        <section class="skill-align">
-                            <input type="checkbox" class="skill-skin" id="skill8" name="skill8" value="skill8">
-                            <label for="skill1" class="skill-list">Swift</label>
-                        </section>
-
-                    </div>
+                    <section class="skill-align" th:each="skill: ${skills}">
+                        <input type="checkbox" class="skill-skin" th:id="${skill.key}" name="skill"
+                               th:value="${skill.key}">
+                        <label th:for="${skill.key}" class="skill-list" th:text="${skill.value}">Skill</label>
+                    </section>
                 </div>
             </div>
         </div>
@@ -87,41 +56,15 @@
                     <label>Modifiez votre avatar:</label>
                 </div>
                 <div class="avatars-container">
-                    <div class="avatar-input-container">
-                        <label for="avatar" class="label-avatar"><img class="avatar-img"
-                                                                      th:src="@{images/avatars/1.svg}"/></label>
-                        <input type="radio" class="input-avatar" id="avatar" name="avatar"/>
-                    </div>
-                    <div class="avatar-input-container">
-                        <label for="avatar1" class="label-avatar"><img class="avatar-img"
-                                                                       th:src="@{images/avatars/2.svg}"/></label>
-                        <input type="radio" class="input-avatar" id="avatar1" name="avatar"/>
-                    </div>
-                    <div class="avatar-input-container">
-                        <label for="avatar2" class="label-avatar"><img class="avatar-img"
-                                                                       th:src="@{images/avatars/3.svg}"/></label>
-                        <input type="radio" class="input-avatar" id="avatar2" name="avatar"/>
-                    </div>
-                    <div class="avatar-input-container">
-                        <label for="avatar3" class="label-avatar"><img class="avatar-img"
-                                                                       th:src="@{images/avatars/4.svg}"/></label>
-                        <input type="radio" class="input-avatar" id="avatar3" name="avatar"/>
-                    </div>
-
-                    <div class="avatar-input-container">
-                        <label for="avatar4" class="label-avatar"><img class="avatar-img"
-                                                                       th:src="@{images/avatars/5.svg}"/></label>
-                        <input type="radio" class="input-avatar" id="avatar4" name="avatar"/>
-                    </div>
-                    <div class="avatar-input-container">
-                        <label for="avatar5" class="label-avatar"><img class="avatar-img"
-                                                                       th:src="@{images/avatars/6.svg}"/></label>
-                        <input type="radio" class="input-avatar" id="avatar5" name="avatar"/>
+                    <div class="avatar-input-container" th:each="avatar : ${avatars}">
+                        <label th:for="${avatar.key}" class="label-avatar"><img class="avatar-img"
+                                                                                th:src="${avatar.value}"/></label>
+                        <input type="radio" class="input-avatar" th:id="${avatar.key}" name="avatar"
+                               th:value="${avatar.key}"/>
                     </div>
                 </div>
             </div>
         </section>
-
         <section class="button-align">
             <label for="sendbutton">
                 <input type="submit" class="button" id="sendbutton" value="Modifier">
