@@ -83,4 +83,28 @@ public class RegisterRepository {
         }
         return null;
     }
+
+    public Map<Long, String> findAllSkills() {
+
+        try {
+            Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            PreparedStatement statement = connection.prepareStatement(
+                    "SELECT id_skill, name FROM skill;"
+            );
+
+            Map<Long, String> skills = new HashMap<>();
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                Long id = resultSet.getLong("id_skill");
+                String name = resultSet.getString("name");
+                skills.put(id, name);
+            }
+            return skills;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

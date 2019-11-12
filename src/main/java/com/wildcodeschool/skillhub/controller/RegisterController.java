@@ -18,6 +18,7 @@ public class RegisterController {
     public String register(Model out) {
 
         out.addAttribute("avatars", registerRepository.findAllAvatars());
+        out.addAttribute("skills", registerRepository.findAllSkills());
         return "register";
     }
 

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <link rel="stylesheet" media="screen" href="../static/css/style.css" th:href="@{/css/style.css}"/>
-    <link rel="stylesheet" media="screen" href="../static/css/inscription.css" th:href="@{/css/inscription.css}"/>
+    <link rel="stylesheet" media="screen" href="../static/css/register.css" th:href="@{/css/register.css}"/>
     <link rel="stylesheet" href="../static/css/nav.css" th:href="@{/css/nav.css}"/>
     <style>
         @import url('https://fonts.googleapis.com/css?family=Roboto:400,900&display=swap');
@@ -39,43 +39,11 @@
             <div class="skill-container">
                 <label class="input-skill-demand">Sélectionnez vos compétences:</label>
                 <div class="skill-list-container">
-                    <div class="left-skill-container">
-                        <section class="skill-align">
-                            <input type="checkbox" class="skill-skin" id="skill1" name="skill" value="1">
-                            <label for="skill1" class="skill-list">Java</label>
-                        </section>
-                        <section class="skill-align">
-                            <input type="checkbox" class="skill-skin" id="skill2" name="skill" value="3">
-                            <label for="skill2" class="skill-list">Python</label>
-                        </section>
-                        <section class="skill-align">
-                            <input type="checkbox" class="skill-skin" id="skill3" name="skill" value="4">
-                            <label for="skill3" class="skill-list">Kotlin</label>
-                        </section>
-                        <section class="skill-align">
-                            <input type="checkbox" class="skill-skin" id="skill4" name="skill" value="7">
-                            <label for="skill4" class="skill-list">Ruby</label>
-                        </section>
-                    </div>
-                    <div class="right-skill-container">
-                        <section class="skill-align">
-                            <input type="checkbox" class="skill-skin" id="skill5" name="skill" value="2">
-                            <label for="skill1" class="skill-list">Javascript</label>
-                        </section>
-                        <section class="skill-align">
-                            <input type="checkbox" class="skill-skin" id="skill6" name="skill" value="5">
-                            <label for="skill1" class="skill-list">HTML/CSS</label>
-                        </section>
-                        <section class="skill-align">
-                            <input type="checkbox" class="skill-skin" id="skill7" name="skill" value="8">
-                            <label for="skill1" class="skill-list">C#</label>
-                        </section>
-                        <section class="skill-align">
-                            <input type="checkbox" class="skill-skin" id="skill8" name="skill" value="6">
-                            <label for="skill1" class="skill-list">Swift</label>
-                        </section>
-
-                    </div>
+                    <section class="skill-align" th:each="skill: ${skills}">
+                        <input type="checkbox" class="skill-skin" th:id="${skill.key}" name="skill"
+                               th:value="${skill.key}">
+                        <label th:for="${skill.key}" class="skill-list" th:text="${skill.value}">Skill</label>
+                    </section>
                 </div>
             </div>
         </div>
@@ -87,8 +55,9 @@
                 <div class="avatars-container">
                     <div class="avatar-input-container" th:each="avatar : ${avatars}">
                         <label th:for="${avatar.key}" class="label-avatar"><img class="avatar-img"
-                                                                      th:src="${avatar.value}"/></label>
-                        <input type="radio" class="input-avatar" th:id="${avatar.key}" name="avatar" th:value="${avatar.key}"/>
+                                                                                th:src="${avatar.value}"/></label>
+                        <input type="radio" class="input-avatar" th:id="${avatar.key}" name="avatar"
+                               th:value="${avatar.key}"/>
                     </div>
                 </div>
             </div>
