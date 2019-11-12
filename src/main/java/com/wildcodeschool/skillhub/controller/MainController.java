@@ -10,6 +10,12 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class MainController {
 
+    @GetMapping("/")
+    public String index() {
+        return "index";
+    }
+
+
     @GetMapping("/about")
     public String about(Model model, HttpSession session) {
         if (session.getAttribute("user") == null) {
@@ -19,5 +25,4 @@ public class MainController {
         }
         return "about";
     }
-
 }
