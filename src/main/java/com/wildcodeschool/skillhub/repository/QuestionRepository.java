@@ -22,7 +22,7 @@ public class QuestionRepository {
                             "JOIN picture ON user.id_picture = picture.id_picture\n" +
                             "JOIN question_skill ON question.id_question = question_skill.id_question\n" +
                             "JOIN skill ON question_skill.id_skill = skill.id_skill\n" +
-                            "WHERE question.id_user = ?;"
+                            "WHERE question.resolved = false AND question.id_user = ?;"
             );
             statement.setLong(1, userId);
             List<Question> questions = new ArrayList<>();
