@@ -157,4 +157,26 @@ public class QuestionRepository {
         return null;
     }
 
+    public void addSkillToQuestion (Long idQuestion, Long idSkill) {
+        try {
+            Connection connection = DriverManager.getConnection(
+                    DB_URL, DB_USER, DB_PASSWORD
+            );
+            PreparedStatement statement = connection.prepareStatement(
+                    "INSERT INTO question_skill (id_question, id_skill)\n" +
+                            "VALUES (?,?);"
+            );
+            statement.setLong(1, idQuestion);
+            statement.setLong(2, idSkill);
+
+
+            if (statement.executeUpdate() != 1) {
+                throw new SQLException("failed to insert data");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

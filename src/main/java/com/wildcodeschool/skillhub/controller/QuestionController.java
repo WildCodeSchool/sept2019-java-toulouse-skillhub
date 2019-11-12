@@ -47,19 +47,44 @@ public class QuestionController {
             return "index";
         }
 
+
+        //TODO: recupérer list skill, 
+
         java.sql.Date sqlDate = new java.sql.Date(System.currentTimeMillis());
 
         User user = (User)session.getAttribute("user");
-        model.addAttribute("ask", userRepository.getUserById(user.getUserId()));
         model.addAttribute("askQuestion", questionRepository.askQuestion(title, body, sqlDate, false, user.getUserId()));
 
         return "redirect:feed";
     }
 
-    @GetMapping("/askQuestion")
-    public String getAsk () {
+/*    @GetMapping("/askQuestion")
+    public String postQuestion(Model model, HttpSession session) {
+
+        if (session.getAttribute("user") == null) {
+            return "index";
+        }
+
+        User user = (User)session.getAttribute("user");
+        model.addAttribute("ask", userRepository.getUserById(user.getUserId()));
+
         return "ask";
+    }*/
+
+
+
+    @GetMapping("/askQuestion")
+    public String postQuestion(HttpSession session) {
+
+        if (session.getAttribute("user") == null) {
+            return "index";
+        }
+
+        return "testForm";
     }
+
+
+
 
     @PostMapping("/answer")
     public String postAnswer(Model model, @RequestParam Long id,
