@@ -24,7 +24,6 @@ public class FeedController {
         User user = (User)session.getAttribute("user");
         model.addAttribute("own", qRepository.findAllOwn(user.getUserId()));
         model.addAttribute("other", qRepository.findAllOther(user.getSkillsId(), user.getUserId()));
-        model.addAttribute("userId", user.getUserId());
         return "feed";
     }
 }

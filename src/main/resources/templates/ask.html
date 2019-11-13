@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta name="viewport" content="width=device-width initial-scale=1.0">
     <meta charset="UTF-8">
@@ -12,8 +12,8 @@
 <header th:replace="header :: top"></header>
 <div class="body">
     <section class="top">
-        <img class="avatar" src="../static/images/avatars/heisenberg.svg" th:src="${ask.avatarUrl}" alt="Avatar">
-        <h1 th:text="${ask.nickname}">Heisenberg</h1>
+        <img class="avatar" th:src="${ask.avatarUrl}" alt="Avatar">
+        <h1 th:text="${ask.nickname}">Nabilus</h1>
     </section>
     <div class="desktop">
         <form method="post" action="/askQuestion">
@@ -26,41 +26,19 @@
                 <div class="contComp">
                     <p class="titleCompetence">Compétence</p><br>
                     <div class="comp">
-                        <label>
-                            <input class="input" type="radio" name="skill" value="java" checked>
-                            Java
-                        </label><br>
-                        <label>
-                            <input class="input" type="radio" name="skill" value="javaScript">
-                            JavaScript
-                        </label><br>
-                        <label>
-                            <input class="input" type="radio" name="skill" value="python">
-                            Python
-                        </label><br>
-                        <label>
-                            <input class="input" type="radio" name="skill" value="kotlin">
-                            Kotlin
-                        </label><br>
-                        <label>
-                            <input class="input" type="radio" name="skill" value="html/css">
-                            HTML/CSS
-                        </label><br>
-                        <label>
-                            <input class="input" type="radio" name="skill" value="swift">
-                            Swift
-                        </label><br>
-                        <label>
-                            <input class="input" type="radio" name="skill" value="ruby">
-                            Ruby
-                        </label><br>
-                        <label>
-                            <input class="input" type="radio" name="skill" value="c#">
-                            C#
-                        </label><br>
+
+                        <ul>
+                            <li th:each="entrySkill : ${skills}">
+                                <input class="input" type="radio" name="skill" th:id="${entrySkill.key}"
+                                        th:value="${entrySkill.key}">
+                                <label th:for="${entrySkill.key}" th:text="${entrySkill.value}"></label>
+                            </li>
+                        </ul>
+
                     </div>
                 </div>
             </div>
+
             <div class="rightSide">
                 <div class="contQuest">
                     <div class="quest">

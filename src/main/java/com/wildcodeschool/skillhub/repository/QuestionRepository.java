@@ -169,7 +169,6 @@ public class QuestionRepository {
             statement.setLong(1, idQuestion);
             statement.setLong(2, idSkill);
 
-
             if (statement.executeUpdate() != 1) {
                 throw new SQLException("failed to insert data");
             }
@@ -178,5 +177,4 @@ public class QuestionRepository {
             e.printStackTrace();
         }
     }
-
 }

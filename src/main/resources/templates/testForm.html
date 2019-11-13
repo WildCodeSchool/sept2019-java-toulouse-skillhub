@@ -1,27 +1,22 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta name="viewport" content="width=device-width initial-scale=1.0">
     <meta charset="UTF-8">
     <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet">
     <link href="../static/css/ask.css" th:href="@{/css/ask.css}" rel="stylesheet">
     <link href="../static/css/nav.css" th:href="@{/css/nav.css}" rel="stylesheet">
-    <title>Ask</title>
+    <title>Question</title>
 </head>
 <body>
 <header th:replace="header :: top"></header>
-<form action="/askQuestion" method="post">
-    <label for="titleQuestion">Titre de la question</label>
-    <textarea class="titleQuestion" id="titleQuestion" name="title"
-              placeholder="Ecrivez le titre de votre question">
-    </textarea>
-
-    <label for="body">Votre question</label>
-    <textarea id="body" class="titleQuestion" name="body"
-              placeholder="Ecrivez le titre de votre question">
-    </textarea>
-    <input type="submit" value="Send">
-</form>
+                        <ul>
+                            <li th:each="entrySkill : ${skills}">
+                                <input class="input" type="radio" name="skill" th:id="${entrySkill.key}"
+                                       th:value="${entrySkill.value}">
+                                <label th:for="${entrySkill.value}" th:text="${entrySkill.value}"></label>
+                            </li>
+                        </ul>
 <footer th:replace="footer :: bottom"></footer>
 </body>
 </html>

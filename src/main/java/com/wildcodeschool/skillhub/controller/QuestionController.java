@@ -1,7 +1,9 @@
 package com.wildcodeschool.skillhub.controller;
 
+import com.wildcodeschool.skillhub.entity.Question;
 import com.wildcodeschool.skillhub.entity.User;
 import com.wildcodeschool.skillhub.repository.AnswerRepository;
+import com.wildcodeschool.skillhub.repository.ProfileRepository;
 import com.wildcodeschool.skillhub.repository.QuestionRepository;
 import com.wildcodeschool.skillhub.repository.UserRepository;
 import org.springframework.stereotype.Controller;
@@ -13,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 
 @Controller
@@ -21,6 +25,7 @@ public class QuestionController {
     private QuestionRepository questionRepository = new QuestionRepository();
     private AnswerRepository answerRepository = new AnswerRepository();
     private UserRepository userRepository = new UserRepository();
+    private ProfileRepository profileRepository = new ProfileRepository();
 
     @GetMapping("/question")
     public String getQuestion(Model model, @RequestParam Long id, HttpSession session) {
@@ -41,24 +46,30 @@ public class QuestionController {
 
     @PostMapping("/askQuestion")
     public String postQuestion(Model model, HttpSession session, @RequestParam String title,
-                               @RequestParam String body) {
+                               @RequestParam String body,
+                               @RequestParam Long key) {
 
         if (session.getAttribute("user") == null) {
             return "index";
         }
 
-        //TODO: recupérer list skill, 
-
+        User user = (User)session.getAttribute("user");
         java.sql.Date sqlDate = new java.sql.Date(System.currentTimeMillis());
 
-        User user = (User)session.getAttribute("user");
+        Map<Long, String> skills = profileRepository.findAllSkills();
+        System.out.println("skillsize" + skills.size());
+
+        model.addAttribute("skills", skills);
+        Question question = questionRepository.askQuestion(title, body, sqlDate, false, user.getUserId());
+        questionRepository.addSkillToQuestion(question.getQuestionId(), key);
+
         model.addAttribute("askQuestion", questionRepository.askQuestion(title, body, sqlDate, false, user.getUserId()));
 
-        return "redirect:feed";
+        return "ask";
     }
 
-/*    @GetMapping("/askQuestion")
-    public String postQuestion(Model model, HttpSession session) {
+    @GetMapping("/askQuestion")
+    public String getQuestion(Model model, HttpSession session) {
 
         if (session.getAttribute("user") == null) {
             return "index";
@@ -68,20 +79,7 @@ public class QuestionController {
         model.addAttribute("ask", userRepository.getUserById(user.getUserId()));
 
         return "ask";
-    }*/
-
-
-
-    @GetMapping("/askQuestion")
-    public String postQuestion(HttpSession session) {
-
-        if (session.getAttribute("user") == null) {
-            return "index";
-        }
-
-        return "testForm";
     }
-
 
     @PostMapping("/answer")
     public String postAnswer(Model model, @RequestParam Long id,
@@ -100,7 +98,7 @@ public class QuestionController {
 
     @GetMapping("/resolved")
     public String resolvedAnswer(Model model, @RequestParam Long questionId, HttpSession session) {
-        // true or false, recupérer dans model attribut
+
         if (session.getAttribute("user") == null) {
             return "index";
         }
