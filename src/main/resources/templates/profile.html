@@ -27,11 +27,12 @@
                     <label class="input-demand" for="password">Modifiez votre mot de passe:</label>
                     <input class="input-box" type="password" id="password" name="password" th:value="${user.password}" required>
                 </div>
-                <!--  <div class="register-input">
+                <div class="register-input">
                      <label class="input-demand" for="password-confirmation">Confirmez votre mot de passe:</label>
-                     <input class="input-box" type="password" id="password-confirmation" name="password-confirmation"
+                     <input class="input-box" type="password" id="password-confirmation" name="passwordConfirmation"
                             placeholder="Mot de passe" required>
-                 </div> -->
+                    <p class="pwd-check-false" th:if="${passwordCheck}">Merci d'indiquer un mot de passe identique !</p>
+                 </div>
             </div>
 
             <div class="skill-container">
@@ -39,7 +40,7 @@
                 <div class="skill-list-container">
                     <section class="skill-align" th:each="skill: ${skills}">
                         <input type="checkbox" class="skill-skin" th:id="|skill${skill.key}|" name="skill"
-                               th:value="${skill.key}">
+                               th:value="${skill.key}" th:checked="${#lists.contains(user.skillsId, skill.key)}">
                         <label th:for="|skill${skill.key}|" class="skill-list" th:text="${skill.value}">Skill</label>
                     </section>
                 </div>

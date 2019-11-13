@@ -73,6 +73,11 @@ public class UserRepository {
         return null;
     }
 
+    public boolean passwordCheck(String password, String passwordConfirmation) {
+
+        return (password.equals(passwordConfirmation));
+    }
+
     public void updateUser(Long userId, String nickname, String password, Long avatar, List<Integer> newSkills, List<Long> oldSkills) {
 
         try {
