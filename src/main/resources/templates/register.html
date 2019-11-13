@@ -51,7 +51,7 @@
                 <div class="avatars-container">
                     <div class="avatar-input-container" th:each="avatar : ${avatars}">
                         <label th:for="${avatar.key}" class="label-avatar"><img class="avatar-img"
-                                                                                th:src="${avatar.value}"/></label>
+                                                                                th:src="${avatar.value}" alt="avatar"/></label>
                         <input type="radio" class="input-avatar" th:id="${avatar.key}" name="avatar"
                                th:value="${avatar.key}"/>
                     </div>

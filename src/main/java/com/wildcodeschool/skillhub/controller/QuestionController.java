@@ -13,9 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.Map;
 
 
@@ -38,7 +35,7 @@ public class QuestionController {
         model.addAttribute("answer", answerRepository.findAnswers(id));
         model.addAttribute("answerNumber", answerNumber);
 
-        User user = (User)session.getAttribute("user");
+        User user = (User) session.getAttribute("user");
         model.addAttribute("userIdConnect", user.getUserId());
 
         return "question";
@@ -47,25 +44,19 @@ public class QuestionController {
     @PostMapping("/askQuestion")
     public String postQuestion(Model model, HttpSession session, @RequestParam String title,
                                @RequestParam String body,
-                               @RequestParam Long key) {
+                               @RequestParam Long skill) {
 
         if (session.getAttribute("user") == null) {
             return "index";
         }
 
-        User user = (User)session.getAttribute("user");
+        User user = (User) session.getAttribute("user");
         java.sql.Date sqlDate = new java.sql.Date(System.currentTimeMillis());
 
-        Map<Long, String> skills = profileRepository.findAllSkills();
-        System.out.println("skillsize" + skills.size());
-
-        model.addAttribute("skills", skills);
         Question question = questionRepository.askQuestion(title, body, sqlDate, false, user.getUserId());
-        questionRepository.addSkillToQuestion(question.getQuestionId(), key);
+        questionRepository.addSkillToQuestion(question.getQuestionId(), skill);
 
-        model.addAttribute("askQuestion", questionRepository.askQuestion(title, body, sqlDate, false, user.getUserId()));
-
-        return "ask";
+        return "redirect:/feed";
     }
 
     @GetMapping("/askQuestion")
@@ -75,7 +66,12 @@ public class QuestionController {
             return "index";
         }
 
-        User user = (User)session.getAttribute("user");
+        Map<Long, String> skills = profileRepository.findAllSkills();
+        System.out.println("skillsize" + skills.size());
+
+        model.addAttribute("skills", skills);
+
+        User user = (User) session.getAttribute("user");
         model.addAttribute("ask", userRepository.getUserById(user.getUserId()));
 
         return "ask";
@@ -87,7 +83,7 @@ public class QuestionController {
         if (session.getAttribute("user") == null) {
             return "index";
         }
-        User user = (User)session.getAttribute("user");
+        User user = (User) session.getAttribute("user");
         java.sql.Date sqlDate = new java.sql.Date(System.currentTimeMillis());
         model.addAttribute("answer", answerRepository.saveAnswer(id, body, sqlDate,
                 user.getUserId()));

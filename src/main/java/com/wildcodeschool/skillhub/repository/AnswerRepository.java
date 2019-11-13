@@ -3,8 +3,6 @@ package com.wildcodeschool.skillhub.repository;
 import com.wildcodeschool.skillhub.entity.Answer;
 
 import java.sql.*;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,7 +60,6 @@ public class AnswerRepository {
             if (statement.executeUpdate() != 1) {
                 throw new SQLException("failed to insert data");
             }
-
             ResultSet generatedKeys = statement.getGeneratedKeys();
 
             if (generatedKeys.next()) {

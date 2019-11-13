@@ -1,8 +1,6 @@
 package com.wildcodeschool.skillhub.repository;
 
-import com.wildcodeschool.skillhub.entity.Question;
 import com.wildcodeschool.skillhub.entity.User;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -60,7 +58,7 @@ public class UserRepository {
             );
             statement.setString(1, username);
             statement.setString(2, password);
-            Long userId = 0l;
+            Long userId = 0L;
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 userId = resultSet.getLong("id_user");
