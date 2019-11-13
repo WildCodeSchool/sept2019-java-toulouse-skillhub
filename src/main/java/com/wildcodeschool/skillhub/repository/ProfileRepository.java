@@ -1,5 +1,7 @@
 package com.wildcodeschool.skillhub.repository;
 
+import com.wildcodeschool.skillhub.entity.User;
+
 import java.sql.*;
 import java.util.HashMap;
 import java.util.List;
@@ -59,7 +61,7 @@ public class ProfileRepository {
         return null;
     }
 
-    public static void saveUser(String nickname, String password, String avatar, List<Long> skillsId) {
+    public static User saveUser(String nickname, String password, String avatar, List<Long> skillsId) {
 
         try {
             Connection connection = DriverManager.getConnection(
@@ -78,11 +80,11 @@ public class ProfileRepository {
             }
 
             ResultSet generatedKeys = statement.getGeneratedKeys();
-
+            Long userId;
             if (generatedKeys.next()) {
-                Long userId = generatedKeys.getLong(1);
+                userId = generatedKeys.getLong(1);
 
-                if (skillsId.get(0) != - 1) {
+                if (skillsId.get(0) != -1) {
 
                     for (Long skillId : skillsId) {
                         statement = connection.prepareStatement(
@@ -97,9 +99,13 @@ public class ProfileRepository {
             } else {
                 throw new SQLException("failed to get inserted id");
             }
+            UserRepository userRepository = new UserRepository();
+            User user = userRepository.getUserById(userId);
+            return user;
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return null;
     }
 }
