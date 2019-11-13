@@ -13,7 +13,7 @@
 <header th:replace="header :: top"></header>
 <div class="form-container">
     <div class="profile-info">
-        <img class="profile-pic" src="../static/images/avatars/8.svg" th:src="${user.avatarUrl}">
+        <img class="profile-pic" src="../static/images/avatars/8.svg" th:src="${user.avatarUrl}" alt="avatar">
         <h3 class="profile-pseudo" th:text="${user.nickname}">Pseudo</h3>
     </div>
     <form th:action="@{/update-profile}" method="POST">
@@ -54,7 +54,7 @@
                 <div class="avatars-container">
                     <div class="avatar-input-container" th:each="avatar : ${avatars}">
                         <label th:for="${avatar.key}" class="label-avatar"><img class="avatar-img"
-                                                                                th:src="${avatar.value}"/></label>
+                                                                                th:src="${avatar.value}" alt="avatar"/></label>
                         <input type="radio" class="input-avatar" th:id="${avatar.key}" name="avatar"
                                th:value="${avatar.key}" th:checked="${user.avatarUrl} == ${avatar.value}"/>
                     </div>

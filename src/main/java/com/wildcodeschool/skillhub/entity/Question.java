@@ -27,6 +27,15 @@ public class Question {
         this.skill = skill;
     }
 
+    public Question(Long userId, Long questionId, String title, String body, Date date, boolean resolved) {
+        this.userId = userId;
+        this.questionId = questionId;
+        this.title = title;
+        this.body = body;
+        this.date = date;
+        this.resolved = resolved;
+    }
+
     public Long getUserId() {
         return this.userId;
     }
