@@ -70,7 +70,8 @@
 }
 
 .skill-skin:checked {
-    background-color: #6979F8;
+    background-color: #2C2C2C;
+    border-color: #2C2C2C;
 }
 
 .button:hover {

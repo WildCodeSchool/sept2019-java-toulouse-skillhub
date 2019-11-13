@@ -48,6 +48,10 @@ public class ProfileController {
         User user = (User)session.getAttribute("user");
         userRepository.updateUser(user.getUserId(), nickname, password, avatar, skillsId, user.getSkillsId());
         session.setAttribute("user", userRepository.getUserById(user.getUserId()));
-        return "redirect:/profile";
+        out.addAttribute("avatars", profileRepository.findAllAvatars());
+        out.addAttribute("skills", profileRepository.findAllSkills());
+        out.addAttribute("user", session.getAttribute("user"));
+        out.addAttribute("successUpdate", true);
+        return "profile";
     }
 }
