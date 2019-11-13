@@ -51,8 +51,7 @@ public class ProfileController {
         out.addAttribute("avatars", profileRepository.findAllAvatars());
         out.addAttribute("skills", profileRepository.findAllSkills());
         out.addAttribute("user", session.getAttribute("user"));
-        boolean successUpdate = true;
-        out.addAttribute("successUpdate", successUpdate);
+        out.addAttribute("successUpdate", true);
         return "profile";
     }
 }
