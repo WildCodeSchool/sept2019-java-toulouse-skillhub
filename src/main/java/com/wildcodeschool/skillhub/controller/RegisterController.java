@@ -27,6 +27,14 @@ public class RegisterController {
     @PostMapping("/submit")
     public String registerUser(Model out, @RequestParam String nickname, @RequestParam String password, @RequestParam String passwordConfirmation, @RequestParam String avatar, @RequestParam(name="skill", defaultValue = "-1") List<Long> skillsId) {
 
+        if (!(userRepository.checkPasswordFormat(password))) {
+            out.addAttribute("pwdFormat", true);
+            System.out.println("salut !");
+            out.addAttribute("avatars", profileRepository.findAllAvatars());
+            out.addAttribute("skills", profileRepository.findAllSkills());
+            return "register";
+        }
+
         if (!(userRepository.passwordCheck(password, passwordConfirmation))) {
             out.addAttribute("passwordCheck", true);
             out.addAttribute("avatars", profileRepository.findAllAvatars());

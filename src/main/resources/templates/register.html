@@ -24,6 +24,8 @@
                     <label class="input-demand" for="password">Choisissez un mot de passe:</label>
                     <input class="input-box" type="password" id="password" name="password" placeholder="Mot de passe"
                            required>
+                    <p class="pwd-check-false" th:if="${pwdFormat}">Votre mot de passe doit faire plus de 3 <br>caractères
+                        et contenir au moins un chiffre</p>
                 </div>
                 <div class="register-input">
                     <label class="input-demand" for="password-confirmation">Confirmez votre mot de passe:</label>
