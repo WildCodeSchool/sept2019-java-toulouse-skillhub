@@ -4,15 +4,15 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Skill Hub</title>
-        <link rel="stylesheet" href="../static/css/nav.css" th:href="@{/css/nav.css}">
+        <link rel="stylesheet" th:href="@{/css/nav.css}">
     </head>
 
     <body>
         <header th:fragment="top">
             <div class="nav-container">
                 <nav class="nav-main">
-                    <img class="nav-logo" src="../static/images/SkillHub-logo.png" th:src="@{/images/SkillHub-logo.png}" alt="Logo"/>
-                    <div class="nav-title"><a href="index.html" th:href="@{/feed}" title="Welcome to Skill Hub">Skill Hub</a></div>
+                    <img class="nav-logo" th:src="@{/images/SkillHub-logo.png}" alt="Logo"/>
+                    <div class="nav-title"><a th:href="@{/feed}" title="Welcome to Skill Hub">Skill Hub</a></div>
                     <div id="burger-button">
                         <div class="burger-bar1"></div>
                         <div class="burger-bar2"></div>
@@ -21,33 +21,33 @@
                 </nav>
                 <nav id="nav-second">
                     <div class="nav-block">
-                        <div class="nav-link"><a href="feed.html" th:href="@{/feed}" title="Fil d'actualité">Fil d'actualité</a></div>
-                        <div class="nav-link"><a href="ask.html" th:href="@{/askQuestion}" title="Poser une question">Poser une question</a></div>
+                        <div class="nav-link"><a th:href="@{/feed}" title="Fil d'actualité">Fil d'actualité</a></div>
+                        <div class="nav-link"><a th:href="@{/askQuestion}" title="Poser une question">Poser une question</a></div>
                     </div>
                     <div class="nav-block">
-                        <div class="nav-link"><a href="profile.html" th:href="@{/profile}" title="Profil">Profil</a></div>
+                        <div class="nav-link"><a th:href="@{/profile}" title="Profil">Profil</a></div>
                         <div class="nav-link"><a th:href="@{/disconnect}" title="Se déconnecter">Se déconnecter</a></div>
                     </div>
                 </nav>
                 <nav id="nav-burger">
                     <div id="burger-menu">
-                        <div class="nav-link"><a href="feed.html" th:href="@{/feed}" title="Fil d'actualité">Fil d'actualité</a></div>
-                        <div class="nav-link"><a href="ask.html" th:href="@{/askQuestion}" title="Poser une question">Poser une question</a></div>
-                        <div class="nav-link"><a href="profile.html" th:href="@{/profile}" title="Profil">Profil</a></div>
-                        <div class="nav-link"><a href="about.html" th:href="@{/about}" title="about">À propos</a></div>
+                        <div class="nav-link"><a th:href="@{/feed}" title="Fil d'actualité">Fil d'actualité</a></div>
+                        <div class="nav-link"><a th:href="@{/askQuestion}" title="Poser une question">Poser une question</a></div>
+                        <div class="nav-link"><a th:href="@{/profile}" title="Profil">Profil</a></div>
+                        <div class="nav-link"><a th:href="@{/about}" title="about">À propos</a></div>
                         <div><a th:href="@{/disconnect}" title="Se déconnecter">Se déconnecter</a></div>
                     </div>
                     <div id="burger-overlay"></div>
                 </nav>
             </div>
-            <script src="../static/js/burger.js" th:src="@{/js/burger.js}"></script>
+            <script th:src="@{/js/burger.js}"></script>
         </header>
 
         <header th:fragment="top-visitor">
             <div class="nav-container">
                 <nav class="nav-main-visitor">
-                    <img class="nav-logo" src="../static/images/SkillHub-logo.png" th:src="@{/images/SkillHub-logo.png}" alt="Logo"/>
-                    <div class="nav-title-visitor"><a href="index.html" th:href="@{/feed}" title="Welcome to Skill Hub">Skill Hub</a></div>
+                    <img class="nav-logo" th:src="@{/images/SkillHub-logo.png}" alt="Logo"/>
+                    <div class="nav-title-visitor"><a th:href="@{/feed}" title="Welcome to Skill Hub">Skill Hub</a></div>
                 </nav>
             </div>
         </header>

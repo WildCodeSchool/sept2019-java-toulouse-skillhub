@@ -4,15 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../static/css/style.css" th:href="@{/static/css/style.css}">
-    <link rel="stylesheet" href="../static/css/nav.css" th:href="@{/css/nav.css}">
-    <link rel="stylesheet" href="../static/css/connection.css" th:href="@{/css/connection.css}">
-    <title >Skill Hub</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/nav.css}">
+    <link rel="stylesheet" th:href="@{/css/connection.css}">
+    <title >Welcome to Skill Hub</title>
 </head>
-<body>
-<div class="feed-container">
+<body th:style="|background-image: url('@{/images/backgroundDesktop.jpg}');|">
+<div class="index-container">
     <div class="logo">
         <p class="float">
             <img th:src="@{/images/logo3.png}"  alt="Skill Hub" height=50 width=60>
@@ -26,7 +24,7 @@
             <input class="name password" type="password" placeholder="Votre mot de passe" name="password" required>
             <input class="connection" type="submit" name="Connexion"
                    value="Connexion">
-            <a th:href="@{/register}" href="register.html" title="Navigation vers la page inscription">
+            <a th:href="@{/register}" title="Navigation vers la page inscription">
                 <button class="connection signIn" type="button">Inscription</button>
             </a>
         </form>
