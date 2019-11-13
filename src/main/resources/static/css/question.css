@@ -191,12 +191,6 @@ label {
     display: none;
 }
 
-@media screen and (min-width: 800px) {
-    .body {
-
-    }
-}
-
 @media screen and (max-width: 799px) {
     hr {
         position:absolute;
