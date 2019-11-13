@@ -2,6 +2,7 @@ package com.wildcodeschool.skillhub.controller;
 
 import com.wildcodeschool.skillhub.entity.User;
 import com.wildcodeschool.skillhub.repository.QuestionRepository;
+import com.wildcodeschool.skillhub.repository.UserRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpSession;
 public class FeedController {
 
     private QuestionRepository qRepository = new QuestionRepository();
+    private UserRepository userRepository = new UserRepository();
 
     @GetMapping("/feed")
     public String getFeed(Model model, HttpSession session) {

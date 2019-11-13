@@ -1,7 +1,7 @@
 var button = document.querySelector('#burger-button');
 var overlay = document.querySelector('#burger-overlay');
 var activatedClass = 'burger-activated';
-var burgerCrossClass = 'burger-cross'
+var burgerCrossClass = 'burger-cross';
 
 button.addEventListener('click', function (e) {
     e.preventDefault();

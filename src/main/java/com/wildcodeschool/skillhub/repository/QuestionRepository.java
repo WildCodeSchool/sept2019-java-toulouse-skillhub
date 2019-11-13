@@ -120,4 +120,61 @@ public class QuestionRepository {
         }
         return null;
     }
+
+    public Question askQuestion(String title, String body, Date date, boolean resolved, Long userId) {
+
+        try {
+            Connection connection = DriverManager.getConnection(
+                    DB_URL, DB_USER, DB_PASSWORD
+            );
+            PreparedStatement statement = connection.prepareStatement(
+                    "INSERT INTO question (title, body, `date`, resolved, id_user)\n" +
+                            "VALUES (?,?,?,?,?);",
+                    Statement.RETURN_GENERATED_KEYS
+            );
+            statement.setString(1, title);
+            statement.setString(2, body);
+            statement.setDate(3, date);
+            statement.setBoolean(4, resolved);
+            statement.setLong(5, userId);
+
+            if (statement.executeUpdate() != 1) {
+                throw new SQLException("failed to insert data");
+            }
+
+            ResultSet generatedKeys = statement.getGeneratedKeys();
+
+            if (generatedKeys.next()) {
+                Long id = generatedKeys.getLong(1);
+                return new Question(userId, id, title, body, date,
+                        resolved);
+            } else {
+                throw new SQLException("failed to get inserted id");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public void addSkillToQuestion (Long idQuestion, Long idSkill) {
+        try {
+            Connection connection = DriverManager.getConnection(
+                    DB_URL, DB_USER, DB_PASSWORD
+            );
+            PreparedStatement statement = connection.prepareStatement(
+                    "INSERT INTO question_skill (id_question, id_skill)\n" +
+                            "VALUES (?,?);"
+            );
+            statement.setLong(1, idQuestion);
+            statement.setLong(2, idSkill);
+
+            if (statement.executeUpdate() != 1) {
+                throw new SQLException("failed to insert data");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
