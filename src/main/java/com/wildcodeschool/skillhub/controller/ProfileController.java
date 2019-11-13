@@ -31,11 +31,20 @@ public class ProfileController {
     }
 
     @PostMapping("/update-profile")
-    public String updateUser(Model out, HttpSession session, @RequestParam String nickname, @RequestParam String password, @RequestParam Long avatar, @RequestParam(name="skill", defaultValue = "-1") List<Integer> skillsId) {
+    public String updateUser(Model out, HttpSession session, @RequestParam String nickname, @RequestParam String password, @RequestParam String passwordConfirmation, @RequestParam Long avatar, @RequestParam(name="skill", defaultValue = "-1") List<Integer> skillsId) {
 
         if (session.getAttribute("user") == null) {
             return "index";
         }
+
+        if (!(userRepository.passwordCheck(password, passwordConfirmation))) {
+            out.addAttribute("passwordCheck", true);
+            out.addAttribute("avatars", profileRepository.findAllAvatars());
+            out.addAttribute("skills", profileRepository.findAllSkills());
+            out.addAttribute("user", session.getAttribute("user"));
+            return "profile";
+        }
+
         User user = (User)session.getAttribute("user");
         userRepository.updateUser(user.getUserId(), nickname, password, avatar, skillsId, user.getSkillsId());
         session.setAttribute("user", userRepository.getUserById(user.getUserId()));
