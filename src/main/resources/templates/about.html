@@ -10,6 +10,7 @@
 </head>
 <body>
 <span th:if="${connected}"><header th:replace="header :: top" ></header></span>
+<span th:unless="${connected}"><header th:replace="header :: top-visitor" ></header></span>
 <div id="about-container">
     <div id="about-text">
         <h1>À propos</h1>
