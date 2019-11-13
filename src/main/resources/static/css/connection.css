@@ -1,9 +1,11 @@
 body {
-    background: url("../images/filleDesk.png") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
     background-size: cover;
+    background-repeat: no-repeat;
+    height: calc(100% - 60px);
+}
+
+.index-container {
+    min-height: calc(100%);
 }
 
 .float {
@@ -14,7 +16,7 @@ body {
 
 .logo {
     margin-left: -10px;
-    margin-top: 20vh;
+    margin-top: 60px;
     display: flex;
     justify-content: center;
 }
@@ -112,10 +114,6 @@ footer {
 /*---------MEDIA SCREEN----------*/
 
 @media screen and (min-width: 800px) {
-
-    .logo {
-        margin-top: 20vh;
-    }
 
     .title {
         font-size: 60px;
