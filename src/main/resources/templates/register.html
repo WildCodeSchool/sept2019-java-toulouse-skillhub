@@ -10,7 +10,8 @@
     <title>Inscription - Skill Hub</title>
 </head>
 <body>
-<header th:replace="header :: top"></header>
+<span th:if="${connected}"><header th:replace="header :: top" ></header></span>
+<span th:unless="${connected}"><header th:replace="header :: top-visitor" ></header></span>
 <div class="form-container">
     <h1 class="register-title">Inscription</h1>
     <form th:action="@{/submit}" method="POST">
