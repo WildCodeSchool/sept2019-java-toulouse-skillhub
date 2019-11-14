@@ -46,8 +46,16 @@ public class RegisterController {
             return "register";
         }
 
+        if  (!(userRepository.checkExistingUsername(nickname))) {
+            out.addAttribute("checkUsername", true);
+            out.addAttribute("avatars", profileRepository.findAllAvatars());
+            out.addAttribute("skills", profileRepository.findAllSkills());
+            return "register";
+        }
+
         User user = profileRepository.saveUser(nickname, password, avatar, skillsId);
         session.setAttribute("user", user);
         return "redirect:/feed";
+
     }
 }
