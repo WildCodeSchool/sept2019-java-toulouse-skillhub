@@ -5,6 +5,10 @@
     padding: 0;
 }
 
+body {
+    height: 100%;
+}
+
 h1 {
     color: #2C2C2C;
     font-family: 'Roboto', black, Verdana, Arial, sans-serif;

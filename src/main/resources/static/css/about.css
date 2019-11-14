@@ -1,7 +1,3 @@
-body {
-    height: 100%;
-}
-
 #about-container {
     min-height: calc(100% - 160px);
     display: flex;
