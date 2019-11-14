@@ -1,4 +1,9 @@
+body {
+    height: 100%;
+}
+
 .body {
+    min-height: calc(100% - 140px);
     font-size: 14px;
     font-family: 'Roboto', sans-serif;
     font-variant: small-caps;
@@ -23,7 +28,7 @@ h2 {
 }
 
 .top {
-    margin: 1em 0 2em 0;
+    margin: 20px 0 2em 0;
     font-size: 20px;
 }
 
@@ -49,38 +54,38 @@ label {
 
 .input
 {
-     -webkit-appearance: none;
-     -moz-appearance: none;
-     appearance: none;
-     display: inline-block;
-     position: relative;
-     background-color: #f1f1f1f1;
-     color: aliceblue;
-     top: 10px;
-     height: 30px;
-     width: 30px;
-     border: 0;
-     border-radius: 50px;
-     cursor: pointer;     
-     margin-right: 7px;
-     outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: inline-block;
+    position: relative;
+    background-color: #f1f1f1f1;
+    color: aliceblue;
+    top: 10px;
+    height: 30px;
+    width: 30px;
+    border: 0;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-right: 7px;
+    outline: none;
 }
 .input:checked::before
 {
-     position: absolute;
-     font: 13px/1 'Open Sans', sans-serif;
-     content: '\02143';
-     transform: rotate(40deg);
-     margin-left: 10px;
-     margin-top: 7px;
+    position: absolute;
+    font: 13px/1 'Open Sans', sans-serif;
+    content: '\02143';
+    transform: rotate(40deg);
+    margin-left: 10px;
+    margin-top: 7px;
 }
 .input:hover
 {
-     background-color: #f7f7f7;
+    background-color: #f7f7f7;
 }
 .input:checked
 {
-     background-color: #6979F8;
+    background-color: #2C2C2C;
 }
 
 .question {
@@ -134,11 +139,11 @@ label {
 
 .comp {
     column-count: 2;
-    margin-left: 17%;   
+    margin-left: 17%;
 }
 
 @media screen and (min-width: 800px) {
-    
+
     .avatar {
         width:10rem;
     }
@@ -146,6 +151,12 @@ label {
     .desktop {
         display:flex;
         justify-content: space-around;
+    }
+
+    form {
+        display: flex;
+        justify-content: space-between;
+        width:90%;
     }
 
     .leftSide {

@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <link rel="stylesheet" media="screen" href="../static/css/style.css" th:href="@{/css/style.css}"/>
-    <link rel="stylesheet" media="screen" href="../static/css/profile.css" th:href="@{/css/profile.css}"/>
-    <link rel="stylesheet" href="../static/css/nav.css" th:href="@{/css/nav.css}"/>
+    <link rel="stylesheet" media="screen" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" media="screen" th:href="@{/css/profile.css}"/>
+    <link rel="stylesheet" th:href="@{/css/nav.css}"/>
     <title>Inscription - Skill Hub</title>
 </head>
 <body>
 <header th:replace="header :: top"></header>
 <div class="form-container">
     <div class="profile-info">
-        <img class="profile-pic" src="../static/images/avatars/8.svg" th:src="${user.avatarUrl}" alt="avatar">
+        <img class="profile-pic" th:src="${user.avatarUrl}" alt="avatar">
         <h3 class="profile-pseudo" th:text="${user.nickname}">Pseudo</h3>
         <p class="successUpdate" th:if="${successUpdate}">Votre profil a bien été mis à jour 😉</p>
     </div>
