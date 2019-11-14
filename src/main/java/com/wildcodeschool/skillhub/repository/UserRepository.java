@@ -76,6 +76,11 @@ public class UserRepository {
         return (password.equals(passwordConfirmation));
     }
 
+    public boolean checkPasswordFormat(String password) {
+
+        return((password.length() >= 3) && (password.matches("[^0-9]*[0-9]+[^0-9]*")));
+    }
+
     public void updateUser(Long userId, String nickname, String password, Long avatar, List<Integer> newSkills, List<Long> oldSkills) {
 
         try {
