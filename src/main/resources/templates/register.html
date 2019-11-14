@@ -10,7 +10,8 @@
     <title>Inscription - Skill Hub</title>
 </head>
 <body>
-<header th:replace="header :: top"></header>
+<span th:if="${connected}"><header th:replace="header :: top" ></header></span>
+<span th:unless="${connected}"><header th:replace="header :: top-visitor" ></header></span>
 <div class="form-container">
     <h1 class="register-title">Inscription</h1>
     <form th:action="@{/submit}" method="POST">
@@ -25,6 +26,8 @@
                     <label class="input-demand" for="password">Choisissez un mot de passe:</label>
                     <input class="input-box" type="password" id="password" name="password" placeholder="Mot de passe"
                            required>
+                    <p class="pwd-check-false" th:if="${pwdFormat}">Votre mot de passe doit faire plus de 3 <br>caractères
+                        et contenir au moins un chiffre</p>
                 </div>
                 <div class="register-input">
                     <label class="input-demand" for="password-confirmation">Confirmez votre mot de passe:</label>

@@ -110,7 +110,6 @@ body {
     margin-right: 1.5rem;
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-template-rows: 30% 30% 30%;
     margin-bottom: 1.2rem;
     margin-left: 2rem;
 }

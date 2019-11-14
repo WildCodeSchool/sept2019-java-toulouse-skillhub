@@ -1,6 +1,7 @@
 package com.wildcodeschool.skillhub.repository;
 
 import com.wildcodeschool.skillhub.entity.User;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -76,6 +77,11 @@ public class UserRepository {
         return (password.equals(passwordConfirmation));
     }
 
+    public boolean checkPasswordFormat(String password) {
+
+        return ((password.length() >= 3) && (password.matches("[^0-9]*[0-9]+[^0-9]*")));
+    }
+
     public void updateUser(Long userId, String nickname, String password, Long avatar, List<Integer> newSkills, List<Long> oldSkills) {
 
         try {
@@ -128,10 +134,12 @@ public class UserRepository {
             );
             statement.setString(1, username);
             ResultSet resultSet = statement.executeQuery();
-            String testUsername = resultSet.getString("nickname");
 
-            if (testUsername.equals(username)) {
-                return false;
+            while (resultSet.next()) {
+                String testUsername = resultSet.getString("nickname");
+                if (testUsername.equals(username)) {
+                    return false;
+                }
             }
 
         } catch (SQLException e) {
