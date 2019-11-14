@@ -1,9 +1,14 @@
+body {
+    height: 100%;
+}
+
 .body {
     font-size: 14px;
     font-family: 'Roboto', sans-serif;
     font-variant: small-caps;
     max-width: 1100px;
     margin: auto;
+    min-height: calc(100% - 150px);
 }
 
 .avatar {
