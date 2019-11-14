@@ -19,8 +19,11 @@ public class RegisterController {
     UserRepository userRepository = new UserRepository();
 
     @GetMapping("/register")
-    public String register(Model out) {
+    public String register(Model out, HttpSession session) {
 
+        if (session.getAttribute("user") != null) {
+            return "redirect:/feed";
+        }
         out.addAttribute("avatars", profileRepository.findAllAvatars());
         out.addAttribute("skills", profileRepository.findAllSkills());
         return "register";
