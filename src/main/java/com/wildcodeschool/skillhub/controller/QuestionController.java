@@ -67,7 +67,6 @@ public class QuestionController {
         }
 
         Map<Long, String> skills = profileRepository.findAllSkills();
-        System.out.println("skillsize" + skills.size());
 
         model.addAttribute("skills", skills);
 
