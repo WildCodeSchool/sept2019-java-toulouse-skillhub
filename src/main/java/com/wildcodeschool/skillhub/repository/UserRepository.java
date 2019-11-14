@@ -117,6 +117,26 @@ public class UserRepository {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
 
+    public boolean checkExistingUsername(String username) {
+
+        try {
+            Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            PreparedStatement statement = connection.prepareStatement(
+                    "SELECT nickname FROM user WHERE nickname LIKE ? ;"
+            );
+            statement.setString(1, username);
+            ResultSet resultSet = statement.executeQuery();
+            String testUsername = resultSet.getString("nickname");
+
+            if (testUsername.equals(username)) {
+                return false;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return true;
     }
 }
