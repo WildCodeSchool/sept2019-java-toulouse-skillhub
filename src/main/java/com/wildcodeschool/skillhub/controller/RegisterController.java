@@ -34,7 +34,6 @@ public class RegisterController {
 
         if (!(userRepository.checkPasswordFormat(password))) {
             out.addAttribute("pwdFormat", true);
-            System.out.println("salut !");
             out.addAttribute("avatars", profileRepository.findAllAvatars());
             out.addAttribute("skills", profileRepository.findAllSkills());
             return "register";
