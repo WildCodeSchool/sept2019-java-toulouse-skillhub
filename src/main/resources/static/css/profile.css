@@ -1,7 +1,3 @@
-body {
-    height: 100%;
-}
-
 .profile-info {
     display: flex;
     flex-direction: column;
