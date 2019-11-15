@@ -12,10 +12,21 @@ public class UserRepository {
     private final static String DB_USER = "skillhub";
     private final static String DB_PASSWORD = "5ki!!huB31";
 
+    private static Connection connection = null;
+    private static void setConnection() {
+        if (connection == null) {
+            try {
+                connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public User getUserById(Long userId) {
 
         try {
-            Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            setConnection();
             PreparedStatement statement = connection.prepareStatement(
                     "SELECT * FROM user JOIN picture ON picture.id_picture = user.id_picture " +
                             "WHERE id_user = ?;"
@@ -53,7 +64,7 @@ public class UserRepository {
     public Long checkUser(String username, String password) {
 
         try {
-            Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            setConnection();
             PreparedStatement statement = connection.prepareStatement(
                     "SELECT * FROM user WHERE nickname = ? AND password = ?;"
             );
@@ -85,7 +96,7 @@ public class UserRepository {
     public void updateUser(Long userId, String nickname, String password, Long avatar, List<Integer> newSkills, List<Long> oldSkills) {
 
         try {
-            Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            setConnection();
             PreparedStatement statement = connection.prepareStatement(
                     "UPDATE user SET nickname=?, password=?, id_picture=? WHERE id_user=?;"
             );
@@ -128,7 +139,7 @@ public class UserRepository {
     public boolean checkExistingUsername(String username) {
 
         try {
-            Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            setConnection();
             PreparedStatement statement = connection.prepareStatement(
                     "SELECT nickname FROM user WHERE nickname LIKE ? ;"
             );
