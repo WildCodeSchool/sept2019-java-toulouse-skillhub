@@ -109,6 +109,11 @@ body {
     border-radius: 50%;
 }
 
+.skill-answer-align {
+    display: flex;
+    justify-content: space-between;
+}
+
 @media screen and (min-width: 800px) {
 
     .feed-bottom {

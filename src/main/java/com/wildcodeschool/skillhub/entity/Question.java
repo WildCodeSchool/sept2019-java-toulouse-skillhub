@@ -13,6 +13,7 @@ public class Question {
     private String author;
     private String authorAvatarUrl;
     private String skill;
+    private Long nbAnswers = 0l;
 
     public Question(Long userId, Long questionId, String title, String body, Date date, boolean resolved, String author, String authorAvatarUrl, String skill) {
         this.userId = userId;
@@ -117,5 +118,13 @@ public class Question {
 
     public void setSkill(String skill) {
         this.skill = skill;
+    }
+
+    public Long getNbAnswers() {
+        return nbAnswers;
+    }
+
+    public void setNbAnswers(Long nbAnswers) {
+        this.nbAnswers = nbAnswers;
     }
 }
