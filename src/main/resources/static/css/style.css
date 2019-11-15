@@ -57,6 +57,7 @@ label {
 .button:hover {
     border-color: #F39C0B;
     box-shadow: 0 0 8px 0 #F39C0B;
+    cursor: pointer;
 }
 
 @media screen and (min-width: 376px) {
