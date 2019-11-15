@@ -31,14 +31,14 @@ public class ProfileController {
     }
 
     @PostMapping("/update-profile")
-    public String updateUser(Model out, HttpSession session, @RequestParam String nickname, @RequestParam(defaultValue = "-1") String password, @RequestParam(defaultValue = "-1") String passwordConfirmation, @RequestParam Long avatar, @RequestParam(name="skill", defaultValue = "-1") List<Integer> skillsId) {
+    public String updateUser(Model out, HttpSession session, @RequestParam String nickname, @RequestParam(defaultValue = "-1") String password, @RequestParam(defaultValue = "-1") String passwordConfirmation, @RequestParam Long avatar, @RequestParam(name = "skill", defaultValue = "-1") List<Integer> skillsId) {
 
         if (session.getAttribute("user") == null) {
             return "index";
         }
 
         if (password.equals("-1")) {
-            User user = (User)session.getAttribute("user");
+            User user = (User) session.getAttribute("user");
             password = user.getPassword();
             passwordConfirmation = password;
         }
@@ -59,7 +59,17 @@ public class ProfileController {
             return "profile";
         }
 
-        User user = (User)session.getAttribute("user");
+        User user = (User) session.getAttribute("user");
+        if (!(nickname.equals(user.getNickname()))) {
+            if (!(userRepository.checkExistingUsername(nickname))) {
+                out.addAttribute("checkUsername", true);
+                out.addAttribute("avatars", profileRepository.findAllAvatars());
+                out.addAttribute("skills", profileRepository.findAllSkills());
+                out.addAttribute("user", session.getAttribute("user"));
+                return "profile";
+            }
+        }
+
         userRepository.updateUser(user.getUserId(), nickname, password, avatar, skillsId, user.getSkillsId());
         session.setAttribute("user", userRepository.getUserById(user.getUserId()));
         out.addAttribute("avatars", profileRepository.findAllAvatars());
