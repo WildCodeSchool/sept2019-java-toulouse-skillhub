@@ -109,12 +109,18 @@ body {
     border-radius: 50%;
 }
 
+.skill-answer-align {
+    display: flex;
+    justify-content: space-between;
+}
+
 .body-feed-own-question {
     white-space: pre-wrap;
 }
 
 .body-feed-other-question {
     white-space: pre-wrap;
+
 }
 
 @media screen and (min-width: 800px) {

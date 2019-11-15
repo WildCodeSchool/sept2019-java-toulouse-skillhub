@@ -49,9 +49,18 @@ public class QuestionRepository {
                 String author = resultSet.getString("nickname");
                 String authorAvatarUrl = resultSet.getString("url");
                 String skill = resultSet.getString("name");
-                questions.add(new Question(userId, questionId, title, body, date, resolved, author, authorAvatarUrl, skill));
+                PreparedStatement statement2 = connection.prepareStatement(
+                        "SELECT COUNT(id_answer) AS nbAnswers FROM answer WHERE id_question = ?;"
+                );
+                statement2.setLong(1, questionId);
+                ResultSet resultSet2 = statement2.executeQuery();
+                resultSet2.next();
+                Long nbAnswers = resultSet2.getLong("nbAnswers");
+                Question question = new Question(userId, questionId, title, body, date, resolved, author, authorAvatarUrl, skill);
+                question.setNbAnswers(nbAnswers);
+                questions.add(question);
             }
-            return questions;
+                return questions;
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -119,7 +128,16 @@ public class QuestionRepository {
                     String author = resultSet.getString("nickname");
                     String authorAvatarUrl = resultSet.getString("url");
                     String skill = resultSet.getString("name");
-                    questions.add(new Question(userId, questionId, title, body, date, resolved, author, authorAvatarUrl, skill));
+                    PreparedStatement statement2 = connection.prepareStatement(
+                            "SELECT COUNT(id_answer) AS nbAnswers FROM answer WHERE id_question = ?;"
+                    );
+                    statement2.setLong(1, questionId);
+                    ResultSet resultSet2 = statement2.executeQuery();
+                    resultSet2.next();
+                    Long nbAnswers = resultSet2.getLong("nbAnswers");
+                    Question question = new Question(userId, questionId, title, body, date, resolved, author, authorAvatarUrl, skill);
+                    question.setNbAnswers(nbAnswers);
+                    questions.add(question);
                 }
             }
             return questions;
