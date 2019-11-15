@@ -1,6 +1,5 @@
 package com.wildcodeschool.skillhub.repository;
 
-import com.wildcodeschool.skillhub.entity.Question;
 import com.wildcodeschool.skillhub.entity.User;
 
 import java.sql.*;
@@ -13,10 +12,21 @@ public class UserRepository {
     private final static String DB_USER = "skillhub";
     private final static String DB_PASSWORD = "5ki!!huB31";
 
+    private static Connection connection = null;
+    private static void setConnection() {
+        if (connection == null) {
+            try {
+                connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public User getUserById(Long userId) {
 
         try {
-            Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            setConnection();
             PreparedStatement statement = connection.prepareStatement(
                     "SELECT * FROM user JOIN picture ON picture.id_picture = user.id_picture " +
                             "WHERE id_user = ?;"
@@ -54,13 +64,13 @@ public class UserRepository {
     public Long checkUser(String username, String password) {
 
         try {
-            Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            setConnection();
             PreparedStatement statement = connection.prepareStatement(
                     "SELECT * FROM user WHERE nickname = ? AND password = ?;"
             );
             statement.setString(1, username);
             statement.setString(2, password);
-            Long userId = 0l;
+            Long userId = 0L;
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 userId = resultSet.getLong("id_user");
@@ -73,4 +83,79 @@ public class UserRepository {
         return null;
     }
 
+    public boolean passwordCheck(String password, String passwordConfirmation) {
+
+        return (password.equals(passwordConfirmation));
+    }
+
+    public boolean checkPasswordFormat(String password) {
+
+        return ((password.length() >= 3) && (password.matches("[^0-9]*[0-9]+[^0-9]*")));
+    }
+
+    public void updateUser(Long userId, String nickname, String password, Long avatar, List<Integer> newSkills, List<Long> oldSkills) {
+
+        try {
+            setConnection();
+            PreparedStatement statement = connection.prepareStatement(
+                    "UPDATE user SET nickname=?, password=?, id_picture=? WHERE id_user=?;"
+            );
+            statement.setString(1, nickname);
+            statement.setString(2, password);
+            statement.setLong(3, avatar);
+            statement.setLong(4, userId);
+
+            if (statement.executeUpdate() != 1) {
+                throw new SQLException("failed to update data");
+            }
+
+            for (Long oldSkill : oldSkills) {
+                statement = connection.prepareStatement(
+                        "DELETE FROM user_skill WHERE id_user=? AND id_skill=?;"
+                );
+                statement.setLong(1, userId);
+                statement.setLong(2, oldSkill);
+                if (statement.executeUpdate() != 1) {
+                    throw new SQLException("failed to insert data");
+                }
+            }
+            if (newSkills.get(0) != -1) {
+                for (Integer skillId : newSkills) {
+                    statement = connection.prepareStatement(
+                            "INSERT INTO user_skill (id_skill, id_user) VALUES (?, ?);");
+                    statement.setInt(1, skillId);
+                    statement.setLong(2, userId);
+                    if (statement.executeUpdate() != 1) {
+                        throw new SQLException("failed to insert data");
+                    }
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public boolean checkExistingUsername(String username) {
+
+        try {
+            setConnection();
+            PreparedStatement statement = connection.prepareStatement(
+                    "SELECT nickname FROM user WHERE nickname LIKE ? ;"
+            );
+            statement.setString(1, username);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                String testUsername = resultSet.getString("nickname");
+                if (testUsername.equals(username)) {
+                    return false;
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return true;
+    }
 }

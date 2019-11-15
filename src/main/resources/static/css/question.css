@@ -4,7 +4,8 @@ html {
 }
 
 .body {
-    margin: 15px auto;
+    min-height: calc(100% - 140px);
+    margin: 20px auto;
     max-width : 1100px;
     font-size: 13px;
     font-family: Roboto, sans-serif;
@@ -82,6 +83,7 @@ html {
     text-align: justify;
     letter-spacing: 1px;
     margin-bottom: 1rem;
+    white-space: pre-wrap;
 }
 
 label {
@@ -156,7 +158,6 @@ label {
 
 .nbAnswer {
     margin-top:1rem;
-    display: flex;
     align-items: center;
     letter-spacing: 1px;
     font-weight: bold;
@@ -186,16 +187,11 @@ label {
     text-align: justify;
     letter-spacing: 1px;
     margin-bottom: 1rem;
+    white-space: pre-wrap;
 }
 
 .answer-container:last-of-type hr {
     display: none;
-}
-
-@media screen and (min-width: 800px) {
-    .body {
-
-    }
 }
 
 @media screen and (max-width: 799px) {

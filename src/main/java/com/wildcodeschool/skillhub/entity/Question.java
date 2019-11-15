@@ -13,6 +13,7 @@ public class Question {
     private String author;
     private String authorAvatarUrl;
     private String skill;
+    private Long nbAnswers = 0l;
 
     public Question(Long userId, Long questionId, String title, String body, Date date, boolean resolved, String author, String authorAvatarUrl, String skill) {
         this.userId = userId;
@@ -25,6 +26,15 @@ public class Question {
         this.author = author;
         this.authorAvatarUrl = authorAvatarUrl;
         this.skill = skill;
+    }
+
+    public Question(Long userId, Long questionId, String title, String body, Date date, boolean resolved) {
+        this.userId = userId;
+        this.questionId = questionId;
+        this.title = title;
+        this.body = body;
+        this.date = date;
+        this.resolved = resolved;
     }
 
     public Long getUserId() {
@@ -108,5 +118,13 @@ public class Question {
 
     public void setSkill(String skill) {
         this.skill = skill;
+    }
+
+    public Long getNbAnswers() {
+        return nbAnswers;
+    }
+
+    public void setNbAnswers(Long nbAnswers) {
+        this.nbAnswers = nbAnswers;
     }
 }

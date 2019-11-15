@@ -11,44 +11,50 @@
 <body>
 <header th:replace="header :: top"></header>
 <div class="body">
-<div class="question-container">
-    <div class="asker">
-        <img class="avatar" th:src="@{${question.authorAvatarUrl}}" alt="Avatar">
-        <h4 th:text="${question.author}" class="author">Heisenberg</h4>
-        <span th:text="|le ${question.date}|" class="date">4 days ago</span>
-    </div>
-    <span th:text="${question.title}" class="titleQuestion">Titre</span>
-    <span th:text="${question.body}" class="question"></span>
-    <span th:text="|#${question.skill}|" class="tags">#Java</span>
-
-    <div class="form-answer">
-        <form action="/answer" method="post">
-            <input th:value="${question.questionId}" name="id" type="hidden">
-            <label for="answerArea">Votre réponse</label>
-            <textarea class="answerArea" id="answerArea" name="body" placeholder="Votre message"></textarea>
-
-            <div class="buttons">
-                <input class="submit" type="submit" value="Répondre">
-                <a th:href="@{/resolved(questionId=${question.questionId})}" class="solved" type="button">Résolu</a>
-            </div>
-        </form>
-
-    </div>
-
-    <span th:text="|${answerNumber} réponses|" class="nbAnswer">30 réponses</span>
-
-    <div class="answer-container" th:each="ans : ${answer}">
-        <div class="answerer">
-            <img class="avatar" th:src="@{${ans.url}}" alt="Avatar">
-            <h4 th:text="${ans.nickname}" class = "answer-author">Napoleon</h4>
-            <span th:text="|le ${ans.date}|" class = "date">4 days ago</span>
+    <div class="question-container">
+        <div class="asker">
+            <img class="avatar" th:src="@{${question.authorAvatarUrl}}" alt="Avatar">
+            <h4 th:text="${question.author}" class="author">Heisenberg</h4>
+            <span th:text="|le ${question.date}|" class="date">4 days ago</span>
         </div>
-        <span th:text="${ans.body}" class="answer">zigwigi</span>
-        <hr>
-        <br>
-    </div>
+        <span th:text="${question.title}" class="titleQuestion">Titre</span>
+        <span th:text="${question.body}" class="question"></span>
+        <span th:text="|#${question.skill}|" class="tags">#Java</span>
 
-</div>
+        <div class="form-answer">
+            <form action="/answer" method="post">
+                <input th:value="${question.questionId}" name="id" type="hidden">
+                <label for="answerArea">Votre réponse</label>
+                <textarea class="answerArea" id="answerArea" name="body" placeholder="Votre message"></textarea>
+
+                <div class="buttons">
+                    <input class="submit" type="submit" value="Répondre">
+                    <span th:if="${question.userId} == ${userIdConnect}">
+                    <a th:href="@{/resolved(questionId=${question.questionId})}" class="solved" type="button">Résolu</a>
+                </span>
+                </div>
+            </form>
+
+        </div>
+
+        <span>
+        <span th:text="${answerNumber}" class="nbAnswer"></span>
+        <span th:if="${answerNumber} < 2" class="nbAnswer"> réponse</span>
+        <span th:if="${answerNumber} > 1" class="nbAnswer"> réponses</span>
+    </span>
+
+        <div class="answer-container" th:each="ans : ${answer}">
+            <div class="answerer">
+                <img class="avatar" th:src="@{${ans.url}}" alt="Avatar">
+                <h4 th:text="${ans.nickname}" class="answer-author">Napoleon</h4>
+                <span th:text="|le ${ans.date}|" class="date">4 days ago</span>
+            </div>
+            <span th:text="${ans.body}" class="answer">zigwigi</span>
+            <hr>
+            <br>
+        </div>
+
+    </div>
 </div>
 <footer th:replace="footer :: bottom"></footer>
 </body>

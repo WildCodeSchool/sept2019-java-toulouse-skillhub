@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <link rel="stylesheet" media="screen" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" media="screen" th:href="@{/css/profile.css}"/>
+    <link rel="stylesheet" th:href="@{/css/nav.css}"/>
+    <title>Inscription - Skill Hub</title>
+</head>
+<body>
+<header th:replace="header :: top"></header>
+<div class="form-container">
+    <div class="profile-info">
+        <img class="profile-pic" th:src="${user.avatarUrl}" alt="avatar">
+        <h3 class="profile-pseudo" th:text="${user.nickname}">Pseudo</h3>
+        <p class="successUpdate" th:if="${successUpdate}">Votre profil a bien été mis à jour 😉</p>
+    </div>
+    <form th:action="@{/update-profile}" method="POST">
+        <div class="register-skill-container">
+            <div class="register-input-container">
+                <div class="register-input">
+                    <label class="input-demand" for="pseudo">Modifiez votre pseudo:</label>
+                    <input class="input-box" type="text" id="pseudo" name="nickname" th:value="${user.nickname}" required>
+                    <p class="pwd-check-false" th:if="${checkUsername}">Ce pseudo existe déjà !</p>
+                </div>
+                <div class="register-input">
+                    <label class="input-demand" for="password">Modifiez votre mot de passe:</label>
+                    <input class="input-box" type="password" id="password" name="password" placeholder="Nouveau mot de passe">
+                    <p class="pwd-check-false" th:if="${pwdFormat}">Votre mot de passe doit faire plus de 3 <br>caractères
+                        et contenir au moins un chiffre</p>
+                </div>
+                <div class="register-input">
+                     <label class="input-demand" for="password-confirmation">Confirmez votre mot de passe:</label>
+                     <input class="input-box" type="password" id="password-confirmation" name="passwordConfirmation"
+                            placeholder="Confirmation du mot de passe">
+                    <p class="pwd-check-false" th:if="${passwordCheck}">Merci d'indiquer un mot de passe identique !</p>
+                 </div>
+            </div>
+
+            <div class="skill-container">
+                <label class="input-skill-demand">Modifiez vos compétences:</label>
+                <div class="skill-list-container">
+                    <section class="skill-align" th:each="skill: ${skills}">
+                        <input type="checkbox" class="skill-skin" th:id="|skill${skill.key}|" name="skill"
+                               th:value="${skill.key}" th:checked="${#lists.contains(user.skillsId, skill.key)}">
+                        <label th:for="|skill${skill.key}|" class="skill-list" th:text="${skill.value}">Skill</label>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <section class="flex-avatar-section">
+            <div class="flex-avatar-container">
+                <div class="input-demand-center">
+                    <label>Modifiez votre avatar:</label>
+                </div>
+                <div class="avatars-container">
+                    <div class="avatar-input-container" th:each="avatar : ${avatars}">
+                        <label th:for="${avatar.key}" class="label-avatar"><img class="avatar-img"
+                                                                                th:src="${avatar.value}" alt="avatar"/></label>
+                        <input type="radio" class="input-avatar" th:id="${avatar.key}" name="avatar"
+                               th:value="${avatar.key}" th:checked="${user.avatarUrl} == ${avatar.value}"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="button-align">
+            <label for="sendbutton">
+                <input type="submit" class="button" id="sendbutton" value="Modifier">
+            </label>
+        </section>
+    </form>
+</div>
+<footer th:replace="footer :: bottom"></footer>
+</body>
+</html>

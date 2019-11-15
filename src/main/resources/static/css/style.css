@@ -5,6 +5,10 @@
     padding: 0;
 }
 
+body {
+    height: 100%;
+}
+
 h1 {
     color: #2C2C2C;
     font-family: 'Roboto', black, Verdana, Arial, sans-serif;
@@ -35,7 +39,7 @@ label {
 
 .button {
     width: 12rem;
-    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.25);
     border: none;
     border-radius: 5px;
     height: 2.5rem;
@@ -53,6 +57,7 @@ label {
 .button:hover {
     border-color: #F39C0B;
     box-shadow: 0 0 8px 0 #F39C0B;
+    cursor: pointer;
 }
 
 @media screen and (min-width: 376px) {
@@ -70,7 +75,7 @@ label {
     }
 
     label, p {
-        font-size: 15px;
+        font-size: 17px;
     }
 
     .button {

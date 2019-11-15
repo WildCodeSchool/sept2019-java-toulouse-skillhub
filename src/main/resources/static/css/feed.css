@@ -4,12 +4,16 @@ h1, h2, h4, h6 {
 
 body {
     font-family: Roboto;
+    height: 100%;
 }
 
 .feed-container {
     max-width: 1100px;
     margin-left: auto;
     margin-right: auto;
+    min-height: calc(100% - 170px);
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .feed-container h2 {
@@ -24,7 +28,7 @@ body {
 .feed-block {
     display: flex;
     flex-direction: column;
-    margin: 25px 18px 25px 18px;
+    margin: 25px 18px 25px 0;
     padding: 0;
     width: 100%;
 }
@@ -90,6 +94,10 @@ body {
     margin-bottom: 25px;
 }
 
+.feed-block:nth-last-of-type(2) .feed-separation {
+    display: none;
+}
+
 .feed-bottom hr {
     display: none;
 }
@@ -105,6 +113,20 @@ body {
     border-radius: 50%;
 }
 
+.skill-answer-align {
+    display: flex;
+    justify-content: space-between;
+}
+
+.body-feed-own-question {
+    white-space: pre-wrap;
+}
+
+.body-feed-other-question {
+    white-space: pre-wrap;
+
+}
+
 @media screen and (min-width: 800px) {
 
     .feed-bottom {
@@ -118,6 +140,10 @@ body {
     .feed-bottom hr {
         display: block;
         color: rgba(235, 235, 235, 0.384);
+    }
+
+    .feed-block:nth-last-of-type(2) hr {
+        display: none;
     }
 
     .fa-pencil {

@@ -2,17 +2,19 @@
     font-size: 14px;
     font-family: 'Roboto', sans-serif;
     font-variant: small-caps;
+    max-width: 1100px;
+    margin: auto;
+    min-height: calc(100% - 150px);
 }
 
 .avatar {
-    border-radius: 50%;
-    width: 40%;
-    display: block;
+    width: 80px;
+    height: 80px;
     margin-left: auto;
     margin-right: auto
 }
 
-h1 {
+h3 {
     text-align: center;
     margin: 0.5em 0;
     font-variant: none;
@@ -23,8 +25,11 @@ h2 {
 }
 
 .top {
-    margin: 1em 0 2em 0;
-    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 2rem;
 }
 
 .titleQuestion {
@@ -33,6 +38,7 @@ h2 {
     width: 100%;
     height: 4em;
     box-shadow: 1px 1px 10px 1px #cccccc;
+    padding: 10px 1px 1px 10px;
 }
 
 p {
@@ -47,40 +53,47 @@ label {
     font-size: 14px;
 }
 
+ul {
+    list-style-type: none;
+}
+
 .input
 {
-     -webkit-appearance: none;
-     -moz-appearance: none;
-     appearance: none;
-     display: inline-block;
-     position: relative;
-     background-color: #f1f1f1f1;
-     color: aliceblue;
-     top: 10px;
-     height: 30px;
-     width: 30px;
-     border: 0;
-     border-radius: 50px;
-     cursor: pointer;     
-     margin-right: 7px;
-     outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: inline-block;
+    position: relative;
+    background-color: #f1f1f1f1;
+    color: aliceblue;
+    top: 10px;
+    height: 30px;
+    width: 30px;
+    border: 0;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-right: 7px;
+    outline: none;
+    border: 1px solid #C0C0C0;
 }
+
 .input:checked::before
 {
-     position: absolute;
-     font: 13px/1 'Open Sans', sans-serif;
-     content: '\02143';
-     transform: rotate(40deg);
-     margin-left: 10px;
-     margin-top: 7px;
+    position: absolute;
+    font: 13px/1 'Open Sans', sans-serif;
+    content: '\02143';
+    transform: rotate(40deg);
+    margin-left: 10px;
+    margin-top: 7px;
 }
 .input:hover
 {
-     background-color: #f7f7f7;
+    background-color: #f7f7f7;
 }
+
 .input:checked
 {
-     background-color: #6979F8;
+    background-color: #2C2C2C;
 }
 
 .question {
@@ -89,10 +102,7 @@ label {
     width: 100%;
     height: 20em;
     box-shadow: 1px 1px 10px 1px #cccccc;
-}
-
-::placeholder {
-    padding: 1.4em;
+    padding: 10px 1px 1px 10px;
 }
 
 .submit {
@@ -128,17 +138,18 @@ label {
 .contQuest {
     margin: 2em 2.5em;
 }
+
 .titleCompetence {
     margin: 0 2.5em;
 }
 
 .comp {
     column-count: 2;
-    margin-left: 17%;   
+    margin-left: 17%;
 }
 
 @media screen and (min-width: 800px) {
-    
+
     .avatar {
         width:10rem;
     }
@@ -146,6 +157,12 @@ label {
     .desktop {
         display:flex;
         justify-content: space-around;
+    }
+
+    form {
+        display: flex;
+        justify-content: space-between;
+        width:90%;
     }
 
     .leftSide {
