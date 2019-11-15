@@ -53,6 +53,10 @@ label {
     font-size: 14px;
 }
 
+ul {
+    list-style-type: none;
+}
+
 .input
 {
     -webkit-appearance: none;
