@@ -80,6 +80,7 @@
     -moz-box-shadow: 0 0 10px #f39c0b;
     -webkit-box-shadow: 0 0 10px #f39c0b;
     -o-box-shadow: 0 0 10px #f39c0b;
+    cursor: pointer;
 }
 
 .input-skill-demand {
