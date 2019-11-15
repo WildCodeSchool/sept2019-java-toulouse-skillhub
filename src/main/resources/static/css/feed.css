@@ -26,7 +26,7 @@ body {
 .feed-block {
     display: flex;
     flex-direction: column;
-    margin: 25px 18px 25px 18px;
+    margin: 25px 18px 25px 0;
     padding: 0;
     width: 100%;
 }
