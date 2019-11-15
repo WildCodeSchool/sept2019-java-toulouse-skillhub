@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <link rel="stylesheet" media="screen" href="../static/css/style.css" th:href="@{/css/style.css}"/>
-    <link rel="stylesheet" media="screen" href="../static/css/register.css" th:href="@{/css/register.css}"/>
-    <link rel="stylesheet" href="../static/css/nav.css" th:href="@{/css/nav.css}"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" th:href="@{/css/register.css}"/>
+    <link rel="stylesheet" th:href="@{/css/nav.css}"/>
     <title>Inscription - Skill Hub</title>
 </head>
 <body>
-<header th:replace="header :: top"></header>
+<span th:if="${connected}"><header th:replace="header :: top" ></header></span>
+<span th:unless="${connected}"><header th:replace="header :: top-visitor" ></header></span>
 <div class="form-container">
     <h1 class="register-title">Inscription</h1>
     <form th:action="@{/submit}" method="POST">
@@ -19,11 +20,14 @@
                 <div class="register-input">
                     <label class="input-demand" for="pseudo">Choisissez un pseudo:</label>
                     <input class="input-box" type="text" id="pseudo" name="nickname" placeholder="Pseudo" required>
+                    <p class="pwd-check-false" th:if="${checkUsername}">Ce pseudo existe déjà !</p>
                 </div>
                 <div class="register-input">
                     <label class="input-demand" for="password">Choisissez un mot de passe:</label>
                     <input class="input-box" type="password" id="password" name="password" placeholder="Mot de passe"
                            required>
+                    <p class="pwd-check-false" th:if="${pwdFormat}">Votre mot de passe doit faire plus de 3 <br>caractères
+                        et contenir au moins un chiffre</p>
                 </div>
                 <div class="register-input">
                     <label class="input-demand" for="password-confirmation">Confirmez votre mot de passe:</label>
@@ -52,7 +56,7 @@
                 <div class="avatars-container">
                     <div class="avatar-input-container" th:each="avatar : ${avatars}">
                         <label th:for="${avatar.key}" class="label-avatar"><img class="avatar-img"
-                                                                                th:src="${avatar.value}"/></label>
+                                                                                th:src="${avatar.value}" alt="avatar"/></label>
                         <input type="radio" class="input-avatar" th:id="${avatar.key}" name="avatar"
                                th:value="${avatar.key}"/>
                     </div>

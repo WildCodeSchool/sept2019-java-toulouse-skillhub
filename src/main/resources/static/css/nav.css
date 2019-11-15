@@ -4,12 +4,6 @@ html {
     height: 100%;
 }
 
-body {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -38,7 +32,7 @@ header a:hover, footer a:hover {
     flex-direction: column;
 }
 
-#nav-main {
+.nav-main, .nav-main-visitor {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -50,15 +44,25 @@ header a:hover, footer a:hover {
     z-index: 30;
 }
 
-#nav-main a {
+.nav-main-visitor {
+    justify-content: flex-start;
+}
+
+.nav-main a , .nav-main-visitor a {
     color: #F39C0B;
 }
 
-#nav-logo, #nav-title, #burger-button {
+.nav-logo, .nav-title, .nav-title-visitor, #burger-button {
     padding: 0 15px;
 }
 
-#nav-logo {
+.nav-title-visitor {
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 76px;
+}
+
+.nav-logo {
     height: 55px;
     padding-right: 10px;
 }
@@ -164,9 +168,13 @@ footer .nav-container {
         flex-direction: row;
     }
 
-    #nav-main {
+    .nav-main {
         width: auto;
         padding-right: 0;
+    }
+
+    .nav-title-visitor {
+        padding-left: 15px;
     }
 
     #burger-button {

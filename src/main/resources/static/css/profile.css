@@ -1,9 +1,8 @@
-
 .profile-info {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 2rem;
+    margin-top: 30px;
     margin-bottom: 2rem;
 }
 
@@ -13,6 +12,7 @@
 }
 
 .form-container {
+    min-height: calc(100% - 150px);
     display: flex;
     flex-direction: column;
 }
@@ -84,7 +84,8 @@
 }
 
 .skill-skin:checked {
-    background-color: #6979F8;
+    background-color: #2C2C2C;
+    border-color: #2C2C2C;
 }
 
 .button:hover {
@@ -105,7 +106,6 @@
     margin-right: 1.5rem;
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-template-rows: 30% 30% 30%;
     margin-bottom: 1.2rem;
     margin-left: 2rem;
 }
@@ -160,6 +160,10 @@ p.pwd-check-false {
     padding-left: 0.5rem;
     font-size: 12px;
     color: darkred;
+}
+
+.successUpdate {
+    padding-top: 0.5rem;
 }
 
 @media screen and (min-width: 376px) {

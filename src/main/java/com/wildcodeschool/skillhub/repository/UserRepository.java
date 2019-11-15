@@ -1,6 +1,5 @@
 package com.wildcodeschool.skillhub.repository;
 
-import com.wildcodeschool.skillhub.entity.Question;
 import com.wildcodeschool.skillhub.entity.User;
 
 import java.sql.*;
@@ -60,7 +59,7 @@ public class UserRepository {
             );
             statement.setString(1, username);
             statement.setString(2, password);
-            Long userId = 0l;
+            Long userId = 0L;
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 userId = resultSet.getLong("id_user");
@@ -76,6 +75,11 @@ public class UserRepository {
     public boolean passwordCheck(String password, String passwordConfirmation) {
 
         return (password.equals(passwordConfirmation));
+    }
+
+    public boolean checkPasswordFormat(String password) {
+
+        return ((password.length() >= 3) && (password.matches("[^0-9]*[0-9]+[^0-9]*")));
     }
 
     public void updateUser(Long userId, String nickname, String password, Long avatar, List<Integer> newSkills, List<Long> oldSkills) {
@@ -119,6 +123,28 @@ public class UserRepository {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
 
+    public boolean checkExistingUsername(String username) {
+
+        try {
+            Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            PreparedStatement statement = connection.prepareStatement(
+                    "SELECT nickname FROM user WHERE nickname LIKE ? ;"
+            );
+            statement.setString(1, username);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                String testUsername = resultSet.getString("nickname");
+                if (testUsername.equals(username)) {
+                    return false;
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return true;
     }
 }
