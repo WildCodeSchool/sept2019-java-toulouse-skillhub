@@ -23,6 +23,7 @@
                 <div class="register-input">
                     <label class="input-demand" for="pseudo">Modifiez votre pseudo:</label>
                     <input class="input-box" type="text" id="pseudo" name="nickname" th:value="${user.nickname}" required>
+                    <p class="pwd-check-false" th:if="${checkUsername}">Ce pseudo existe déjà !</p>
                 </div>
                 <div class="register-input">
                     <label class="input-demand" for="password">Modifiez votre mot de passe:</label>
