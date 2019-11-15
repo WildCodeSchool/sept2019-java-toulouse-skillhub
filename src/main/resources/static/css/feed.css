@@ -94,6 +94,10 @@ body {
     margin-bottom: 25px;
 }
 
+.feed-block:nth-last-of-type(2) .feed-separation {
+    display: none;
+}
+
 .feed-bottom hr {
     display: none;
 }
@@ -136,6 +140,10 @@ body {
     .feed-bottom hr {
         display: block;
         color: rgba(235, 235, 235, 0.384);
+    }
+
+    .feed-block:nth-last-of-type(2) hr {
+        display: none;
     }
 
     .fa-pencil {
