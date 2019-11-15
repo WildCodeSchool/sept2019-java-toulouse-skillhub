@@ -12,10 +12,21 @@ public class AnswerRepository {
     private final static String DB_USER = "skillhub";
     private final static String DB_PASSWORD = "5ki!!huB31";
 
+    private static Connection connection = null;
+    public static void setConnection() {
+        if (connection == null) {
+            try {
+                connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public List<Answer> findAnswers(Long questionId) {
 
         try {
-            Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            setConnection();
             PreparedStatement statement = connection.prepareStatement(
                     "SELECT * FROM answer\n" +
                             "JOIN user ON answer.id_user = user.id_user\n" +
@@ -45,9 +56,7 @@ public class AnswerRepository {
     public Answer saveAnswer(Long questionId, String answerArea, Date currentDate, Long userId) {
 
         try {
-            Connection connection = DriverManager.getConnection(
-                    DB_URL, DB_USER, DB_PASSWORD
-            );
+            setConnection();
             PreparedStatement statement = connection.prepareStatement(
                     "INSERT INTO answer (id_question, body, `date`, id_user) VALUES (?,?,?,?)",
                     Statement.RETURN_GENERATED_KEYS
@@ -77,9 +86,7 @@ public class AnswerRepository {
     public void setResolved(Long questionId) {
 
         try {
-            Connection connection = DriverManager.getConnection(
-                    DB_URL, DB_USER, DB_PASSWORD
-            );
+            setConnection();
             PreparedStatement statement = connection.prepareStatement(
                     "UPDATE question SET resolved = 1 WHERE id_question=?"
             );
@@ -92,7 +99,4 @@ public class AnswerRepository {
             e.printStackTrace();
         }
     }
-
-
-
 }
