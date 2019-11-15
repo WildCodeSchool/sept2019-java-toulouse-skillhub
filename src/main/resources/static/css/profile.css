@@ -12,7 +12,7 @@
 }
 
 .form-container {
-    min-height: calc(100% - 150px);
+    min-height: calc(100% - 120px);
     display: flex;
     flex-direction: column;
 }

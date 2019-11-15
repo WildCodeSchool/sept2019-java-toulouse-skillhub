@@ -12,6 +12,8 @@ body {
     margin-left: auto;
     margin-right: auto;
     min-height: calc(100% - 170px);
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .feed-container h2 {
