@@ -38,7 +38,7 @@ public class ProfileController {
         }
 
         if (password.equals("-1")) {
-            User user = (User) session.getAttribute("user");
+            User user = (User)session.getAttribute("user");
             password = user.getPassword();
             passwordConfirmation = password;
         }
