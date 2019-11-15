@@ -109,6 +109,14 @@ body {
     border-radius: 50%;
 }
 
+.body-feed-own-question {
+    white-space: pre-wrap;
+}
+
+.body-feed-other-question {
+    white-space: pre-wrap;
+}
+
 @media screen and (min-width: 800px) {
 
     .feed-bottom {

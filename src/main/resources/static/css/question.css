@@ -83,6 +83,7 @@ html {
     text-align: justify;
     letter-spacing: 1px;
     margin-bottom: 1rem;
+    white-space: pre-wrap;
 }
 
 label {
@@ -186,6 +187,7 @@ label {
     text-align: justify;
     letter-spacing: 1px;
     margin-bottom: 1rem;
+    white-space: pre-wrap;
 }
 
 .answer-container:last-of-type hr {
