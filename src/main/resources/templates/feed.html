@@ -27,7 +27,7 @@
             </div>
         </div>
         <div class="feed-bottom">
-            <p th:text="${own.bodyPreview}">Contenu de la question</p>
+            <p th:text="${own.bodyPreview}" class="body-feed-own-question" >Contenu de la question</p>
             <p><a th:href="@{/question(id=${own.questionId})}">Lire la suite</a></p>
             <section class="skill-answer-align">
             <h6 th:text="|#${own.skill}|">#Skill</h6>
@@ -49,7 +49,7 @@
             </div>
         </div>
         <div class="feed-bottom">
-            <p th:text="${other.bodyPreview}">Contenu de la question</p>
+            <p th:text="${other.bodyPreview}" class="body-feed-other-question" >Contenu de la question</p>
             <p><a th:href="@{/question(id=${other.questionId})}">Lire la suite</a></p>
             <section class="skill-answer-align">
                 <h6 th:text="|#${other.skill}|">#Skill</h6>

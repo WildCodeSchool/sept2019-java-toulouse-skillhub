@@ -13,10 +13,21 @@ public class ProfileRepository {
     private final static String DB_USER = "skillhub";
     private final static String DB_PASSWORD = "5ki!!huB31";
 
+    private static Connection connection = null;
+    private static void setConnection() {
+        if (connection == null) {
+            try {
+                connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public Map<Long, String> findAllAvatars() {
 
         try {
-            Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            setConnection();
             PreparedStatement statement = connection.prepareStatement(
                     "SELECT id_picture, url FROM picture;"
             );

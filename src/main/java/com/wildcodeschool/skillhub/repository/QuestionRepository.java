@@ -12,10 +12,21 @@ public class QuestionRepository {
     private final static String DB_USER = "skillhub";
     private final static String DB_PASSWORD = "5ki!!huB31";
 
+    private static Connection connection = null;
+    private static void setConnection() {
+        if (connection == null) {
+            try {
+                connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public List<Question> findAllOwn(Long userId) {
 
         try {
-            Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            setConnection();
             PreparedStatement statement = connection.prepareStatement(
                     "SELECT * FROM question\n" +
                             "JOIN user ON question.id_user = user.id_user\n" +
@@ -60,9 +71,7 @@ public class QuestionRepository {
     public Question findQuestion(Long questionId) {
 
         try {
-            Connection connection = DriverManager.getConnection(
-                    DB_URL, DB_USER, DB_PASSWORD
-            );
+            setConnection();
             PreparedStatement statement = connection.prepareStatement(
                     "SELECT * FROM question\n" +
                             "JOIN user ON question.id_user = user.id_user\n" +
@@ -97,7 +106,7 @@ public class QuestionRepository {
 
         try {
             for (Long skillId : skillsId) {
-                Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+                setConnection();
                 PreparedStatement statement = connection.prepareStatement(
                         "SELECT * FROM question\n" +
                                 "JOIN user ON question.id_user = user.id_user\n" +
@@ -142,9 +151,7 @@ public class QuestionRepository {
     public Question askQuestion(String title, String body, Date date, boolean resolved, Long userId) {
 
         try {
-            Connection connection = DriverManager.getConnection(
-                    DB_URL, DB_USER, DB_PASSWORD
-            );
+            setConnection();
             PreparedStatement statement = connection.prepareStatement(
                     "INSERT INTO question (title, body, `date`, resolved, id_user)\n" +
                             "VALUES (?,?,?,?,?);",
@@ -177,9 +184,7 @@ public class QuestionRepository {
 
     public void addSkillToQuestion (Long idQuestion, Long idSkill) {
         try {
-            Connection connection = DriverManager.getConnection(
-                    DB_URL, DB_USER, DB_PASSWORD
-            );
+            setConnection();
             PreparedStatement statement = connection.prepareStatement(
                     "INSERT INTO question_skill (id_question, id_skill)\n" +
                             "VALUES (?,?);"
