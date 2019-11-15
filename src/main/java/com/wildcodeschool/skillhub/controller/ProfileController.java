@@ -59,7 +59,7 @@ public class ProfileController {
             return "profile";
         }
 
-        User user = (User) session.getAttribute("user");
+        User user = (User)session.getAttribute("user");
         if (!(nickname.equals(user.getNickname()))) {
             if (!(userRepository.checkExistingUsername(nickname))) {
                 out.addAttribute("checkUsername", true);
