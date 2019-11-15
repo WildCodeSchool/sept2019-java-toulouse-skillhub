@@ -58,7 +58,7 @@
                         <label th:for="${avatar.key}" class="label-avatar"><img class="avatar-img"
                                                                                 th:src="${avatar.value}" alt="avatar"/></label>
                         <input type="radio" class="input-avatar" th:id="${avatar.key}" name="avatar"
-                               th:value="${avatar.key}"/>
+                               th:value="${avatar.key}" required/>
                     </div>
                 </div>
             </div>
