@@ -9,10 +9,11 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.wildcodeschool</groupId>
-	<artifactId>Skill-Hub</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>skillhub</artifactId>
+	<version>1.0</version>
 	<name>Skill-Hub</name>
 	<description>Skill Hub</description>
+	<packaging>war</packaging>
 
 	<properties>
 		<java.version>11</java.version>
