@@ -1,16 +1,21 @@
 package com.wildcodeschool.skillhub.repository;
 
+import com.google.common.hash.Hashing;
 import com.wildcodeschool.skillhub.entity.User;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Repository;
 
+import java.nio.charset.StandardCharsets;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class UserRepository {
 
-    private final static String DB_URL = "jdbc:mysql://localhost:3306/skillhub?serverTimezone=GMT";
+    private final static String DB_URL = "jdbc:mysql://localhost:3306/skillhub?serverTimezone=Europe/Paris";
     private final static String DB_USER = "skillhub";
-    private final static String DB_PASSWORD = "5ki!!huB31";
+    private final static String DB_PASSWORD = "gRMP!3_5hHVZKS-Z";
 
     private static Connection connection = null;
     private static void setConnection() {
@@ -62,6 +67,10 @@ public class UserRepository {
     }
 
     public Long checkUser(String username, String password) {
+
+        password = Hashing.sha256()
+                .hashString(password, StandardCharsets.UTF_8)
+                .toString();
 
         try {
             setConnection();

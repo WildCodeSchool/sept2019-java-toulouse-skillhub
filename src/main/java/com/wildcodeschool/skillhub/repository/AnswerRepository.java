@@ -1,16 +1,19 @@
 package com.wildcodeschool.skillhub.repository;
 
 import com.wildcodeschool.skillhub.entity.Answer;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class AnswerRepository {
 
-    private final static String DB_URL = "jdbc:mysql://localhost:3306/skillhub?serverTimezone=GMT";
+    private final static String DB_URL = "jdbc:mysql://localhost:3306/skillhub?serverTimezone=Europe/Paris";
     private final static String DB_USER = "skillhub";
-    private final static String DB_PASSWORD = "5ki!!huB31";
+    private final static String DB_PASSWORD = "gRMP!3_5hHVZKS-Z";
 
     private static Connection connection = null;
     public static void setConnection() {

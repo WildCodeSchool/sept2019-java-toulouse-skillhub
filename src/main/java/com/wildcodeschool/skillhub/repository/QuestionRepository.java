@@ -1,18 +1,22 @@
 package com.wildcodeschool.skillhub.repository;
 
 import com.wildcodeschool.skillhub.entity.Question;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class QuestionRepository {
 
-    private final static String DB_URL = "jdbc:mysql://localhost:3306/skillhub?serverTimezone=GMT";
+    private final static String DB_URL = "jdbc:mysql://localhost:3306/skillhub?serverTimezone=Europe/Paris";
     private final static String DB_USER = "skillhub";
-    private final static String DB_PASSWORD = "5ki!!huB31";
+    private final static String DB_PASSWORD = "gRMP!3_5hHVZKS-Z";
 
     private static Connection connection = null;
+
     private static void setConnection() {
         if (connection == null) {
             try {
@@ -60,7 +64,7 @@ public class QuestionRepository {
                 question.setNbAnswers(nbAnswers);
                 questions.add(question);
             }
-                return questions;
+            return questions;
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -182,7 +186,7 @@ public class QuestionRepository {
         return null;
     }
 
-    public void addSkillToQuestion (Long idQuestion, Long idSkill) {
+    public void addSkillToQuestion(Long idQuestion, Long idSkill) {
         try {
             setConnection();
             PreparedStatement statement = connection.prepareStatement(
