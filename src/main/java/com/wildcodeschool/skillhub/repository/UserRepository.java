@@ -2,7 +2,6 @@ package com.wildcodeschool.skillhub.repository;
 
 import com.google.common.hash.Hashing;
 import com.wildcodeschool.skillhub.entity.User;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
 import java.nio.charset.StandardCharsets;
