@@ -1,5 +1,6 @@
 package com.wildcodeschool.skillhub.controller;
 
+import com.google.common.hash.Hashing;
 import com.wildcodeschool.skillhub.entity.User;
 import com.wildcodeschool.skillhub.repository.ProfileRepository;
 import com.wildcodeschool.skillhub.repository.UserRepository;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @Controller
@@ -37,26 +39,30 @@ public class ProfileController {
             return "index";
         }
 
-        if (password.equals("-1")) {
+
+        if (!password.equals("-1")) {
+            if (!(userRepository.checkPasswordFormat(password))) {
+                out.addAttribute("pwdFormat", true);
+                out.addAttribute("avatars", profileRepository.findAllAvatars());
+                out.addAttribute("skills", profileRepository.findAllSkills());
+                out.addAttribute("user", session.getAttribute("user"));
+                return "profile";
+            }
+
+            if (!(userRepository.passwordCheck(password, passwordConfirmation))) {
+                out.addAttribute("passwordCheck", true);
+                out.addAttribute("avatars", profileRepository.findAllAvatars());
+                out.addAttribute("skills", profileRepository.findAllSkills());
+                out.addAttribute("user", session.getAttribute("user"));
+                return "profile";
+            }
+
+            password = Hashing.sha256()
+                    .hashString(password, StandardCharsets.UTF_8)
+                    .toString();
+        } else {
             User user = (User)session.getAttribute("user");
             password = user.getPassword();
-            passwordConfirmation = password;
-        }
-
-        if (!(userRepository.checkPasswordFormat(password))) {
-            out.addAttribute("pwdFormat", true);
-            out.addAttribute("avatars", profileRepository.findAllAvatars());
-            out.addAttribute("skills", profileRepository.findAllSkills());
-            out.addAttribute("user", session.getAttribute("user"));
-            return "profile";
-        }
-
-        if (!(userRepository.passwordCheck(password, passwordConfirmation))) {
-            out.addAttribute("passwordCheck", true);
-            out.addAttribute("avatars", profileRepository.findAllAvatars());
-            out.addAttribute("skills", profileRepository.findAllSkills());
-            out.addAttribute("user", session.getAttribute("user"));
-            return "profile";
         }
 
         User user = (User)session.getAttribute("user");

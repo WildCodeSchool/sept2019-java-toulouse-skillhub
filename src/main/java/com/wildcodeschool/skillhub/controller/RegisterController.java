@@ -1,5 +1,6 @@
 package com.wildcodeschool.skillhub.controller;
 
+import com.google.common.hash.Hashing;
 import com.wildcodeschool.skillhub.entity.User;
 import com.wildcodeschool.skillhub.repository.ProfileRepository;
 import com.wildcodeschool.skillhub.repository.UserRepository;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @Controller
@@ -45,6 +47,9 @@ public class RegisterController {
             out.addAttribute("skills", profileRepository.findAllSkills());
             return "register";
         }
+        password = Hashing.sha256()
+                .hashString(password, StandardCharsets.UTF_8)
+                .toString();
 
         if  (!(userRepository.checkExistingUsername(nickname))) {
             out.addAttribute("checkUsername", true);
