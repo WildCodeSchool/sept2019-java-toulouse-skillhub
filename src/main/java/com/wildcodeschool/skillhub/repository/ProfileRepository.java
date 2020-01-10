@@ -84,6 +84,7 @@ public class ProfileRepository {
                     "INSERT INTO user (nickname, password, id_picture) VALUES (?,?,?)",
                     Statement.RETURN_GENERATED_KEYS
             );
+
             String encryptedPassword = Hashing.sha256()
                     .hashString(password, StandardCharsets.UTF_8)
                     .toString();

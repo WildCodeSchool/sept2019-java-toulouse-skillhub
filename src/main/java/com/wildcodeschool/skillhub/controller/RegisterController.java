@@ -47,9 +47,6 @@ public class RegisterController {
             out.addAttribute("skills", profileRepository.findAllSkills());
             return "register";
         }
-        password = Hashing.sha256()
-                .hashString(password, StandardCharsets.UTF_8)
-                .toString();
 
         if  (!(userRepository.checkExistingUsername(nickname))) {
             out.addAttribute("checkUsername", true);
