@@ -16,7 +16,7 @@
         <h3 th:text="${ask.nickname}">Pseudo</h3>
     </section>
     <div class="desktop">
-        <form method="post" action="/askQuestion">
+        <form method="post" th:action="@{/askQuestion}">
             <div class="leftSide">
                 <div class="contTitleQuest">
                     <label for="titleQuestion">Titre de la question</label>
