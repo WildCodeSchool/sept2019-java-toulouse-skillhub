@@ -108,6 +108,10 @@ public class UserRepository {
             PreparedStatement statement = connection.prepareStatement(
                     "UPDATE user SET nickname=?, password=?, id_picture=? WHERE id_user=?;"
             );
+            password = Hashing.sha256()
+                    .hashString(password, StandardCharsets.UTF_8)
+                    .toString();
+
             statement.setString(1, nickname);
             statement.setString(2, password);
             statement.setLong(3, avatar);

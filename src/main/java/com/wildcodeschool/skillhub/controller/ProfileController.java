@@ -57,9 +57,6 @@ public class ProfileController {
                 return "profile";
             }
 
-            password = Hashing.sha256()
-                    .hashString(password, StandardCharsets.UTF_8)
-                    .toString();
         } else {
             User user = (User)session.getAttribute("user");
             password = user.getPassword();
