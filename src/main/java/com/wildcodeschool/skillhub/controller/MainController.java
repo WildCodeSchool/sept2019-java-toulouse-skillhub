@@ -13,11 +13,6 @@ public class MainController {
 
     @GetMapping("/")
     public String index() {
-        String pass = "soninlaw27";
-        pass = Hashing.sha256()
-                .hashString(pass, StandardCharsets.UTF_8)
-                .toString();
-        System.out.println(pass);
 
         return "index";
     }
