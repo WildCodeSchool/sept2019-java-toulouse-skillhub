@@ -1,10 +1,12 @@
 package com.wildcodeschool.skillhub.controller;
 
+import com.google.common.hash.Hashing;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.servlet.http.HttpSession;
+import java.nio.charset.StandardCharsets;
 
 @Controller
 public class MainController {

@@ -2,6 +2,7 @@ package com.wildcodeschool.skillhub.repository;
 
 import com.google.common.hash.Hashing;
 import com.wildcodeschool.skillhub.entity.User;
+import org.springframework.stereotype.Repository;
 
 import java.nio.charset.StandardCharsets;
 import java.sql.*;
@@ -9,6 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Repository
 public class ProfileRepository {
 
     private final static String DB_URL = "jdbc:mysql://localhost:3306/skillhub?serverTimezone=Europe/Paris";
@@ -16,6 +18,7 @@ public class ProfileRepository {
     private final static String DB_PASSWORD = "gRMP!3_5hHVZKS-Z";
 
     private static Connection connection = null;
+
     private static void setConnection() {
         if (connection == null) {
             try {
@@ -53,7 +56,7 @@ public class ProfileRepository {
     public Map<Long, String> findAllSkills() {
 
         try {
-            Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            setConnection();
             PreparedStatement statement = connection.prepareStatement(
                     "SELECT id_skill, name FROM skill;"
             );
@@ -84,6 +87,7 @@ public class ProfileRepository {
                     "INSERT INTO user (nickname, password, id_picture) VALUES (?,?,?)",
                     Statement.RETURN_GENERATED_KEYS
             );
+
             String encryptedPassword = Hashing.sha256()
                     .hashString(password, StandardCharsets.UTF_8)
                     .toString();

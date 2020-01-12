@@ -58,18 +58,12 @@ CREATE TABLE `picture` (
   `id_picture` int(11) NOT NULL AUTO_INCREMENT,
   `url` text COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`id_picture`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `picture`
 --
-
-LOCK TABLES `picture` WRITE;
-/*!40000 ALTER TABLE `picture` DISABLE KEYS */;
-INSERT INTO `picture` VALUES (1,'images/avatars/11.svg'),(2,'images/avatars/29.svg'),(3,'images/avatars/10.svg'),(4,'images/avatars/22.svg'),(5,'images/avatars/9.svg');
-/*!40000 ALTER TABLE `picture` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `question`
@@ -95,10 +89,7 @@ CREATE TABLE `question` (
 -- Dumping data for table `question`
 --
 
-LOCK TABLES `question` WRITE;
-/*!40000 ALTER TABLE `question` DISABLE KEYS */;
-/*!40000 ALTER TABLE `question` ENABLE KEYS */;
-UNLOCK TABLES;
+
 
 --
 -- Table structure for table `question_skill`
@@ -121,10 +112,7 @@ CREATE TABLE `question_skill` (
 -- Dumping data for table `question_skill`
 --
 
-LOCK TABLES `question_skill` WRITE;
-/*!40000 ALTER TABLE `question_skill` DISABLE KEYS */;
-/*!40000 ALTER TABLE `question_skill` ENABLE KEYS */;
-UNLOCK TABLES;
+
 
 --
 -- Table structure for table `skill`
@@ -165,18 +153,13 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id_user`),
   KEY `user_picture_FK` (`id_picture`),
   CONSTRAINT `user_picture_FK` FOREIGN KEY (`id_picture`) REFERENCES `picture` (`id_picture`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `user`
 --
 
-LOCK TABLES `user` WRITE;
-/*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'bastienwcs','c5073612cb5aaec23c28c87215cd28c4ddde6e9fcfc30e4ade375be4bbaf0be2',5);
-/*!40000 ALTER TABLE `user` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `user_skill`
@@ -199,12 +182,6 @@ CREATE TABLE `user_skill` (
 -- Dumping data for table `user_skill`
 --
 
-LOCK TABLES `user_skill` WRITE;
-/*!40000 ALTER TABLE `user_skill` DISABLE KEYS */;
-INSERT INTO `user_skill` VALUES (1,1),(2,1),(5,1);
-/*!40000 ALTER TABLE `user_skill` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

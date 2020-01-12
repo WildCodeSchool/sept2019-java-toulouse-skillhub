@@ -15,7 +15,8 @@ public class AnswerRepository {
     private final static String DB_PASSWORD = "gRMP!3_5hHVZKS-Z";
 
     private static Connection connection = null;
-    public static void setConnection() {
+
+    private static void setConnection() {
         if (connection == null) {
             try {
                 connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
