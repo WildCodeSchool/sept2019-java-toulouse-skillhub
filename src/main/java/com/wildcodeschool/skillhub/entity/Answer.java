@@ -56,7 +56,7 @@ public class Answer {
     public String getDate() {
         return String.format("%s/%s/%s",
                 this.date.getDate(),
-                this.date.getMonth() + 1 < 10 ? "" + this.date.getMonth() + 1 : this.date.getMonth() + 1,
+                "" + this.date.getMonth() + 1,
                 this.date.getYear() + 1900);
     }
 
